@@ -1,0 +1,145 @@
+import 'package:get/get.dart';
+
+import '../utils/images.dart';
+
+class RentCarController extends GetxController {
+  RxBool pickUp = false.obs;
+
+  List<Map<String, String>> carDetails = [
+    {
+      "carName": 'Mercedes',
+      "carFullName": "Mercedes GLA2",
+      'carPic': AppImages.mercedes,
+      'interiorColor': 'Black',
+      'exteriorColor': 'Silver',
+      'engine': "Electrical Engine",
+      'feulType': "Petrol",
+      'condition': 'Good',
+      'transmission': 'Automatic',
+      'vin': "BAC, 1412",
+      'stockNumber': 'KM235L',
+      'mileage': '40 km/l',
+      'model': 'AAA 545'
+    },
+    {
+      "carName": 'Benz',
+      "carFullName": "Mercedes GLA2",
+      'carPic': AppImages.mercedes,
+      'interiorColor': 'Black',
+      'exteriorColor': 'Silver',
+      'engine': "Electrical Engine",
+      'feulType': "Petrol",
+      'condition': 'Good',
+      'transmission': 'Automatic',
+      'vin': "BAC, 1412",
+      'stockNumber': 'KM235L',
+      'mileage': '40 km/l',
+      'model': 'AAA 545'
+    },
+    {
+      "carName": 'BMW',
+      "carFullName": "Mercedes GLA2",
+      'carPic': AppImages.mercedes,
+      'interiorColor': 'Black',
+      'exteriorColor': 'Silver',
+      'engine': "Electrical Engine",
+      'feulType': "Petrol",
+      'condition': 'Good',
+      'transmission': 'Automatic',
+      'vin': "BAC, 1412",
+      'stockNumber': 'KM235L',
+      'mileage': '40 km/l',
+      'model': 'AAA 545'
+    },
+    {
+      "carName": 'Corolla',
+      "carFullName": "Mercedes GLA2",
+      'carPic': AppImages.mercedes,
+      'interiorColor': 'Black',
+      'exteriorColor': 'Silver',
+      'engine': "Electrical Engine",
+      'feulType': "Petrol",
+      'condition': 'Good',
+      'transmission': 'Automatic',
+      'vin': "BAC, 1412",
+      'stockNumber': 'KM235L',
+      'mileage': '40 km/l',
+      'model': 'AAA 545'
+    },
+    {
+      "carName": 'Mercedes',
+      "carFullName": "Mercedes GLA2",
+      'carPic': AppImages.mercedes,
+      'interiorColor': 'Black',
+      'exteriorColor': 'Silver',
+      'engine': "Electrical Engine",
+      'feulType': "Petrol",
+      'condition': 'Good',
+      'transmission': 'Automatic',
+      'vin': "BAC, 1412",
+      'stockNumber': 'KM235L',
+      'mileage': '40 km/l',
+      'model': 'AAA 545'
+    },
+    {
+      "carName": 'Benz',
+      "carFullName": "Mercedes GLA2",
+      'carPic': AppImages.mercedes,
+      'interiorColor': 'Black',
+      'exteriorColor': 'Silver',
+      'engine': "Electrical Engine",
+      'feulType': "Petrol",
+      'condition': 'Good',
+      'transmission': 'Automatic',
+      'vin': "BAC, 1412",
+      'stockNumber': 'KM235L',
+      'mileage': '40 km/l',
+      'model': 'AAA 545'
+    },
+    {
+      "carName": 'BMW',
+      "carFullName": "Mercedes GLA2",
+      'carPic': AppImages.mercedes,
+      'interiorColor': 'Black',
+      'exteriorColor': 'Silver',
+      'engine': "Electrical Engine",
+      'feulType': "Petrol",
+      'condition': 'Good',
+      'transmission': 'Automatic',
+      'vin': "BAC, 1412",
+      'stockNumber': 'KM235L',
+      'mileage': '40 km/l',
+      'model': 'AAA 545'
+    },
+    {
+      "carName": 'Corolla',
+      "carFullName": "Mercedes GLA2",
+      'carPic': AppImages.mercedes,
+      'interiorColor': 'Black',
+      'exteriorColor': 'Silver',
+      'engine': "Electrical Engine",
+      'feulType': "Petrol",
+      'condition': 'Good',
+      'transmission': 'Automatic',
+      'vin': "BAC, 1412",
+      'stockNumber': 'KM235L',
+      'mileage': '40 km/l',
+      'model': 'AAA 545'
+    },
+    {
+      "carName": 'Truck',
+      "carFullName": "Truck",
+      'carPic': AppImages.truck2,
+      'interiorColor': 'Black',
+      'exteriorColor': 'Silver',
+      'engine': "Electrical Engine",
+      'feulType': "Petrol",
+      'condition': 'Good',
+      'transmission': 'Automatic',
+      'vin': "BAC, 1412",
+      'stockNumber': 'KM235L',
+      'mileage': '40 km/l',
+      'model': 'AAA 545'
+    },
+  ];
+}

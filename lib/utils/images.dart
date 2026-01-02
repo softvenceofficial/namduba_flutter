@@ -1,0 +1,87 @@
+class AppImages {
+  static const String logo = 'assets/images/logo.png';
+  static const String cars3 = 'assets/images/cars3.png';
+  static const String manage = 'assets/images/manage.png';
+  static const String tyre = 'assets/images/tyre.png';
+  static const String oil = 'assets/images/oil.png';
+  static const String bmw = 'assets/images/bmw.png';
+  static const String honda = 'assets/images/honda.png';
+  static const String electricals = 'assets/images/electricals.png';
+  static const String Car = 'assets/images/Car.png';
+  static const String Registration = 'assets/images/Registration.png';
+  static const String Vector = 'assets/images/Vector.png';
+  static const String box = 'assets/images/box.png';
+  static const String truck = 'assets/images/truck.png';
+  static const String truck2 = 'assets/images/truck2.png';
+  static const String arrow_right = 'assets/images/arrow_right.png';
+  static const String document = 'assets/images/document.png';
+  static const String cloud = 'assets/images/cloud.png';
+  static const String pdf = 'assets/images/pdf.png';
+  static const String circle_arrow = 'assets/images/circle_arrow.png';
+  static const String just = 'assets/images/just.png';
+  static const String toggle = 'assets/images/toggle.png';
+  static const String Plug = 'assets/images/Plug.png';
+  static const String oil_filter = 'assets/images/oil_filter.png';
+  static const String air_filter = 'assets/images/air_filter.png';
+  static const String chat_box = 'assets/images/chat_box.png';
+  static const String cloud_box = 'assets/images/cloud_box.png';
+  static const String arrow_circle_right =
+      'assets/images/arrow_circle_right.png';
+  static const String Dot = 'assets/images/Dot.png';
+  static const String dark_whole = 'assets/images/dark_whole.png';
+  static const String Red_dot = 'assets/images/Red_dot.png';
+  static const String document_profile = 'assets/images/document_profile.png';
+  static const String heart = 'assets/images/heart.png';
+  static const String help = 'assets/images/help.png';
+  static const String location = 'assets/images/location.png';
+  static const String payment = 'assets/images/payment.png';
+  static const String Profile = 'assets/images/Profile.png';
+  static const String setting = 'assets/images/setting.png';
+  static const String shield = 'assets/images/shield.png';
+  static const String shop = 'assets/images/shop.png';
+  static const String car_icon = 'assets/images/car_icon.png';
+  static const String star = 'assets/images/star.png';
+  static const String Person = 'assets/images/Person.png';
+  static const String call = 'assets/images/call.png';
+  static const String sms = 'assets/images/sms.png';
+  static const String Car_Benz = 'assets/images/car_benz.png';
+  static const String Car_headlights = 'assets/images/Car_headlights.png';
+  static const String settings = 'assets/images/settings.png';
+  static const String calender = 'assets/images/calender.png';
+  static const String gender = 'assets/images/gender.png';
+  static const String arrow_down = 'assets/images/arrow_down.png';
+  static const String license = 'assets/images/license.png';
+  static const String tetrahedral = 'assets/images/tetrahedral.png';
+
+// Saved by Balaj
+
+  static const String front_bumper = 'assets/images/front_bumper.png';
+  static const String mercedes = 'assets/images/mercedes.png';
+  static const String john = 'assets/images/john.png';
+  static const String car_benz = 'assets/images/car_benz.png';
+  static const String transfer_vehicle_car =
+      'assets/images/transfer_vehicle_car.png';
+
+  static const String estimate = 'assets/images/estimate.png';
+  static const String orderBus = 'assets/images/orderBus.png';
+  static const String redcard = 'assets/images/redcard.png';
+  static const String blackcard = 'assets/images/blackcard.png';
+  static const String shop1 = 'assets/images/shop1.png';
+  static const String shop2 = 'assets/images/shop2.png';
+  static const String shop3 = 'assets/images/shop3.png';
+  static const String shop4 = 'assets/images/shop4.png';
+  static const String card1 = 'assets/images/card1.png';
+  static const String card2 = 'assets/images/card2.png';
+  static const String chat = 'assets/images/chat.png';
+  static const String owner = 'assets/images/owner.png';
+  static const String cart = 'assets/images/cart.png';
+  static const String vehicle = 'assets/images/vehicle.jpeg';
+  static const String boy1 = 'assets/images/boy1.png';
+  static const String girl1 = 'assets/images/girl1.png';
+  static const String girl2 = 'assets/images/girl2.png';
+  static const String brakes = 'assets/images/brakes.png';
+  static const String headlights = 'assets/images/headlight.png';
+  static const String odometers = 'assets/images/odometer.png';
+  static const String tyre1 = 'assets/images/tyre1.png';
+  static const String platform = 'assets/images/platform.png';
+}
