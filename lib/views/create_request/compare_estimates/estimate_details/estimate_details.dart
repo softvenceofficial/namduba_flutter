@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:nanduba/export.dart';
 import 'package:nanduba/providers/estimate_provider.dart';
-import 'package:nanduba/views/Order_detail/Order_detailed_screen.dart';
+import 'package:nanduba/views/order_detail/Order_detailed_screen.dart';
 import 'package:nanduba/views/add_vehicle/vehicle_profile/vehicle_profile.dart';
 import 'package:nanduba/views/create_request/compare_estimates/estimate_details/component/view_request_sheet.dart';
 import 'package:nanduba/views/create_request/compare_estimates/request_estimate_item_detail/estimate_item_details.dart';
