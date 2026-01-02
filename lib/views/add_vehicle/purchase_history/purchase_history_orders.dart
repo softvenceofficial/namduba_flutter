@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nanduba/export.dart';
-import 'package:nanduba/views/Order_detail/Order_detailed_screen.dart';
+import 'package:nanduba/views/order_detail/Order_detailed_screen.dart';
 import 'package:nanduba/views/create_request/compare_estimates/request_estimate_item_detail/estimate_item_details.dart';
 import 'package:nanduba/widgets/core/my_text.dart';
 
