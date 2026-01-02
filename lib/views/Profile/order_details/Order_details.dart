@@ -482,7 +482,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nanduba/export.dart';
-import 'package:nanduba/views/Order_detail/Order_detailed_screen.dart';
+import 'package:nanduba/views/order_detail/Order_detailed_screen.dart';
 
 class OrderDetails extends StatefulWidget {
   const OrderDetails({super.key});
