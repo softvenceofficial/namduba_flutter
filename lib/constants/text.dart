@@ -5,7 +5,18 @@ String city = 'New york';
 
 class AppText {
   static const String appName = 'Nanduba';
-
+    static const String enterregnum = 'Enter Your Reg Number or VIN';
+  static const String writeyourvehiclereg ="Write your vehicle registration number or VIN number to add vehicle.";
+    static const String whattypeofvehicle = 'What type of vehicle are you adding ';
+    static const String telluswhatyourvehicle = 'Tell us what your vehicle so that we can find you the right parts and services ';
+    static const String whatdoyoudrive = 'What do you drive?';
+    static const String myGarage = 'My Garage';
+    static const String wewilllet = 'We’ll let you know';
+  static const String uploadyourlicense = "Upload your License ";
+  static const String uploadyourpassport = "Upload your Passport  ";
+  static const String jpegorpng = "JPEG or PNG only";
+  static const String makesurephotosnotblurry =
+      "Make sure your photos aren’t blurry and the front of your driver’s license clearly shows your face";
   static const String uploadyourid = 'Upload your ID ';
   static const String uploadidwarning =
       'We’ll use this to verify your identity and won’t share it with others';
@@ -155,6 +166,7 @@ class AppText {
 
   static const String noVehicle = 'No Vehicle is found';
   static const String addVehicle = 'Add Vehicle';
+   static const String addaVehicle = 'Add a Vehicle';
 
   static const String yourEstimates = 'Your Estimates';
   static const String quoted = 'Quoted';
@@ -467,6 +479,9 @@ class AppText {
   static const String select = 'Select';
   static const String selectBroker = 'Select Broker';
   static const String uploadFiles = 'Upload Files';
+  static const String uploadfont = 'Upload front';
+  static const String uploadback = 'Upload back';
+  static const String uploadpage = "Upload Page";
   static const String tapToUploadFiles = 'Tap to Upload a file';
   static const String filesType = '(Jpg, pdf, word)';
 
@@ -492,4 +507,6 @@ class AppText {
   static const String whatIsRegNo = "What's the Reg No?";
   static const String note = "Note";
   static const String uploadImages = "Upload Images";
+  static const String wewillletyouknow =
+      "We’ll let you know if you’ve been successfully verified or if we need any more info from you";
 }
