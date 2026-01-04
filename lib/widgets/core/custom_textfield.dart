@@ -1,8 +1,11 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:nanduba/constants/textfontstyle.dart';
 import 'package:nanduba/export.dart';
+import 'package:nanduba/utils/svgs.dart';
 
 class CustomTextField extends StatelessWidget {
-  final String name;
+  final String? name;
   final String hintText;
   final String? titleText;
   final Widget? prefixIcon;
@@ -30,9 +33,12 @@ class CustomTextField extends StatelessWidget {
   final List<String>? svgList;
   final List<String>? titleList;
 
+  /// Added optional borderRadius
+  final double? borderRadius;
+
   const CustomTextField({
     super.key,
-    required this.name,
+    this.name,
     required this.hintText,
     this.onEditComplete,
     this.prefixIcon,
@@ -59,10 +65,18 @@ class CustomTextField extends StatelessWidget {
     this.titleList,
     this.onListItemTap,
     this.hintStyle,
+    this.borderRadius,
   });
 
   @override
   Widget build(BuildContext context) {
+    final double radius = borderRadius ?? 14.sp;
+
+    OutlineInputBorder _inputBorder(Color color) => OutlineInputBorder(
+          borderRadius: BorderRadius.circular(radius),
+          borderSide: BorderSide(color: color),
+        );
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -75,9 +89,9 @@ class CustomTextField extends StatelessWidget {
         titleText != null ? 0.5.height : const SizedBox.shrink(),
         Container(
           decoration: BoxDecoration(
-            color: isList ? AppColors.white : null,
+            color: isList ? AppColors.white : fillColor ?? AppColors.white,
             border: isList ? Border.all(color: AppColors.cGrey) : null,
-            borderRadius: isList ? BorderRadius.circular(14.sp) : null,
+            borderRadius: BorderRadius.circular(radius),
             boxShadow: showShadow
                 ? [
                     const BoxShadow(
@@ -100,7 +114,7 @@ class CustomTextField extends StatelessWidget {
                 onEditingComplete: onEditComplete ?? () {},
                 onChanged: onChanged,
                 onTap: onTap,
-                name: name,
+                name: name ?? UniqueKey().toString(),
                 readOnly: readOnly,
                 initialValue: initialValue,
                 style: style ??
@@ -124,84 +138,60 @@ class CustomTextField extends StatelessWidget {
                           color: AppColors.grey.withOpacity(0.7)),
                   fillColor: fillColor ?? AppColors.white,
                   filled: true,
-                  enabled: true,
-                  enabledBorder: !isList
-                      ? enableBorder ?? AppColors.kEnableBorder
-                      : UnderlineInputBorder(
-                          borderSide:
-                              const BorderSide(color: AppColors.lightGrey),
-                          borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(12.sp),
-                              topRight: Radius.circular(12.sp))),
-                  focusedBorder: !isList
-                      ? AppColors.kFocuseBorder
-                      : UnderlineInputBorder(
-                          borderSide:
-                              const BorderSide(color: AppColors.lightGrey),
-                          borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(12.sp),
-                              topRight: Radius.circular(12.sp))),
-                  errorBorder: !isList ? AppColors.kErrorOutlineBorder : null,
-                  focusedErrorBorder:
-                      !isList ? AppColors.kErrorOutlineBorder : null,
+                  enabledBorder: enableBorder ??
+                      _inputBorder(AppColors.lightGrey), // apply radius
+                  focusedBorder: _inputBorder(AppColors.red),
+                  errorBorder: _inputBorder(Colors.red),
+                  focusedErrorBorder: _inputBorder(Colors.red),
                 ),
               ),
-              isList
-                  ? Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 4.w, vertical: 1.h),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            AppText.popularServices,
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium
-                                ?.copyWith(fontWeight: FontWeight.w600),
-                          ),
-                          2.height,
-                          for (int i = 0; i < titleList!.length; i++) ...{
-                            i != 0 ? 1.height : 0.height,
-                            GestureDetector(
-                              onTap: () {
-                                if (onListItemTap![i] != null) {
-                                  onListItemTap![i]!();
-                                }
-                              },
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+              if (isList && titleList != null && svgList != null)
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 1.h),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        AppText.popularServices,
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium
+                            ?.copyWith(fontWeight: FontWeight.w600),
+                      ),
+                      2.height,
+                      for (int i = 0; i < titleList!.length; i++) ...{
+                        i != 0 ? 1.height : 0.height,
+                        GestureDetector(
+                          onTap: () {
+                            onListItemTap?[i]?.call();
+                          },
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
                                 children: [
-                                  Row(
-                                    children: [
-                                      SvgPicture.asset(svgList![i]),
-                                      2.width,
-                                      Text(
-                                        titleList![i],
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyMedium
-                                            ?.copyWith(
-                                                fontWeight: FontWeight.w600),
-                                      ),
-                                    ],
+                                  SvgPicture.asset(svgList![i]),
+                                  2.width,
+                                  Text(
+                                    titleList![i],
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyMedium
+                                        ?.copyWith(fontWeight: FontWeight.w600),
                                   ),
-                                  SvgPicture.asset(AppSvgs.arrowCircleRight),
                                 ],
                               ),
-                            ),
-                            1.height,
-                            i != titleList!.length - 1
-                                ? const Divider(
-                                    color: AppColors.lightGrey,
-                                  )
-                                : const SizedBox.shrink(),
-                          }
-                        ],
-                      ),
-                    )
-                  : const SizedBox.shrink(),
+                              SvgPicture.asset(AppSvgs.arrowCircleRight),
+                            ],
+                          ),
+                        ),
+                        1.height,
+                        if (i != titleList!.length - 1)
+                          const Divider(color: AppColors.lightGrey),
+                      }
+                    ],
+                  ),
+                ),
             ],
           ),
         ),

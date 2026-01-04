@@ -27,53 +27,52 @@ class _AboutFeedbackTabBarState extends State<AboutFeedbackTabBar> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        // About button (selected/unselected style preserved)
+        // About button
         GestureDetector(
           onTap: () => _onTap(0),
-          child: CustomContainer(
-            color: selectedIndex == 0 ? AppColors.cCA2626 : Colors.transparent,
-            borderRadius: 30,
+          child: Container(
+            decoration: BoxDecoration(
+              color:
+                  selectedIndex == 0 ? AppColors.cCA2626 : Colors.transparent,
+              borderRadius: BorderRadius.circular(30),
+            ),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    AppText.about,
-                    style: Textfontstyle.TextStyle14w500c212121poppins.copyWith(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 14.sp,
-                      color: selectedIndex == 0 ? AppColors.white : AppColors.bottomNav,
-                    ),
-                  ),
-                ],
+              child: Text(
+                AppText.about,
+                style: Textfontstyle.TextStyle14w500c212121poppins.copyWith(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14.sp,
+                  color: selectedIndex == 0
+                      ? AppColors.white
+                      : AppColors.bottomNav,
+                ),
               ),
             ),
           ),
         ),
+
         2.width,
 
-         
+        // Feedback button
         GestureDetector(
           onTap: () => _onTap(1),
-          child: CustomContainer(
-            color: selectedIndex == 1 ? AppColors.cCA2626 : Colors.transparent,
-            borderRadius: 30,
+          child: Container(
+            decoration: BoxDecoration(
+              color:
+                  selectedIndex == 1 ? AppColors.cCA2626 : Colors.transparent,
+              borderRadius: BorderRadius.circular(30),
+            ),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    AppText.feedback,
-                    style: Textfontstyle.TextStyle14w500c212121poppins.copyWith(
-                      fontSize: 14.sp,
-                      color: selectedIndex == 1 ? AppColors.white : AppColors.bottomNav,
-                    ),
-                  ),
-                ],
+              child: Text(
+                AppText.feedback,
+                style: Textfontstyle.TextStyle14w500c212121poppins.copyWith(
+                  fontSize: 14.sp,
+                  color: selectedIndex == 1
+                      ? AppColors.white
+                      : AppColors.bottomNav,
+                ),
               ),
             ),
           ),

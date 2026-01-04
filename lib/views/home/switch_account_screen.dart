@@ -20,7 +20,7 @@ class _SwitchAccountScreenState extends State<SwitchAccountScreen> {
           child: Column(
             children: [
               const CustomAppbar(
-                title: AppText.swirchaccount,
+                title: AppText.switchaccount,
               ),
               Container(
                 padding:
@@ -41,6 +41,7 @@ class _SwitchAccountScreenState extends State<SwitchAccountScreen> {
                       child: Stack(
                         children: [
                           CustomContainer(
+                            borderRadius: 20,
                             isBorder: true,
                             child: Padding(
                               padding: const EdgeInsets.only(
@@ -97,6 +98,7 @@ class _SwitchAccountScreenState extends State<SwitchAccountScreen> {
                         //   navigation
                       },
                       child: CustomContainer(
+                        borderRadius: 20,
                         child: Padding(
                           padding: const EdgeInsets.only(
                               left: 23, right: 8, top: 8, bottom: 8),
@@ -134,6 +136,7 @@ class _SwitchAccountScreenState extends State<SwitchAccountScreen> {
                         //   navigation
                       },
                       child: CustomContainer(
+                        borderRadius: 20,
                         child: Padding(
                           padding: const EdgeInsets.only(
                               left: 23, right: 8, top: 8, bottom: 8),
@@ -173,6 +176,7 @@ class _SwitchAccountScreenState extends State<SwitchAccountScreen> {
                             context, const CreateAnAccount());
                       },
                       child: CustomContainer(
+                        borderRadius: 20,
                         height: 56,
                         width: double.infinity,
                         child: Padding(

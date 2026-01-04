@@ -558,16 +558,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:nanduba/constants/textfontstyle.dart';
 import 'package:nanduba/export.dart';
 import 'package:nanduba/views/Profile/Policies/Policies.dart';
 import 'package:nanduba/views/Profile/Settings/settings.dart';
 import 'package:nanduba/views/Profile/User_profile/user_profile.dart';
 import 'package:nanduba/views/Profile/order_details/Order_details.dart';
 import 'package:nanduba/views/Wishlist/Wishlist.dart';
-import 'package:nanduba/views/add_vehicle/vehicle_info/vehicle_info.dart';
 import 'package:nanduba/views/add_vehicle/vehicle_listings/vehicle_listing.dart';
 import 'package:nanduba/views/contact_us/contact_us_screen.dart';
-import 'package:nanduba/views/create_request/review_request/component/request_service_details_list.dart';
 import 'package:nanduba/views/create_request/view_requests/view_requests.dart';
 import 'package:nanduba/views/manage_address/manage_address_screen.dart';
 import 'package:nanduba/views/payment/choose_method.dart';
@@ -640,72 +639,130 @@ class _ProfileScreenState extends State<ProfileScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            SizedBox(
-              height: 3.h,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 18),
-              child: CustomAppbar(
-                title: '',
-              ),
-            ),
+            // SizedBox(
+            //   height: 3.h,
+            // ),
+            // Padding(
+            //   padding: EdgeInsets.symmetric(horizontal: 18),
+            //   child: CustomAppbar(
+            //     title: '',
+            //   ),
+            // ),
             SizedBox(
               height: 3.h,
             ),
             Padding(
               padding:
-                  const EdgeInsets.symmetric(horizontal: 18.0, vertical: 5),
+                  const EdgeInsets.symmetric(horizontal: 18.0, vertical: 0),
               child: GestureDetector(
                 onTap: () {
-                  Get.to(UserProfile());
+                  Get.to(const UserProfile());
                 },
                 child: CustomContainer(
+                  borderRadius: 20,
+                  isBorder: true,
                   hpadding: 4.w,
-                  vpadding: 2.3.h,
+                  vpadding: 0.1.h,
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      CircleAvatar(
-                        radius: 10.w,
-                        backgroundColor: AppColors.black,
-                        backgroundImage: AssetImage(AppImages.Person),
-                      ),
-                      2.width,
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      Row(
                         children: [
-                          MyText(
-                            text: "John Trial",
-                            fontSize: 12.sp,
-                            fontWeight: FontWeight.w600,
-                            color: AppColors.black,
+                          CircleAvatar(
+                            radius: 5.w,
+                            backgroundColor: AppColors.black,
+                            backgroundImage: AssetImage(AppImages.Person),
                           ),
-                          1.5.height,
-                          MyText(
-                            text: "Bill Master",
-                            fontSize: 10.sp,
-                            fontWeight: FontWeight.w600,
-                            color: AppColors.midDarkGrey,
-                          ),
-                          1.5.height,
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.end,
+                          2.width,
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               MyText(
-                                text: "View activity",
-                                fontSize: 10.sp,
-                                fontWeight: FontWeight.w500,
-                                color: AppColors.primary,
+                                text: AppText.john,
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.w600,
+                                color: AppColors.black,
                               ),
-                              Icon(
-                                CupertinoIcons.forward,
-                                size: 15,
-                                color: AppColors.primary,
-                              )
+                              // 1.5.height,
+                              MyText(
+                                text: AppText.personalaccount,
+                                fontSize: 10.sp,
+                                fontWeight: FontWeight.w600,
+                                color: AppColors.midDarkGrey,
+                              ),
+                              1.5.height,
+                              // Row(
+                              //   crossAxisAlignment: CrossAxisAlignment.end,
+                              //   children: [
+                              //     MyText(
+                              //       text: "View activity",
+                              //       fontSize: 10.sp,
+                              //       fontWeight: FontWeight.w500,
+                              //       color: AppColors.primary,
+                              //     ),
+                              //     Icon(
+                              //       CupertinoIcons.forward,
+                              //       size: 15,
+                              //       color: AppColors.primary,
+                              //     )
+                              //   ],
+                              // ),
                             ],
                           ),
                         ],
                       ),
+                      Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: SvgPicture.asset(
+                              AppSvgs.mailicon,
+                              color: AppColors.bottomNav,
+                              height: 20,
+                              width: 20,
+                            ),
+                          ),
+                          2.width,
+                          Stack(
+                            clipBehavior: Clip.none,
+                            children: [
+                              // Icon centered
+                              Center(
+                                child: SvgPicture.asset(
+                                  AppSvgs.odercard,
+                                  color: AppColors.border3,
+                                  height: 20,
+                                  width: 20,
+                                ),
+                              ),
+
+                              // Badge
+                              Positioned(
+                                top: -4,
+                                right: -4,
+                                child: Container(
+                                  alignment: Alignment.center,
+                                  width: 12,
+                                  height: 12,
+                                  decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: AppColors.cCA2626,
+                                  ),
+                                  child: Text(
+                                    "2",
+                                    style: Textfontstyle
+                                            .TextStyle12w500c212121poppins
+                                        .copyWith(
+                                            color: AppColors.white,
+                                            fontSize: 6.sp),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      )
                     ],
                   ),
                 ),
@@ -719,7 +776,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ListView.builder(
                         itemCount: _items.length,
                         shrinkWrap: true,
-                        physics: NeverScrollableScrollPhysics(),
+                        physics: const NeverScrollableScrollPhysics(),
                         itemBuilder: (context, index) {
                           final item = _items[index];
                           return GestureDetector(
@@ -751,12 +808,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 Container(
                                   margin: const EdgeInsets.symmetric(
                                       horizontal: 16.0,
-                                      vertical: 10), // Add top margin
+                                      vertical: 7), // Add top margin
                                   padding: EdgeInsets.all(8.0),
                                   decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(20.0),
-                                    boxShadow: [
+                                    boxShadow: const [
                                       BoxShadow(
                                         color: Color.fromRGBO(28, 28, 28, 0.1),
                                         offset: Offset(0, 2),
@@ -1229,11 +1286,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           );
                         },
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 18.0, vertical: 15),
-                        child: CustomButton(label: "Log Out", onPressed: () {}),
-                      ),
+                      // Padding(
+                      //   padding: const EdgeInsets.symmetric(
+                      //       horizontal: 18.0, vertical: 15),
+                      //   child: CustomButton(label: "Log Out", onPressed: () {}),
+                      // ),
                     ],
                   ),
                 ),

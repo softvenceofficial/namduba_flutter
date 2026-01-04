@@ -1,5 +1,10 @@
 class AppSvgs {
   static const String email = 'assets/svg/email.svg';
+  static const String locationadd = 'assets/svg/location_add.svg';
+  static const String setting2 = 'assets/svg/setting-2.svg';
+  static const String hearticon = 'assets/svg/heart_icon.svg';
+  static const String mailicon = 'assets/svg/mail_icon.svg';
+  static const String odercard = 'assets/svg/oder_card.svg';
   static const String makapayment = 'assets/svg/makapayment.svg';
   static const String exlametori = 'assets/svg/!!!.svg';
   static const String gmail = 'assets/svg/gmail.svg';

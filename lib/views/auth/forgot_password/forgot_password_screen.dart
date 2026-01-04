@@ -78,8 +78,8 @@ class ForgotPasswordScreen extends StatelessWidget {
                           GestureDetector(
                             onTap: () {
                               AppCustomNavigator.pop(context);
-                              AppCustomNavigator.pop(context);
-                              AppCustomNavigator.pop(context);
+                              // AppCustomNavigator.pop(context);
+                              // AppCustomNavigator.pop(context);
                             },
                             child: Text(
                               AppText.backLogin,
