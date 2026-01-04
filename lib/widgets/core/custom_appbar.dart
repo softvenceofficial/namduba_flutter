@@ -13,8 +13,11 @@ class CustomAppbar extends StatefulWidget {
   final ValueChanged<String>? onSearchChanged;
   final String? toggleIcon;
   final bool showCart;
-  final VoidCallback? onTogglePressed; // Add this property
-  final VoidCallback? onAddButtonTap; // Add this property
+  final VoidCallback? onTogglePressed;
+  final VoidCallback? onAddButtonTap;
+  final String? svgIconNextToTitle; // This will now appear at the end
+  final int? badgeNumber; // Optional badge number for the icon
+  final Color? svgIconColor; // Nullable color for the SVG icon
 
   const CustomAppbar({
     super.key,
@@ -27,6 +30,9 @@ class CustomAppbar extends StatefulWidget {
     this.showCart = false,
     this.onTogglePressed,
     this.onAddButtonTap,
+    this.svgIconNextToTitle,
+    this.badgeNumber,
+    this.svgIconColor, // New optional color parameter
   });
 
   @override
@@ -47,14 +53,13 @@ class _CustomAppbarState extends State<CustomAppbar> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              // Back button
               if (widget.isPop)
                 GestureDetector(
-                  onTap: () {
-                    Navigator.of(context).pop();
-                  },
+                  onTap: () => Navigator.of(context).pop(),
                   child: Container(
-                    height: 6.h,
-                    width: 6.h,
+                    height: 5.h,
+                    width: 5.h,
                     decoration: BoxDecoration(
                       border: Border.all(color: AppColors.lightGrey),
                       borderRadius: BorderRadius.circular(15.w),
@@ -65,6 +70,7 @@ class _CustomAppbarState extends State<CustomAppbar> {
                   ),
                 ),
               3.width,
+              // Title or search
               Expanded(
                 child: AnimatedSwitcher(
                   duration: const Duration(milliseconds: 300),
@@ -87,23 +93,20 @@ class _CustomAppbarState extends State<CustomAppbar> {
                         )
                       : Align(
                           alignment: Alignment.centerLeft,
-                          child: Text(widget.title,
-                              key: const ValueKey<int>(0),
-                              style: Textfontstyle.TextStyle18w700c212121poppins
-                                  .copyWith(
-                                fontSize: 14.sp,
-                              )),
+                          child: Text(
+                            widget.title,
+                            key: const ValueKey<int>(0),
+                            style: Textfontstyle.TextStyle18w700c212121poppins
+                                .copyWith(fontSize: 14.sp),
+                          ),
                         ),
                 ),
               ),
               2.width,
+              // Search icon
               if (widget.isSearch)
                 GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      _isSearching = !_isSearching;
-                    });
-                  },
+                  onTap: () => setState(() => _isSearching = !_isSearching),
                   child: Container(
                     padding: EdgeInsets.all(3.w),
                     decoration: BoxDecoration(
@@ -116,6 +119,7 @@ class _CustomAppbarState extends State<CustomAppbar> {
                     ),
                   ),
                 ),
+              // Add button
               if (widget.isRequestAdd)
                 GestureDetector(
                   onTap: widget.onAddButtonTap,
@@ -134,10 +138,10 @@ class _CustomAppbarState extends State<CustomAppbar> {
                     ),
                   ),
                 ),
+              // Toggle icon
               if (widget.toggleIcon != null)
                 GestureDetector(
-                  onTap: widget
-                      .onTogglePressed, // Call the onTogglePressed callback
+                  onTap: widget.onTogglePressed,
                   child: Container(
                     padding: EdgeInsets.all(3.w),
                     decoration: BoxDecoration(
@@ -150,22 +154,39 @@ class _CustomAppbarState extends State<CustomAppbar> {
                     ),
                   ),
                 ),
-              // if (widget.showCart)
-              //   GestureDetector(
-              //     onTap: () {
-              //       AppCustomNavigator.push(context, PurchaseHistory());
-              //     },
-              //     child: Badge(
-              //       position: BadgePosition.topEnd(top: 0.h, end: 0.h),
-              //       showBadge: true,
-              //       badgeStyle: const BadgeStyle(
-              //           borderSide: BorderSide(color: AppColors.white)),
-              //       child: SvgPicture.asset(
-              //         AppSvgs.cart,
-              //         height: 3.5.h,
-              //       ),
-              //     ),
-              //   ),
+              // SVG icon at the end with optional badge
+              if (widget.svgIconNextToTitle != null) ...[
+                8.width,
+                Stack(
+                  clipBehavior: Clip.none,
+                  children: [
+                    SvgPicture.asset(
+                      widget.svgIconNextToTitle!,
+                      height: 3.h,
+                      color: widget.svgIconColor ??
+                          AppColors.primary, // Use passed color or default
+                    ),
+                    if (widget.badgeNumber != null && widget.badgeNumber! > 0)
+                      Positioned(
+                        right: -2.w,
+                        top: -2.w,
+                        child: Container(
+                          padding: EdgeInsets.all(1.w),
+                          decoration: const BoxDecoration(
+                            color: Colors.red,
+                            shape: BoxShape.circle,
+                          ),
+                          child: MyText(
+                            text: widget.badgeNumber.toString(),
+                            fontSize: 8.sp,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                  ],
+                ),
+              ],
             ],
           ),
         ),

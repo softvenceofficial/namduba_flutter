@@ -20,7 +20,7 @@ class _SwitchAccountScreenState extends State<SwitchAccountScreen> {
           child: Column(
             children: [
               const CustomAppbar(
-                title: AppText.switchaccount,
+                title: AppText.  switchaccount,
               ),
               Container(
                 padding:

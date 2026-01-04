@@ -1,6 +1,7 @@
-import 'package:flutter/material.dart';
+
 import 'package:nanduba/constants/textfontstyle.dart';
 import 'package:nanduba/export.dart';
+import 'package:nanduba/views/new_profile_screen/idfntity_vareficaton/driving_license_screen.dart';
 import 'package:nanduba/views/new_profile_screen/idfntity_vareficaton/widget/counrty_seleted_button.dart';
 
 class UplodeIdScreen extends StatefulWidget {
@@ -38,6 +39,11 @@ class _UplodeIdScreenState extends State<UplodeIdScreen> {
               ),
               1.height,
               CustomTextField(
+                onTap: () {
+                  AppCustomNavigator.push(
+                      context, const DrivingLicenseScreen());
+                },
+                readOnly: true,
                 borderRadius: 8,
                 hintText: "Driving license",
                 prefixIcon: Padding(
@@ -53,12 +59,17 @@ class _UplodeIdScreenState extends State<UplodeIdScreen> {
               ),
               1.height,
               CustomTextField(
+                onTap: () {
+                  AppCustomNavigator.push(
+                      context, const DrivingLicenseScreen());
+                },
+                readOnly: true,
                 borderRadius: 8,
                 hintText: "Passport",
                 prefixIcon: Padding(
                   padding: const EdgeInsets.all(14.0),
                   child: SvgPicture.asset(
-                    AppSvgs.passwordIcon,
+                    AppSvgs.passporticon,
                     color: AppColors.red,
                     height: 4,
                     width: 4,
@@ -68,6 +79,11 @@ class _UplodeIdScreenState extends State<UplodeIdScreen> {
               ),
               1.height,
               CustomTextField(
+                onTap: () {
+                  AppCustomNavigator.push(
+                      context, const DrivingLicenseScreen());
+                },
+                readOnly: true,
                 borderRadius: 8,
                 hintText: "NRC",
                 prefixIcon: Padding(

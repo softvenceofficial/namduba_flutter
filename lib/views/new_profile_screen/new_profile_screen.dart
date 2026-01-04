@@ -4,6 +4,7 @@ import 'package:nanduba/export.dart';
 import 'package:nanduba/views/Profile/User_profile/user_profile.dart';
 import 'package:nanduba/views/new_profile_screen/account_settings_screen.dart';
 import 'package:nanduba/views/new_profile_screen/widget/profile_item_widget.dart';
+import 'package:nanduba/views/new_profile_screen/your_garage/your_garage_scree.dart';
 import 'package:nanduba/widgets/core/my_text.dart';
 
 class NewProfileScreen extends StatefulWidget {
@@ -182,7 +183,9 @@ class _NewProfileScreenState extends State<NewProfileScreen> {
                   SwitchAccountItemWidget(
                     title: "Your Garage",
                     svgIcon: AppSvgs.carIcon,
-                    onTap: () {},
+                    onTap: () {
+                      AppCustomNavigator.push(context, const YourGarageScree());
+                    },
                   ),
                   2.4.height,
                   Padding(

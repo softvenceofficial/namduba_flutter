@@ -1,5 +1,7 @@
 class AppSvgs {
   static const String email = 'assets/svg/email.svg';
+  static const String closecircle = 'assets/svg/close_circle.svg';
+  static const String passporticon = 'assets/svg/passport_icon.svg';
   static const String locationadd = 'assets/svg/location_add.svg';
   static const String setting2 = 'assets/svg/setting-2.svg';
   static const String hearticon = 'assets/svg/heart_icon.svg';

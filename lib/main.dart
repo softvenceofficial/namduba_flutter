@@ -23,7 +23,7 @@ void main() {
   Get.put(InspectionReportController());
   Get.put(OrderDetailController());
   Get.put(VehicleInfoController());
-  Get.put(SellerShopInfoController()); 
+  Get.put(SellerShopInfoController());
   Get.put(AddressControler());
 
   runApp(const MyApp());

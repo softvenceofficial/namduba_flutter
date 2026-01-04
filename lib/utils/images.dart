@@ -1,4 +1,9 @@
 class AppImages {
+  static const String carImage = 'assets/images/car_image.png';
+  static const String trailerImage = 'assets/images/trailer_image.png';
+  static const String bikeImage = 'assets/images/bike_image.png';
+  static const String toolsImage = 'assets/images/tools_image.png';
+
   static const String logo = 'assets/images/logo.png';
   static const String cars3 = 'assets/images/cars3.png';
   static const String manage = 'assets/images/manage.png';

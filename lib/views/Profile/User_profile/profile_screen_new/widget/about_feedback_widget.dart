@@ -1,11 +1,20 @@
-import 'package:flutter/material.dart';
+ 
 import 'package:nanduba/constants/textfontstyle.dart';
 import 'package:nanduba/export.dart';
 
 class AboutFeedbackTabBar extends StatefulWidget {
-  final Function(int) onTabChanged; // Callback to parent
+  final Function(int) onTabChanged;  
+  final String? aboutText;  
+  final String? feedbackText;  
+  final double? separatorWidth;  
 
-  const AboutFeedbackTabBar({super.key, required this.onTabChanged});
+  const AboutFeedbackTabBar({
+    super.key,
+    required this.onTabChanged,
+    this.aboutText,
+    this.feedbackText,
+    this.separatorWidth,  
+  });
 
   @override
   State<AboutFeedbackTabBar> createState() => _AboutFeedbackTabBarState();
@@ -19,7 +28,6 @@ class _AboutFeedbackTabBarState extends State<AboutFeedbackTabBar> {
       selectedIndex = index;
     });
 
-    // Notify parent which tab is selected
     widget.onTabChanged(index);
   }
 
@@ -39,7 +47,7 @@ class _AboutFeedbackTabBarState extends State<AboutFeedbackTabBar> {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
               child: Text(
-                AppText.about,
+                widget.aboutText ?? AppText.about,
                 style: Textfontstyle.TextStyle14w500c212121poppins.copyWith(
                   fontWeight: FontWeight.bold,
                   fontSize: 14.sp,
@@ -52,7 +60,7 @@ class _AboutFeedbackTabBarState extends State<AboutFeedbackTabBar> {
           ),
         ),
 
-        2.width,
+        SizedBox(width: widget.separatorWidth ?? 2.w),
 
         // Feedback button
         GestureDetector(
@@ -66,7 +74,7 @@ class _AboutFeedbackTabBarState extends State<AboutFeedbackTabBar> {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
               child: Text(
-                AppText.feedback,
+                widget.feedbackText ?? AppText.feedback,
                 style: Textfontstyle.TextStyle14w500c212121poppins.copyWith(
                   fontSize: 14.sp,
                   color: selectedIndex == 1
