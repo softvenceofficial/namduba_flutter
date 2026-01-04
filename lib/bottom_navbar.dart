@@ -1,5 +1,6 @@
 import 'package:nanduba/export.dart';
 import 'package:nanduba/views/Profile/Profile.dart';
+import 'package:nanduba/views/new_profile_screen/new_profile_screen.dart';
 import 'package:nanduba/views/inbox/chat_list/chat_list.dart';
 
 class BottomNavbar extends StatefulWidget {
@@ -17,7 +18,7 @@ class BottomNavbarState extends State<BottomNavbar> {
     const CarSales(),
     const ServicesScreen(),
     ChatList(),
-    const ProfileScreen(),
+    const NewProfileScreen(),
   ];
 
   void _onItemTapped(int index) {

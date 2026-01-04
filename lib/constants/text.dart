@@ -6,13 +6,19 @@ String city = 'New york';
 class AppText {
   static const String appName = 'Nanduba';
 
-static const String about = 'About';
-static const String feedback = 'Feedback';
-static const String locationLabel = 'Location : ';
-static const String locationValue = 'Zambia';
-static const String memberSinceLabel = 'Member since : ';
-static const String memberSinceValue = '05 Feb 2012';
+  static const String uploadyourid = 'Upload your ID ';
+  static const String uploadidwarning =
+      'We’ll use this to verify your identity and won’t share it with others';
+  static const String personalinfo = 'Personal Information ';
+  static const String accountsetting = 'Account Settings';
 
+  static const String about = 'About';
+  static const String personalaccount = 'Personal Account';
+  static const String feedback = 'Feedback';
+  static const String locationLabel = 'Location : ';
+  static const String locationValue = 'Zambia';
+  static const String memberSinceLabel = 'Member since : ';
+  static const String memberSinceValue = '05 Feb 2012';
 
   static const String profile = 'Profile';
   static const String john = 'John Trial';
@@ -21,7 +27,7 @@ static const String memberSinceValue = '05 Feb 2012';
   static const String smartlogistis = 'Smart Logistics Zambia';
   static const String fleetmanager = 'Fleet Manager ';
   static const String fleetco = 'Fleetco Fleet Ltd.';
-  static const String swirchaccount = 'Switch Accounts';
+  static const String switchaccount = 'Switch Accounts';
   static const String datetimeofagreement = '1 Aug 2026 ';
   static const String addphonenumber = 'Add phone number ';
   static const String ddmmyy = 'DD/MM/YYYY';

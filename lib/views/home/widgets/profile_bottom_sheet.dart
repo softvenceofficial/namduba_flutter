@@ -53,6 +53,7 @@ class _ProfileBottomSheetState extends State<ProfileBottomSheet> {
               AppCustomNavigator.push(context, const ProfileScreenNew());
             },
             child: CustomContainer(
+              borderRadius: 20,
               isBorder: true,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -88,48 +89,49 @@ class _ProfileBottomSheetState extends State<ProfileBottomSheet> {
               AppCustomNavigator.push(context, const SwitchAccountScreen());
             },
             child: CustomContainer(
+                borderRadius: 20,
                 child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      Row(
+                        children: [
+                          Container(
+                            height: 40,
+                            width: 40,
+                            decoration: BoxDecoration(
+                                color: AppColors.cCA2626.withAlpha(20),
+                                borderRadius: BorderRadius.circular(12)),
+                            child: SvgPicture.asset(
+                              AppSvgs.makapayment,
+                              // width: 20,
+                              // height: 20,
+                              color: AppColors.cCA2626,
+                            ),
+                          ),
+                          2.width,
+                          Text(
+                            "Switch Account",
+                            style: Textfontstyle.TextStyle12w500c212121poppins
+                                .copyWith(fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
                       Container(
-                        height: 40,
-                        width: 40,
-                        decoration: BoxDecoration(
-                            color: AppColors.cCA2626.withAlpha(20),
-                            borderRadius: BorderRadius.circular(12)),
-                        child: SvgPicture.asset(
-                          AppSvgs.makapayment,
-                          // width: 20,
-                          // height: 20,
-                          color: AppColors.cCA2626,
-                        ),
-                      ),
-                      2.width,
-                      Text(
-                        "Switch Account",
-                        style: Textfontstyle.TextStyle12w500c212121poppins
-                            .copyWith(fontWeight: FontWeight.bold),
-                      ),
+                          height: 20,
+                          width: 20,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: AppColors.bottomNav),
+                              shape: BoxShape.circle),
+                          child: Icon(
+                            Icons.chevron_right,
+                            size: 12.sp,
+                            color: AppColors.bottomNav,
+                          )),
                     ],
                   ),
-                  Container(
-                      height: 20,
-                      width: 20,
-                      decoration: BoxDecoration(
-                          border: Border.all(color: AppColors.bottomNav),
-                          shape: BoxShape.circle),
-                      child: Icon(
-                        Icons.chevron_right,
-                        size: 12.sp,
-                        color: AppColors.bottomNav,
-                      )),
-                ],
-              ),
-            )),
+                )),
           ),
           2.height,
           Text("Signed in as\nJohntrial123@gmail.com",

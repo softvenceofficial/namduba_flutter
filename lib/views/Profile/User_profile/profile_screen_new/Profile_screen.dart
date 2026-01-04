@@ -1,7 +1,8 @@
 import 'package:nanduba/constants/textfontstyle.dart';
 import 'package:nanduba/export.dart';
-import 'package:nanduba/views/Profile/User_profile/user_profile.dart';
-import 'package:nanduba/views/auth/create_an_account/create_an_account.dart';
+import 'package:nanduba/views/Profile/User_profile/profile_screen_new/widget/about_feedback_widget.dart';
+import 'package:nanduba/views/Profile/User_profile/profile_screen_new/widget/about_section_widget.dart';
+import 'package:nanduba/views/Profile/User_profile/profile_screen_new/widget/feedback_section_widget.dart';
 
 class ProfileScreenNew extends StatefulWidget {
   const ProfileScreenNew({super.key});
@@ -11,32 +12,39 @@ class ProfileScreenNew extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreenNew> {
+  int selectedTab = 0;
+
+  void onTabChanged(int index) {
+    setState(() {
+      selectedTab = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsetsGeometry.symmetric(horizontal: 4.w, vertical: 2.h),
+          padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 2.h),
           child: Column(
             children: [
-              const CustomAppbar(
-                title: AppText.profile,
-              ),
-              Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                width: double.infinity,
-                decoration: const BoxDecoration(
+              const CustomAppbar(title: AppText.profile),
+              Expanded(
+                child: Container(
+                  width: double.infinity,
+                  decoration: const BoxDecoration(
                     color: AppColors.white,
                     borderRadius:
-                        BorderRadius.vertical(top: Radius.circular(24))),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    2.height,
-                    GestureDetector(
-                      onTap: () {},
-                      child: CustomContainer(
+                        BorderRadius.vertical(top: Radius.circular(24)),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      2.height,
+
+                      /// Profile Card
+                      CustomContainer(
+                        blurRadius: 20,
                         isBorder: true,
                         child: Padding(
                           padding: const EdgeInsets.all(19),
@@ -59,20 +67,18 @@ class _ProfileScreenState extends State<ProfileScreenNew> {
                                     ),
                                   ),
                                   Row(
-                                    mainAxisSize: MainAxisSize.min,
                                     children: [
                                       Row(
-                                        mainAxisSize: MainAxisSize.min,
                                         children: List.generate(
                                           5,
-                                          (index) => const Icon(
+                                          (_) => const Icon(
                                             Icons.star,
                                             color: AppColors.yellow,
-                                            size: 20,
+                                            size: 16,
                                           ),
                                         ),
                                       ),
-                                      const SizedBox(width: 4),
+                                      4.width,
                                       Text(
                                         "(12)",
                                         style: Textfontstyle
@@ -88,99 +94,28 @@ class _ProfileScreenState extends State<ProfileScreenNew> {
                           ),
                         ),
                       ),
-                    ),
-                    3.1.height,
-                    GestureDetector(
-                      onTap: () {
-                        //   navigation
-                        AppCustomNavigator.push(
-                            context, const CreateAnAccount());
-                      },
-                      child: Row(
-                        children: [
-                          CustomContainer(
-                            color: AppColors.cCA2626,
-                            borderRadius: 30,
-                            child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 20, vertical: 8),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      AppText.about,
-                                      style: Textfontstyle
-                                              .TextStyle14w500c212121poppins
-                                          .copyWith(
-                                              fontWeight: FontWeight.bold,
-                                              color: AppColors.white),
-                                    ),
-                                  ],
-                                )),
-                          ),
-                          1.1.width,
-                          Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 20, vertical: 8),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    AppText.feedback,
-                                    style: Textfontstyle
-                                            .TextStyle14w500c212121poppins
-                                        .copyWith(color: AppColors.bottomNav),
-                                  ),
-                                ],
-                              )),
-                        ],
-                      ),
-                    ),
-                    2.9.height,
-                    Column(
-                      children: [
-                        Row(
-                          children: [
-                            Text(
-                              AppText.locationLabel,
-                              style: Textfontstyle.TextStyle12w500c212121poppins
-                                  .copyWith(color: AppColors.bottomNav),
-                            ),
-                            Text(
-                              AppText.locationValue,
-                              style: Textfontstyle.TextStyle12w500c212121poppins
-                                  .copyWith(
-                                      color: AppColors.bottomNav,
-                                      fontWeight: FontWeight.w800),
-                            )
+
+                      3.height,
+
+                      /// Tabs
+                      AboutFeedbackTabBar(onTabChanged: onTabChanged),
+
+                      3.height,
+
+                      /// Content
+                      Expanded(
+                        child: IndexedStack(
+                          index: selectedTab,
+                          children: const [
+                            AboutSectionWidget(),
+                            FeedbackSectionWidget(),
                           ],
                         ),
-                        0.2.height,
-                        Row(
-                          children: [
-                            Text(
-                              AppText.memberSinceLabel,
-                              style: Textfontstyle.TextStyle12w500c212121poppins
-                                  .copyWith(color: AppColors.bottomNav),
-                            ),
-                            Text(
-                              AppText.memberSinceValue,
-                              style: Textfontstyle.TextStyle12w500c212121poppins
-                                  .copyWith(
-                                      color: AppColors.bottomNav,
-                                      fontWeight: FontWeight.w800),
-                            )
-                          ],
-                        )
-                      ],
-                    ),
-                    42.height,
-                    CustomButton(label: AppText.editprofile, onPressed: () {})
-                  ],
+                      ),
+                    ],
+                  ),
                 ),
-              )
+              ),
             ],
           ),
         ),
