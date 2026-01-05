@@ -5,13 +5,23 @@ String city = 'New york';
 
 class AppText {
   static const String appName = 'Nanduba';
-    static const String enterregnum = 'Enter Your Reg Number or VIN';
-  static const String writeyourvehiclereg ="Write your vehicle registration number or VIN number to add vehicle.";
-    static const String whattypeofvehicle = 'What type of vehicle are you adding ';
-    static const String telluswhatyourvehicle = 'Tell us what your vehicle so that we can find you the right parts and services ';
-    static const String whatdoyoudrive = 'What do you drive?';
-    static const String myGarage = 'My Garage';
-    static const String wewilllet = 'We’ll let you know';
+
+  static const String entervehicled = "Enter Vehicle Details";
+  static const String confirm = 'Confirm';
+  static const String hareswhatwehave =
+      "Here's what we've gathered and we'll save this in your garage.";
+  static const String nicevehicle = 'Nice Vehicle';
+  static const String reviewdetails = 'Review Details';
+  static const String enterregnum = 'Enter Your Reg Number or VIN';
+  static const String writeyourvehiclereg =
+      "Write your vehicle registration number or VIN number to add vehicle.";
+  static const String whattypeofvehicle =
+      'What type of vehicle are you adding ';
+  static const String telluswhatyourvehicle =
+      'Tell us what your vehicle so that we can find you the right parts and services ';
+  static const String whatdoyoudrive = 'What do you drive?';
+  static const String myGarage = 'My Garage';
+  static const String wewilllet = 'We’ll let you know';
   static const String uploadyourlicense = "Upload your License ";
   static const String uploadyourpassport = "Upload your Passport  ";
   static const String jpegorpng = "JPEG or PNG only";
@@ -166,7 +176,7 @@ class AppText {
 
   static const String noVehicle = 'No Vehicle is found';
   static const String addVehicle = 'Add Vehicle';
-   static const String addaVehicle = 'Add a Vehicle';
+  static const String addaVehicle = 'Add a Vehicle';
 
   static const String yourEstimates = 'Your Estimates';
   static const String quoted = 'Quoted';

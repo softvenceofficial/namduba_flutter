@@ -1,8 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nanduba/constants/colors.dart';
 import 'package:nanduba/constants/textfontstyle.dart';
 import 'package:nanduba/export.dart';
-import 'package:nanduba/views/add_vehicle/purchase_history/purchase_history.dart';
 import 'package:nanduba/widgets/core/my_text.dart';
 
 class CustomAppbar extends StatefulWidget {
@@ -15,9 +15,10 @@ class CustomAppbar extends StatefulWidget {
   final bool showCart;
   final VoidCallback? onTogglePressed;
   final VoidCallback? onAddButtonTap;
-  final String? svgIconNextToTitle; // This will now appear at the end
-  final int? badgeNumber; // Optional badge number for the icon
-  final Color? svgIconColor; // Nullable color for the SVG icon
+  final String? svgIconNextToTitle; // Icon at the end of appbar
+  final int? badgeNumber; // Optional badge for the icon
+  final Color? svgIconColor; // Optional color for the icon
+  final VoidCallback? onSvgIconTap; // NEW: callback for icon tap
 
   const CustomAppbar({
     super.key,
@@ -32,7 +33,8 @@ class CustomAppbar extends StatefulWidget {
     this.onAddButtonTap,
     this.svgIconNextToTitle,
     this.badgeNumber,
-    this.svgIconColor, // New optional color parameter
+    this.svgIconColor,
+    this.onSvgIconTap, // only executes if provided
   });
 
   @override
@@ -70,7 +72,8 @@ class _CustomAppbarState extends State<CustomAppbar> {
                   ),
                 ),
               3.width,
-              // Title or search
+
+              // Title or Search
               Expanded(
                 child: AnimatedSwitcher(
                   duration: const Duration(milliseconds: 300),
@@ -83,9 +86,7 @@ class _CustomAppbarState extends State<CustomAppbar> {
                             }
                           },
                           onEditComplete: () {
-                            setState(() {
-                              _isSearching = false;
-                            });
+                            setState(() => _isSearching = false);
                           },
                           key: const ValueKey<int>(1),
                           name: 'search',
@@ -103,6 +104,7 @@ class _CustomAppbarState extends State<CustomAppbar> {
                 ),
               ),
               2.width,
+
               // Search icon
               if (widget.isSearch)
                 GestureDetector(
@@ -119,6 +121,7 @@ class _CustomAppbarState extends State<CustomAppbar> {
                     ),
                   ),
                 ),
+
               // Add button
               if (widget.isRequestAdd)
                 GestureDetector(
@@ -138,6 +141,7 @@ class _CustomAppbarState extends State<CustomAppbar> {
                     ),
                   ),
                 ),
+
               // Toggle icon
               if (widget.toggleIcon != null)
                 GestureDetector(
@@ -154,37 +158,40 @@ class _CustomAppbarState extends State<CustomAppbar> {
                     ),
                   ),
                 ),
+
               // SVG icon at the end with optional badge
               if (widget.svgIconNextToTitle != null) ...[
                 8.width,
-                Stack(
-                  clipBehavior: Clip.none,
-                  children: [
-                    SvgPicture.asset(
-                      widget.svgIconNextToTitle!,
-                      height: 3.h,
-                      color: widget.svgIconColor ??
-                          AppColors.primary, // Use passed color or default
-                    ),
-                    if (widget.badgeNumber != null && widget.badgeNumber! > 0)
-                      Positioned(
-                        right: -2.w,
-                        top: -2.w,
-                        child: Container(
-                          padding: EdgeInsets.all(1.w),
-                          decoration: const BoxDecoration(
-                            color: Colors.red,
-                            shape: BoxShape.circle,
-                          ),
-                          child: MyText(
-                            text: widget.badgeNumber.toString(),
-                            fontSize: 8.sp,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
+                InkWell(
+                  onTap: widget.onSvgIconTap, // Only executes if provided
+                  child: Stack(
+                    clipBehavior: Clip.none,
+                    children: [
+                      SvgPicture.asset(
+                        widget.svgIconNextToTitle!,
+                        height: 3.h,
+                        color: widget.svgIconColor ?? AppColors.primary,
+                      ),
+                      if (widget.badgeNumber != null && widget.badgeNumber! > 0)
+                        Positioned(
+                          right: -2.w,
+                          top: -2.w,
+                          child: Container(
+                            padding: EdgeInsets.all(1.w),
+                            decoration: const BoxDecoration(
+                              color: Colors.red,
+                              shape: BoxShape.circle,
+                            ),
+                            child: MyText(
+                              text: widget.badgeNumber.toString(),
+                              fontSize: 8.sp,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
-                      ),
-                  ],
+                    ],
+                  ),
                 ),
               ],
             ],

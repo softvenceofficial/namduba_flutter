@@ -1,5 +1,9 @@
 class AppSvgs {
   static const String email = 'assets/svg/email.svg';
+
+  static const String leftrightcircul = 'assets/svg/left_right_circul.svg';
+  static const String arrowdown = 'assets/svg/arrow_down.svg';
+  static const String tickcircle = 'assets/svg/tick_circle.svg';
   static const String closecircle = 'assets/svg/close_circle.svg';
   static const String passporticon = 'assets/svg/passport_icon.svg';
   static const String locationadd = 'assets/svg/location_add.svg';
@@ -164,6 +168,10 @@ class AppSvgs {
   static const String upload = 'assets/svg/upload.svg';
   static const String mores = 'assets/svg/mores.svg';
   static const String information = 'assets/svg/information.svg';
+
+  static const String information2 = 'assets/svg/information2.svg';
+
+  static const String exlamatori = 'assets/svg/exlamatori.svg';
   static const String shieldtick = 'assets/svg/shieldtick.svg';
   static const String id = 'assets/svg/personalcard.svg';
   static const String sheild = 'assets/svg/shield.svg';
