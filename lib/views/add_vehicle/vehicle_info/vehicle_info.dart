@@ -1,21 +1,16 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:get/get.dart';
 import 'package:nanduba/controllers/vehicle_profile_controller.dart';
 import 'package:nanduba/views/add_vehicle/vehicle_info/component/specs/get_my_specs_sheet.dart';
 import 'package:nanduba/views/add_vehicle/vehicle_info/component/name_your_vehicle_sheet.dart';
 import 'package:nanduba/views/add_vehicle/vehicle_info/component/odometer_reading_sheet.dart';
-import 'package:nanduba/views/add_vehicle/vehicle_info/component/documents/vehicle_documents_sheet.dart';
-import 'package:nanduba/views/add_vehicle/vehicle_info/component/estimated_value/vehicle_estimated_value_sheet.dart';
 import 'package:nanduba/views/add_vehicle/vehicle_info/component/vehicle_info_component.dart';
-import 'package:nanduba/views/add_vehicle/vehicle_info/component/maintenance/vehicle_info_maintenance_sheet.dart';
 import 'package:nanduba/views/add_vehicle/vehicle_info/component/specs/vehicle_info_specs_component.dart';
-import 'package:nanduba/views/add_vehicle/vehicle_info/component/tire_size/vehicle_info_tire_size_sheet.dart';
-import 'package:nanduba/views/add_vehicle/vehicle_info/component/license/vehicle_licence_info_sheet.dart';
 import 'package:nanduba/views/add_vehicle/vehicle_info/widget/detail_info_row_widget.dart';
-import 'package:nanduba/views/add_vehicle/vehicle_info/widget/vehicle_other_info_noData_container.dart';
 
 import '../../../export.dart';
 import '../../../widgets/core/my_text.dart';
-import 'component/insurance/vehicle_info_policy_sheet.dart';
 import 'package:pin_code_fields/pin_code_fields.dart' as pininput;
 import 'package:pin_code_fields/pin_code_fields.dart';
 
@@ -62,25 +57,25 @@ class VehicleInfoDetails extends StatelessWidget {
                         color: AppColors.textColor5,
                       ),
                     ),
-                    MyText(
-                      text: "Vehicle Active",
-                      fontWeight: FontWeight.w400,
-                      fontSize: 10.sp,
-                      color: AppColors.grey,
-                    ),
-                    1.width,
-                    Obx(() {
-                      return Transform.scale(
-                        scale: 0.9,
-                        child: Switch(
-                          value: controller.vehicleActive.value,
-                          onChanged: (val) {
-                            controller.vehicleActive.value = val;
-                          },
-                          activeTrackColor: AppColors.primary,
-                        ),
-                      );
-                    })
+                    // MyText(
+                    //   text: "Vehicle Active",
+                    //   fontWeight: FontWeight.w400,
+                    //   fontSize: 10.sp,
+                    //   color: AppColors.grey,
+                    // ),
+                    // 1.width,
+                    // Obx(() {
+                    //   return Transform.scale(
+                    //     scale: 0.9,
+                    //     child: Switch(
+                    //       value: controller.vehicleActive.value,
+                    //       onChanged: (val) {
+                    //         controller.vehicleActive.value = val;
+                    //       },
+                    //       activeTrackColor: AppColors.primary,
+                    //     ),
+                    //   );
+                    // })
                   ]),
             ),
             Expanded(
@@ -98,7 +93,7 @@ class VehicleInfoDetails extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 MyText(
-                                  text: "Nick name",
+                                  text: "Vehicle name",
                                   fontSize: 14.sp,
                                   color: AppColors.textColor5,
                                   fontWeight: FontWeight.w600,
@@ -115,7 +110,9 @@ class VehicleInfoDetails extends StatelessWidget {
                                               top: Radius.circular(20.sp)),
                                         ),
                                         builder: (BuildContext context) {
-                                          return NameYourVehicleSheet(carNickname: carNickname,);
+                                          return NameYourVehicleSheet(
+                                            carNickname: carNickname,
+                                          );
                                         });
                                   },
                                   child: Container(
@@ -125,7 +122,7 @@ class VehicleInfoDetails extends StatelessWidget {
                                     decoration: BoxDecoration(
                                         color: AppColors.secondary,
                                         borderRadius:
-                                        BorderRadius.circular(10)),
+                                            BorderRadius.circular(10)),
                                     child: SvgPicture.asset(AppSvgs.edit),
                                   ),
                                 ),
@@ -142,36 +139,69 @@ class VehicleInfoDetails extends StatelessWidget {
                                 ),
                                 3.5.width,
                                 Expanded(
-                                  child: Row(
-                                    children: [
-                                      Column(
-                                        crossAxisAlignment:
+                                  child: Column(
+                                    crossAxisAlignment:
                                         CrossAxisAlignment.start,
-                                        children: [
-                                          Obx(() {
-                                            return MyText(
-                                              text: carNickname.value,
-                                              fontSize: 12.sp,
-                                              fontWeight: FontWeight.w500,
-                                              color: AppColors.textColor,
-                                            );
-                                          }),
-                                          // 0.5.height,
-                                          // MyText(
-                                          //   text: "Plate: ALZ6443ZM",
-                                          //   fontSize: 10.sp,
-                                          //   fontWeight: FontWeight.w500,
-                                          //   color: AppColors.grey,
-                                          // )
-                                        ],
+                                    children: [
+                                      Obx(() {
+                                        return MyText(
+                                          text: carNickname.value,
+                                          fontSize: 12.sp,
+                                          fontWeight: FontWeight.w500,
+                                          color: AppColors.textColor,
+                                        );
+                                      }),
+                                      2.width,
+                                      MyText(
+                                        text: "Status : Active",
+                                        fontSize: 8.sp,
+                                        fontWeight: FontWeight.w400,
+                                        color: AppColors.textColor5,
                                       ),
-                                      Spacer(),
-                                      // SvgPicture.asset(AppSvgs.arrowCircleRight)
                                     ],
                                   ),
                                 ),
                               ],
-                            ),
+                            )
+
+                            // Row(
+                            //   children: [
+                            //     Icon(
+                            //       Icons.check_circle,
+                            //       color: AppColors.greenicon,
+                            //     ),
+                            //     3.5.width,
+                            //     Expanded(
+                            //       child: Row(
+                            //         children: [
+                            //           Column(
+                            //             crossAxisAlignment:
+                            //                 CrossAxisAlignment.start,
+                            //             children: [
+                            //               Obx(() {
+                            //                 return MyText(
+                            //                   text: carNickname.value,
+                            //                   fontSize: 12.sp,
+                            //                   fontWeight: FontWeight.w500,
+                            //                   color: AppColors.textColor,
+                            //                 );
+                            //               }),
+                            //               // 0.5.height,
+                            //               // MyText(
+                            //               //   text: "Plate: ALZ6443ZM",
+                            //               //   fontSize: 10.sp,
+                            //               //   fontWeight: FontWeight.w500,
+                            //               //   color: AppColors.grey,
+                            //               // )
+                            //             ],
+                            //           ),
+                            //           // Spacer(),
+                            //           // SvgPicture.asset(AppSvgs.arrowCircleRight)
+                            //         ],
+                            //       ),
+                            //     ),
+                            //   ],
+                            // ),
                           ],
                         )),
                     2.height,
@@ -203,7 +233,8 @@ class VehicleInfoDetails extends StatelessWidget {
                                         ),
                                         builder: (BuildContext context) {
                                           return OdometerReadingSheet(
-                                            odoController: odometer,);
+                                            odoController: odometer,
+                                          );
                                         });
                                   },
                                   child: Container(
@@ -213,7 +244,7 @@ class VehicleInfoDetails extends StatelessWidget {
                                     decoration: BoxDecoration(
                                         color: AppColors.secondary,
                                         borderRadius:
-                                        BorderRadius.circular(10)),
+                                            BorderRadius.circular(10)),
                                     child: SvgPicture.asset(AppSvgs.edit),
                                   ),
                                 ),
@@ -251,17 +282,15 @@ class VehicleInfoDetails extends StatelessWidget {
                               textStyle: GoogleFonts.poppins(
                                   fontSize: 10.sp,
                                   color: AppColors.grey,
-                                  fontWeight: FontWeight.w400
-                              ),
-
-
+                                  fontWeight: FontWeight.w400),
                               pinTheme: pininput.PinTheme(
-                                fieldOuterPadding: EdgeInsets.only(right: 6),
+                                fieldOuterPadding:
+                                    const EdgeInsets.only(right: 4),
                                 shape: PinCodeFieldShape.box,
 
                                 borderRadius: BorderRadius.circular(8),
                                 fieldHeight: 31,
-                                fieldWidth: 31,
+                                fieldWidth: 25,
 
                                 //
                                 //
@@ -276,10 +305,9 @@ class VehicleInfoDetails extends StatelessWidget {
                                 borderWidth: 1,
                                 activeBorderWidth: 1,
                                 inactiveBorderWidth: 1,
-
                               ),
                               keyboardType: TextInputType.number,
-                              boxShadows: [
+                              boxShadows: const [
                                 BoxShadow(
                                   offset: Offset(0, 1),
                                   color: Colors.black26,
@@ -323,31 +351,13 @@ class VehicleInfoDetails extends StatelessWidget {
                             Divider(),
                             0.8.height,
                             DetailInfoRow(
-                                title: "Type",
-                                info: "Car",
+                                title: "Plate",
+                                info: "ABP1356ZM",
                                 errorText: "Add Type"),
                             DetailInfoRow(
-                                title: "Registration No",
-                                info: "1234",
+                                title: "VIN",
+                                info: "1HGB H41JX MN10 91867",
                                 errorText: ""),
-                            DetailInfoRow(
-                              title: "VIN",
-                              info: "",
-                              errorText: "Add",
-                              onTap: () async {
-                                await showModalBottomSheet(
-                                    backgroundColor: AppColors.white,
-                                    context: context,
-                                    useSafeArea: true,
-                                    isScrollControlled: true,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.vertical(
-                                          top: Radius.circular(20.sp)),
-                                    ),
-                                    builder: (BuildContext context) {
-                                      return GetMySpecsSheet();
-                                    });
-                              },),
                             DetailInfoRow(
                                 title: "Year",
                                 info: "2023",
@@ -361,45 +371,58 @@ class VehicleInfoDetails extends StatelessWidget {
                                 info: "Corolla",
                                 errorText: "Add Model"),
                             DetailInfoRow(
-                                title: "Trim",
-                                info: "S Sedan 4-Door",
+                                title: "Variant",
+                                info: "Petrol sedan",
                                 errorText: "Add Trim"),
                             DetailInfoRow(
-                              title: "Engine",
-                              info:
-                              "1.8L 1798CC 110Cu. In. l4 GAS DOHC Naturally Aspirated",
-                              errorText: "Add Engine", width: 60.w,),
+                              title: "Type",
+                              info: "1.5 4WD",
+                              errorText: "Add Engine",
+                              width: 60.w,
+                            ),
+                            DetailInfoRow(
+                              title: "Chassis ",
+                              info: "AWD--E116",
+                              errorText: "Add Engine",
+                              width: 60.w,
+                            ),
                             DetailInfoRow(
                               title: "Engine No",
-                              info:
-                              "",
-                              errorText: "Add", onTap: () async {
-                              await showModalBottomSheet(
-                                  backgroundColor: AppColors.white,
-                                  context: context,
-                                  useSafeArea: true,
-                                  isScrollControlled: true,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.vertical(
-                                        top: Radius.circular(20.sp)),
-                                  ),
-                                  builder: (BuildContext context) {
-                                    return GetMySpecsSheet();
-                                  });
-                            },),
+                              info: "1,497CC 76kw 103hp 1NZ-FE",
+                              errorText: "Add",
+                              // onTap: () async {
+                              //   await showModalBottomSheet(
+                              //       backgroundColor: AppColors.white,
+                              //       context: context,
+                              //       useSafeArea: true,
+                              //       isScrollControlled: true,
+                              //       shape: RoundedRectangleBorder(
+                              //         borderRadius: BorderRadius.vertical(
+                              //             top: Radius.circular(20.sp)),
+                              //       ),
+                              //       builder: (BuildContext context) {
+                              //         return GetMySpecsSheet();
+                              //       });
+                              // },
+                            ),
+                            DetailInfoRow(
+                              title: "Colour ",
+                              info: "Colour",
+                              errorText: "Add Engine",
+                              width: 60.w,
+                            ),
                           ],
                         )),
                     2.height,
-                    Obx(() =>
-
-                    controller.showSpecsDetails.value == false ?
-                    // if not data in specs
-                    VehicleInfoSpecsComponent() :
-                    // if  data in specs
-                    SpecsDataContainer(),
-                    ),
-
-
+                    // Obx(
+                    //   () => controller.showSpecsDetails.value == false
+                    //       ?
+                    //       // if not data in specs
+                    //       VehicleInfoSpecsComponent()
+                    //       :
+                    //       // if  data in specs
+                    //       SpecsDataContainer(),
+                    // ),
                     2.height,
                     VehicleInfoComponent(),
                     2.height,

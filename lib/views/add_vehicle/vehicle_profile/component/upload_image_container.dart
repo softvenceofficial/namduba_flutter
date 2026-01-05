@@ -5,14 +5,16 @@ import '../../../../export.dart';
 
 class UploadImageContainer extends StatelessWidget {
   // const UploadImageContainer({super.key});
-final VehicleProfileController controller=Get.find();
+  final VehicleProfileController controller = Get.find();
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         controller.pickImage();
       },
       child: DottedBorder(
+        dashPattern: [6, 4],
+        strokeWidth: 2,
         borderType: BorderType.RRect,
         color: AppColors.primary,
         radius: Radius.circular(16),
@@ -28,6 +30,5 @@ final VehicleProfileController controller=Get.find();
             child: SvgPicture.asset(AppSvgs.upload)),
       ),
     );
-
   }
 }

@@ -1,11 +1,8 @@
 import 'package:get/get.dart';
 import 'package:nanduba/export.dart';
-import 'package:nanduba/views/add_vehicle/purchase_history/component/no_purchase_box.dart';
-import 'package:nanduba/views/add_vehicle/purchase_history/component/report_history.dart';
+  import 'package:nanduba/views/add_vehicle/purchase_history/component/report_history.dart';
 import 'package:nanduba/views/add_vehicle/purchase_history/purchase_history_orders.dart';
-import 'package:nanduba/views/inbox/chat_list/component/no_message_box.dart';
-import 'package:nanduba/views/inbox/chat_screen/chat_screen.dart';
-import 'package:nanduba/widgets/core/my_text.dart';
+  import 'package:nanduba/widgets/core/my_text.dart';
 
 class PurchaseHistory extends StatelessWidget {
   RxInt selectedButtonIndex = 1.obs;

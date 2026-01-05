@@ -23,7 +23,7 @@ class _YourGarageScreeState extends State<YourGarageScree> {
                 svgIconColor: AppColors.border3,
                 title: AppText.myGarage,
                 svgIconNextToTitle: AppSvgs.odercard,
-                badgeNumber: 2,
+                badgeNumber: 2 ,
               ),
               2.1.height,
               Text(
@@ -42,9 +42,11 @@ class _YourGarageScreeState extends State<YourGarageScree> {
                 onPressed: () {
                   showModalBottomSheet(
                       backgroundColor: AppColors.white,
+                      isScrollControlled: true,
                       context: context,
                       builder: (context) {
-                        return const AddVehicleScreen();
+                        return const FractionallySizedBox(
+                            heightFactor: 0.95, child: AddVehicleScreen());
                       });
                 },
               )

@@ -2,7 +2,7 @@ import 'package:nanduba/export.dart';
 
 class AppColors {
   static const Color primary = Color(0xFFD93243);
-
+  static const Color cE3C562 = Color(0xFFE3C562);
   static const Color c5D5D5D = Color(0xFF5D5D5D);
   static const Color cBEBEBE = Color(0xFFBEBEBE);
   static const Color cCA2626 = Color(0xFFCA2626);

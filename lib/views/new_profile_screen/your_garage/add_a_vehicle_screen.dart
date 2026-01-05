@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:nanduba/constants/textfontstyle.dart';
 import 'package:nanduba/export.dart';
 import 'package:nanduba/views/Profile/User_profile/profile_screen_new/widget/about_feedback_widget.dart';
+import 'package:nanduba/views/new_profile_screen/your_garage/enter_vehicle_details.dart';
+import 'package:nanduba/views/new_profile_screen/your_garage/review_details_screen.dart';
 
 class AddAVehicleScreen extends StatefulWidget {
   const AddAVehicleScreen({super.key});
@@ -11,7 +13,7 @@ class AddAVehicleScreen extends StatefulWidget {
 }
 
 class _AddAVehicleScreenState extends State<AddAVehicleScreen> {
-  int selectedTab = 0;  
+  int selectedTab = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +23,12 @@ class _AddAVehicleScreenState extends State<AddAVehicleScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 4),
           child: Column(
             children: [
-              const CustomAppbar(
+              CustomAppbar(
                 title: AppText.addaVehicle,
                 svgIconNextToTitle: AppSvgs.closecircle,
+                onSvgIconTap: () {
+                  AppCustomNavigator.pop(context);
+                },
               ),
               2.height,
               CustomContainer(
@@ -69,6 +74,10 @@ class _AddAVehicleScreenState extends State<AddAVehicleScreen> {
                               padding: const EdgeInsets.all(16.0),
                               child: SvgPicture.asset(AppSvgs.passporticon),
                             ),
+                            suffixIcon: Padding(
+                              padding: const EdgeInsets.all(12.0),
+                              child: SvgPicture.asset(AppSvgs.tickcircle),
+                            ),
                             hintText: "AAZ4178",
                             titleText: "Reg Number",
                           )
@@ -83,6 +92,10 @@ class _AddAVehicleScreenState extends State<AddAVehicleScreen> {
                               padding: const EdgeInsets.all(16.0),
                               child: SvgPicture.asset(AppSvgs.passporticon),
                             ),
+                            suffixIcon: Padding(
+                              padding: const EdgeInsets.all(12.0),
+                              child: SvgPicture.asset(AppSvgs.tickcircle),
+                            ),
                             hintText: "1HGB H41JX MN10 91867",
                             titleText: "VIN Number",
                           )
@@ -92,7 +105,9 @@ class _AddAVehicleScreenState extends State<AddAVehicleScreen> {
               4.4.height,
               CustomButton(
                 label: "Let's Go",
-                onPressed: () {},
+                onPressed: () {
+                  AppCustomNavigator.push(context, const ReviewDetailsScreen());
+                },
               ),
               4.2.height,
               Row(
@@ -124,7 +139,9 @@ class _AddAVehicleScreenState extends State<AddAVehicleScreen> {
                 foregroundColor: AppColors.white,
                 borderColor: AppColors.primary,
                 label: "Enter Vehicle Details",
-                onPressed: () {},
+                onPressed: () {
+                  AppCustomNavigator.push(context, const EnterVehicleDetails());
+                },
               ),
               20.2.height,
             ],

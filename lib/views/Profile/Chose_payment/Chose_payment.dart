@@ -1,9 +1,7 @@
 import 'package:nanduba/export.dart';
 import 'package:nanduba/providers/estimate_provider.dart';
-import 'package:nanduba/views/create_request/thank_you_order/thank_you_order.dart';
-import 'package:nanduba/widgets/core/card_widget.dart';
-import 'package:nanduba/widgets/core/my_text.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+ import 'package:nanduba/widgets/core/card_widget.dart';
+  import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 
 class ChosePayment extends StatelessWidget {

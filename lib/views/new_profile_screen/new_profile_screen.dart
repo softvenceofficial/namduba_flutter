@@ -1,7 +1,10 @@
 import 'package:get/get.dart';
 import 'package:nanduba/constants/textfontstyle.dart';
 import 'package:nanduba/export.dart';
+import 'package:nanduba/views/Profile/Settings/settings.dart';
 import 'package:nanduba/views/Profile/User_profile/user_profile.dart';
+import 'package:nanduba/views/Wishlist/Wishlist.dart';
+import 'package:nanduba/views/create_request/payment_methods/choose_payment_methods.dart';
 import 'package:nanduba/views/new_profile_screen/account_settings_screen.dart';
 import 'package:nanduba/views/new_profile_screen/widget/profile_item_widget.dart';
 import 'package:nanduba/views/new_profile_screen/your_garage/your_garage_scree.dart';
@@ -30,7 +33,7 @@ class _NewProfileScreenState extends State<NewProfileScreen> {
                   const EdgeInsets.symmetric(horizontal: 18.0, vertical: 0),
               child: GestureDetector(
                 onTap: () {
-                  Get.to(const UserProfile());
+                  // Get.to(const UserProfile());
                 },
                 child: CustomContainer(
                   borderRadius: 20,
@@ -167,7 +170,9 @@ class _NewProfileScreenState extends State<NewProfileScreen> {
                   SwitchAccountItemWidget(
                     title: "Watchlist",
                     svgIcon: AppSvgs.hearticon,
-                    onTap: () {},
+                    onTap: () {
+                      AppCustomNavigator.push(context, const Wishlist());
+                    },
                   ),
                   2.4.height,
                   Padding(
@@ -217,13 +222,17 @@ class _NewProfileScreenState extends State<NewProfileScreen> {
                   SwitchAccountItemWidget(
                     title: "Payments",
                     svgIcon: AppSvgs.makapayment,
-                    onTap: () {},
+                    onTap: () {
+                      AppCustomNavigator.push(context, ChoosePaymentMethods());
+                    },
                   ),
                   1.height,
                   SwitchAccountItemWidget(
                     title: "Settings",
                     svgIcon: AppSvgs.setting2,
-                    onTap: () {},
+                    onTap: () {
+                      AppCustomNavigator.push(context, Settings());
+                    },
                   ),
                 ],
               ),

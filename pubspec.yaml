@@ -58,6 +58,7 @@ dependencies:
   country_picker:
   pin_code_fields:
   multi_dropdown: ^3.0.1
+  percent_indicator: ^4.2.5
 
 
 

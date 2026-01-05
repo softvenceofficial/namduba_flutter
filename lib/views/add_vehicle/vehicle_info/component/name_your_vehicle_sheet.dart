@@ -1,21 +1,62 @@
 import 'package:get/get.dart';
 import 'package:nanduba/controllers/vehicle_profile_controller.dart';
-import 'package:nanduba/views/add_vehicle/vehicle_info/widget/vehicle_type_choice_container.dart';
 import 'package:nanduba/widgets/core/my_text.dart';
 
 import '../../../../export.dart';
 
 class NameYourVehicleSheet extends StatefulWidget {
   final RxString carNickname;
-   const NameYourVehicleSheet({super.key, required this.carNickname});
+  const NameYourVehicleSheet({super.key, required this.carNickname});
   @override
   State<NameYourVehicleSheet> createState() => _NameYourVehicleSheetState();
 }
 
 class _NameYourVehicleSheetState extends State<NameYourVehicleSheet> {
- int selectedChoice=-1;
- final VehicleProfileController controller = Get.find();
- final TextEditingController nickname = TextEditingController();
+  int selectedChoice = -1;
+  final VehicleProfileController controller = Get.find();
+  final TextEditingController nickname = TextEditingController();
+  int selectedStatusIndex = -1;
+
+  Widget _buildStatusCheckbox(int index, String label) {
+    bool isChecked = selectedStatusIndex == index;
+
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          selectedStatusIndex = index;
+        });
+      },
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Container(
+            height: 20,
+            width: 20,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(
+                color: isChecked ? AppColors.primary : AppColors.cBEBEBE,
+                width: 1.5,
+              ),
+            ),
+            child: isChecked
+                ? const Icon(
+                    Icons.check,
+                    color: AppColors.primary,
+                    size: 16,
+                  )
+                : null,
+          ),
+          4.width,  
+          MyText(
+            text: label,
+            fontSize: 10.sp,
+            color: AppColors.textColor,
+          ),
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +67,12 @@ class _NameYourVehicleSheetState extends State<NameYourVehicleSheet> {
           2.height,
           Row(
             children: [
-              MyText(text: "Name Your Vehicle",fontSize: 14.sp,fontWeight: FontWeight.w600,color: AppColors.textColor,),
+              MyText(
+                text: "Name Your Vehicle",
+                fontSize: 14.sp,
+                fontWeight: FontWeight.w600,
+                color: AppColors.textColor,
+              ),
               Spacer(),
               GestureDetector(
                 onTap: () {
@@ -38,11 +84,12 @@ class _NameYourVehicleSheetState extends State<NameYourVehicleSheet> {
                   height: 2.5.h,
                 ),
               ),
-
             ],
           ),
           1.height,
-          Divider(color: AppColors.border,),
+          Divider(
+            color: AppColors.border,
+          ),
           4.height,
           Padding(
             padding: EdgeInsets.only(
@@ -51,21 +98,25 @@ class _NameYourVehicleSheetState extends State<NameYourVehicleSheet> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 MyText(
-                text:   "Vehicle Nickname",
-
-                    fontSize: 12.sp,
-                    color: AppColors.grey,
-                    fontWeight: FontWeight.w400,
-
+                  text: "Vehicle Nickname",
+                  fontSize: 12.sp,
+                  color: AppColors.grey,
+                  fontWeight: FontWeight.w400,
                 ),
                 1.height,
                 CustomTextField(
                   controller: nickname,
+                  prefixIcon: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: SvgPicture.asset(
+                      AppSvgs.carIcon,
+                      color: AppColors.primary,
+                    ),
+                  ),
                   style: GoogleFonts.poppins(
                       fontSize: 12.sp,
                       fontWeight: FontWeight.w400,
-                      color: AppColors.textColor
-                  ),
+                      color: AppColors.textColor),
                   name: 'carname',
                   hintText: "",
                   // prefixIcon: SvgPicture.asset(
@@ -73,72 +124,28 @@ class _NameYourVehicleSheetState extends State<NameYourVehicleSheet> {
                   //   fit: BoxFit.scaleDown,
                   //   color: AppColors.primary,
                   // ),
-
                 ),
-                // 2.height,
-                // MyText(text: "What Type Of Vehicle Is This?",color: AppColors.textColor,fontSize: 14.sp,fontWeight: FontWeight.w600,),
-                // 1.height,
-                // Row(
-                //   crossAxisAlignment: CrossAxisAlignment.start,
-                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //   children: [
-                //     Column(
-                //       crossAxisAlignment: CrossAxisAlignment.start,
-                //
-                //       children: [
-                //         VehicleTypeChoiceContainer(choice: "Boat",selectedChoice: selectedChoice,selection: 1,
-                //           onTap: (){
-                //           setState(() {
-                //             selectedChoice=1;
-                //           });
-                //
-                //         },),
-                //         2.height,
-                //         VehicleTypeChoiceContainer(choice: "Motorbike",selectedChoice: selectedChoice,selection: 2,   onTap: (){
-                //           setState(() {
-                //             selectedChoice=2;
-                //           });
-                //
-                //         },),
-                //
-                //       ],
-                //     ),
-                //     Column(
-                //       crossAxisAlignment: CrossAxisAlignment.start,
-                //       children: [
-                //         VehicleTypeChoiceContainer(choice: "Car",selectedChoice: selectedChoice,selection: 4,  onTap: (){
-                //           setState(() {
-                //             selectedChoice=4;
-                //           });
-                //
-                //
-                //         },),
-                //         2.height,
-                //
-                //         VehicleTypeChoiceContainer(choice: "Trailer",selectedChoice: selectedChoice,selection: 5,
-                //           onTap: (){
-                //             setState(() {
-                //               selectedChoice=5;
-                //             });
-                //
-                //           },),
-                //
-                //       ],
-                //     ),
-                //     VehicleTypeChoiceContainer(choice: "Equipment",selectedChoice: selectedChoice,selection: 3,
-                //       onTap: (){
-                //         setState(() {
-                //           selectedChoice=3;
-                //         });
-                //
-                //       },
-                //
-                //     ),
-                //   ],
-                // ),
-
+                1.height,
+                MyText(
+                  text: "What is the Status of this Vehicle",
+                  fontSize: 12.sp,
+                  color: AppColors.textColor,
+                  fontWeight: FontWeight.bold,
+                ),
+                1.height,
+                Wrap(
+                  spacing: 2.w,
+                  runSpacing: 2.h,
+                  children: [
+                    _buildStatusCheckbox(0, "Active"),
+                    _buildStatusCheckbox(1, "Written-off"),
+                    _buildStatusCheckbox(2, "De-registered"),
+                    _buildStatusCheckbox(3, "Sold"),
+                    1.width,
+                    _buildStatusCheckbox(4, "Out of Service"),
+                  ],
+                ),
                 3.height,
-
                 CustomButton(
                   label: "Save",
                   onPressed: () {

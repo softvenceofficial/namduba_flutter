@@ -14,12 +14,10 @@ class CertificateDetailSheet extends StatefulWidget {
 }
 
 class _CertificateDetailSheetState extends State<CertificateDetailSheet> {
-
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         FocusScope.of(context)!.unfocus();
       },
       child: Padding(
@@ -29,9 +27,18 @@ class _CertificateDetailSheetState extends State<CertificateDetailSheet> {
             2.height,
             Row(
               children: [
-                Icon(Icons.check_circle_outline_rounded,color: AppColors.green3,size: 20,),
+                Icon(
+                  Icons.check_circle_outline_rounded,
+                  color: AppColors.green3,
+                  size: 20,
+                ),
                 1.width,
-                MyText(text: "Your road tax is valid",fontSize: 14.sp,fontWeight: FontWeight.w600,color: AppColors.textColor,),
+                MyText(
+                  text: "Your road tax is valid",
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.w600,
+                  color: AppColors.textColor,
+                ),
                 Spacer(),
                 GestureDetector(
                   onTap: () {
@@ -43,11 +50,12 @@ class _CertificateDetailSheetState extends State<CertificateDetailSheet> {
                     height: 2.5.h,
                   ),
                 ),
-
               ],
             ),
             1.height,
-            Divider(color: AppColors.border,),
+            Divider(
+              color: AppColors.border,
+            ),
             3.height,
             Padding(
               padding: EdgeInsets.only(
@@ -60,30 +68,25 @@ class _CertificateDetailSheetState extends State<CertificateDetailSheet> {
                     fontSize: 12.sp,
                     color: AppColors.textColor,
                     fontWeight: FontWeight.w500,
-
                   ),
                   MyText(
                     text: "80/2784",
                     fontSize: 11.sp,
                     color: AppColors.textColor,
                     fontWeight: FontWeight.w400,
-
                   ),
                   1.height,
-
                   MyText(
                     text: "Issue Date",
                     fontSize: 12.sp,
                     color: AppColors.textColor,
                     fontWeight: FontWeight.w500,
-
                   ),
                   MyText(
                     text: "31 March 2024",
                     fontSize: 11.sp,
                     color: AppColors.textColor,
                     fontWeight: FontWeight.w400,
-
                   ),
                   1.height,
                   MyText(
@@ -91,14 +94,12 @@ class _CertificateDetailSheetState extends State<CertificateDetailSheet> {
                     fontSize: 12.sp,
                     color: AppColors.textColor,
                     fontWeight: FontWeight.w500,
-
                   ),
                   MyText(
                     text: "31 March 2025",
                     fontSize: 11.sp,
                     color: AppColors.textColor,
                     fontWeight: FontWeight.w400,
-
                   ),
                   1.height,
                   MyText(
@@ -106,17 +107,16 @@ class _CertificateDetailSheetState extends State<CertificateDetailSheet> {
                     fontSize: 12.sp,
                     color: AppColors.textColor,
                     fontWeight: FontWeight.w500,
-
                   ),
                   MyText(
                     text: "12TSA",
                     fontSize: 11.sp,
                     color: AppColors.textColor,
                     fontWeight: FontWeight.w400,
-
                   ),
                   2.height,
                   CustomButton(
+                    textcolor: AppColors.primary,
                     label: "View Certificate",
                     onPressed: () async {
                       await showModalBottomSheet(
@@ -136,7 +136,6 @@ class _CertificateDetailSheetState extends State<CertificateDetailSheet> {
                     foregroundColor: AppColors.primary,
                   ),
                   2.height,
-
                 ],
               ),
             ),
