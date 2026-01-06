@@ -1,11 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:nanduba/constants/text.dart';
 import 'package:nanduba/export.dart';
-import 'package:nanduba/utils/size_box_extension.dart';
-import 'package:nanduba/utils/svgs.dart';
+import 'package:nanduba/views/Profile/Chose_payment/Chose_payment.dart';
+
 import 'package:nanduba/views/new_profile_screen/edit_profile_screen.dart';
+import 'package:nanduba/views/new_profile_screen/login_and_security/login_and_security_screen.dart';
 import 'package:nanduba/views/new_profile_screen/widget/profile_item_widget.dart';
-import 'package:nanduba/widgets/core/custom_appbar.dart';
 
 class AccountSettingsScreen extends StatefulWidget {
   const AccountSettingsScreen({super.key});
@@ -37,7 +35,10 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
               SwitchAccountItemWidget(
                 title: "Login & Security",
                 svgIcon: AppSvgs.sheild,
-                onTap: () {},
+                onTap: () {
+                  AppCustomNavigator.push(
+                      context, const LoginAndSecurityScreen());
+                },
               ),
               1.height,
               SwitchAccountItemWidget(
@@ -55,7 +56,9 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
               SwitchAccountItemWidget(
                 title: "Payment Settings",
                 svgIcon: AppSvgs.makapayment,
-                onTap: () {},
+                onTap: () {
+                  AppCustomNavigator.push(context, ChosePayment());
+                },
               ),
               1.height,
               SwitchAccountItemWidget(

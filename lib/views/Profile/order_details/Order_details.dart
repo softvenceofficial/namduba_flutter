@@ -587,6 +587,9 @@ class _OrderDetailsState extends State<OrderDetails> {
                 },
                 height: 5.h,
                 width: 25.w,
+                textcolor: selectedButtonIndex == 0
+                    ? AppColors.white
+                    : AppColors.cBEBEBE,
                 backgroundColor: selectedButtonIndex == 0
                     ? AppColors.primary
                     : Colors.transparent,
@@ -604,6 +607,9 @@ class _OrderDetailsState extends State<OrderDetails> {
                 },
                 height: 5.h,
                 width: 28.w,
+                textcolor: selectedButtonIndex == 1
+                    ? AppColors.white
+                    : AppColors.cBEBEBE,
                 backgroundColor: selectedButtonIndex == 1
                     ? AppColors.primary
                     : Colors.transparent,
@@ -951,6 +957,7 @@ class _FilterBottomSheetContentState extends State<FilterBottomSheetContent> {
                   onPressed: () {
                     Get.back();
                   },
+                  textcolor: AppColors.primary,
                   foregroundColor: AppColors.primary,
                   backgroundColor: Colors.white,
                 ),

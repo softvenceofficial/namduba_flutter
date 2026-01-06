@@ -15,19 +15,20 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body: SafeArea(child: Padding(
+      body: SafeArea(
+          child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 5.0.w),
         child: Column(
           children: [
-            CustomAppbar(title: "Ask Question?"),
+            const CustomAppbar(title: "Ask Question?"),
             4.height,
             Align(
               alignment: Alignment.centerLeft,
               child: MyText(
-                  text: "Any Question or Query Contact Us?",
-                  fontWeight: FontWeight.w600,
-                  fontSize: 14.sp,
-                  color: AppColors.textColor,
+                text: "Any Question or Query Contact Us?",
+                fontWeight: FontWeight.w600,
+                fontSize: 14.sp,
+                color: AppColors.textColor,
               ),
             ),
             1.height,
@@ -53,31 +54,28 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                   minLines: 1,
                   style: GoogleFonts.poppins(
                       textStyle: TextStyle(
-                        fontSize: 11.sp,
-                        fontWeight: FontWeight.w400,
-                        color: AppColors.verylightGreen
-                      )
-                  ),
+                          fontSize: 11.sp,
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.verylightGreen)),
                   decoration: InputDecoration(
                     hintStyle: GoogleFonts.poppins(
                         textStyle: TextStyle(
                             fontSize: 11.sp,
                             fontWeight: FontWeight.w400,
-                            color: AppColors.verylightGreen
-                        )
-                    ),
-                    hintText:  'Enter your message here...',
+                            color: AppColors.verylightGreen)),
+                    hintText: 'Enter your message here...',
                     border: InputBorder.none,
                     contentPadding: EdgeInsets.zero,
-
                   ),
                 ),
               ),
             ),
             13.height,
-            CustomButton(label: "Submit", onPressed: (){
-              Get.to(RateReviewScreen());
-            })
+            CustomButton(
+                label: "Submit",
+                onPressed: () {
+                  Get.to(RateReviewScreen());
+                })
           ],
         ),
       )),

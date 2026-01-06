@@ -1,11 +1,15 @@
 import 'package:get/get.dart';
 import 'package:nanduba/constants/textfontstyle.dart';
 import 'package:nanduba/export.dart';
+import 'package:nanduba/views/Profile/Policies/Policies.dart';
 import 'package:nanduba/views/Profile/Settings/settings.dart';
 import 'package:nanduba/views/Profile/User_profile/user_profile.dart';
+import 'package:nanduba/views/Profile/order_details/Order_details.dart';
 import 'package:nanduba/views/Wishlist/Wishlist.dart';
+import 'package:nanduba/views/contact_us/contact_us_screen.dart';
 import 'package:nanduba/views/create_request/payment_methods/choose_payment_methods.dart';
 import 'package:nanduba/views/new_profile_screen/account_settings_screen.dart';
+import 'package:nanduba/views/new_profile_screen/marketplace/insurance_type_screen.dart';
 import 'package:nanduba/views/new_profile_screen/widget/profile_item_widget.dart';
 import 'package:nanduba/views/new_profile_screen/your_garage/your_garage_scree.dart';
 import 'package:nanduba/widgets/core/my_text.dart';
@@ -158,13 +162,18 @@ class _NewProfileScreenState extends State<NewProfileScreen> {
                   SwitchAccountItemWidget(
                     title: "Orders",
                     svgIcon: AppSvgs.odercard,
-                    onTap: () {},
+                    onTap: () {
+                      AppCustomNavigator.push(context, const OrderDetails());
+                    },
                   ),
                   0.7.height,
                   SwitchAccountItemWidget(
                     title: "Insurance",
                     svgIcon: AppSvgs.passwordIcon,
-                    onTap: () {},
+                    onTap: () {
+                      AppCustomNavigator.push(
+                          context, const InsuranceTypeScreen());
+                    },
                   ),
                   0.7.height,
                   SwitchAccountItemWidget(
@@ -206,7 +215,9 @@ class _NewProfileScreenState extends State<NewProfileScreen> {
                   SwitchAccountItemWidget(
                     title: "Contact Support",
                     svgIcon: AppSvgs.forgotByEmail,
-                    onTap: () {},
+                    onTap: () {
+                      AppCustomNavigator.push(context, const ContactUsScreen());
+                    },
                   ),
                   2.4.height,
                   Padding(
@@ -231,7 +242,7 @@ class _NewProfileScreenState extends State<NewProfileScreen> {
                     title: "Settings",
                     svgIcon: AppSvgs.setting2,
                     onTap: () {
-                      AppCustomNavigator.push(context, Settings());
+                      AppCustomNavigator.push(context, const Settings());
                     },
                   ),
                 ],

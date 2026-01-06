@@ -40,15 +40,18 @@ class _CreateAnAccountState extends State<CreateAnAccount> {
                     /// Title
                     RichText(
                       text: TextSpan(
-                          text: AppText.letsgets,
-                          style: Textfontstyle.TextStyle23w600c212121poppins),
+                        text: AppText.letsgets,
+                        style: Textfontstyle.TextStyle23w600c212121poppins,
+                      ),
                     ),
 
                     1.5.height,
 
                     /// Subtitle
-                    Text(AppText.problemToday,
-                        style: Textfontstyle.TextStyle14w400greypoppins),
+                    Text(
+                      AppText.problemToday,
+                      style: Textfontstyle.TextStyle14w400greypoppins,
+                    ),
 
                     18.5.height,
 
@@ -154,62 +157,53 @@ class _CreateAnAccountState extends State<CreateAnAccount> {
           ),
 
           /// 🔹 Close Button (Top Left)
-
-          SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Positioned(
-                top: 16,
-                left: 16,
-                right: 16,
-                child: SafeArea(
-                  child: Row(
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 4, vertical: 6),
-                        height: 48,
-                        width: 43,
-                        decoration: const BoxDecoration(
-                          color: AppColors.white,
+          Positioned(
+            top: 16,
+            left: 16,
+            child: Row(
+              children: [
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 4, vertical: 6),
+                  height: 48,
+                  width: 43,
+                  decoration: const BoxDecoration(
+                    color: AppColors.white,
+                  ),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.12),
+                          blurRadius: 4,
+                          spreadRadius: 0,
+                          offset: const Offset(0, 0),
                         ),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.12),
-                                blurRadius: 4,
-                                spreadRadius: 0,
-                                offset: const Offset(0, 0),
-                              ),
-                            ],
-                            color: Colors.white,
-                            shape: BoxShape.circle,
-                          ),
-                          child: IconButton(
-                            onPressed: () {
-                              AppCustomNavigator.replace(
-                                context,
-                                const BottomNavbar(),
-                              );
-                            },
-                            icon: Icon(
-                              Icons.close,
-                              color: AppColors.black,
-                              size: 14.sp,
-                            ),
-                          ),
-                        ),
+                      ],
+                      color: Colors.white,
+                      shape: BoxShape.circle,
+                    ),
+                    child: IconButton(
+                      onPressed: () {
+                        AppCustomNavigator.replace(
+                          context,
+                          const BottomNavbar(),
+                        );
+                      },
+                      icon: Icon(
+                        Icons.close,
+                        color: AppColors.black,
+                        size: 14.sp,
                       ),
-                      const SizedBox(width: 12),
-                      Text(
-                        AppText.createaccount,
-                        style: Textfontstyle.TextStyle22w600c000000poppins,
-                      ),
-                    ],
+                    ),
                   ),
                 ),
-              ),
+                const SizedBox(width: 12),
+                Text(
+                  AppText.createaccount,
+                  style: Textfontstyle.TextStyle22w600c000000poppins,
+                ),
+              ],
             ),
           ),
         ],

@@ -1,7 +1,7 @@
 import 'package:nanduba/export.dart';
-import 'package:nanduba/views/Profile/Profile.dart';
-import 'package:nanduba/views/new_profile_screen/new_profile_screen.dart';
+
 import 'package:nanduba/views/inbox/chat_list/chat_list.dart';
+import 'package:nanduba/views/new_profile_screen/new_profile_screen.dart';
 
 class BottomNavbar extends StatefulWidget {
   const BottomNavbar({super.key, this.selected});
