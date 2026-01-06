@@ -86,6 +86,9 @@ class _PoliciesState extends State<Policies> {
                       onPressed: () {
                         selectedButtonIndex.value = 1;
                       },
+                      textcolor: selectedButtonIndex.value == 1
+                          ? AppColors.white
+                          : AppColors.cBEBEBE,
                       backgroundColor: selectedButtonIndex.value == 1
                           ? AppColors.primary
                           : Colors.transparent,
@@ -105,6 +108,9 @@ class _PoliciesState extends State<Policies> {
                       onPressed: () {
                         selectedButtonIndex.value = 2;
                       },
+                      textcolor: selectedButtonIndex.value == 2
+                          ? AppColors.white
+                          : AppColors.cBEBEBE,
                       backgroundColor: selectedButtonIndex.value == 2
                           ? AppColors.primary
                           : Colors.transparent,

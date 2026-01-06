@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:nanduba/constants/textfontstyle.dart';
 import 'package:nanduba/export.dart';
 import 'package:nanduba/widgets/core/underline_textfild.dart';
@@ -9,6 +11,8 @@ class EditableField extends StatefulWidget {
   final TextEditingController? controller;
   final String? edittext;
 
+  final VoidCallback? onEditTap;
+
   const EditableField({
     super.key,
     required this.label,
@@ -16,6 +20,7 @@ class EditableField extends StatefulWidget {
     this.initiallyEditable = false,
     this.edittext,
     this.controller,
+    this.onEditTap,
   });
 
   @override
@@ -52,7 +57,6 @@ class _EditableFieldState extends State<EditableField> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Label + Edit button
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -64,7 +68,7 @@ class _EditableFieldState extends State<EditableField> {
               ),
             ),
             InkWell(
-              onTap: _toggleEdit,
+              onTap: widget.onEditTap ?? _toggleEdit,
               child: Text(
                 _isEditing ? "Done" : (widget.edittext ?? "Edit"),
                 style: Textfontstyle.TextStyle14w500c212121poppins.copyWith(
@@ -77,7 +81,6 @@ class _EditableFieldState extends State<EditableField> {
             ),
           ],
         ),
-
         UnderlineTextField(
           hintText: widget.hintText,
           controller: _controller,

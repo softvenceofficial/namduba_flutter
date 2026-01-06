@@ -1,23 +1,22 @@
 import 'package:get/get.dart';
 import 'package:nanduba/export.dart';
-  import 'package:nanduba/views/add_vehicle/purchase_history/component/report_history.dart';
+import 'package:nanduba/views/add_vehicle/purchase_history/component/report_history.dart';
 import 'package:nanduba/views/add_vehicle/purchase_history/purchase_history_orders.dart';
-  import 'package:nanduba/widgets/core/my_text.dart';
+import 'package:nanduba/widgets/core/my_text.dart';
 
 class PurchaseHistory extends StatelessWidget {
   RxInt selectedButtonIndex = 1.obs;
 
   @override
   Widget build(BuildContext context) {
-    return
-      Scaffold(
+    return Scaffold(
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             2.height,
             Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 5.w),
+              padding: EdgeInsets.symmetric(horizontal: 5.w),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -31,8 +30,7 @@ class PurchaseHistory extends StatelessWidget {
                         width: 5.5.h,
                         decoration: BoxDecoration(
                             border: Border.all(color: AppColors.lightGrey),
-                            shape: BoxShape.circle
-                        ),
+                            shape: BoxShape.circle),
                         child: const Center(
                           child: Icon(Icons.arrow_back_ios_new_rounded),
                         ),
@@ -41,13 +39,16 @@ class PurchaseHistory extends StatelessWidget {
                     3.width,
                     Expanded(
                       child: MyText(
-                        text: "Purchases & Reports",
+                        text: "Purchases & History",
                         fontSize: 13.sp,
                         fontWeight: FontWeight.w700,
                         color: AppColors.textColor5,
                       ),
                     ),
-                    SvgPicture.asset(AppSvgs.settings,color: AppColors.border3,)
+                    SvgPicture.asset(
+                      AppSvgs.settings,
+                      color: AppColors.border3,
+                    )
                   ]),
             ),
             Obx(() {
@@ -55,7 +56,7 @@ class PurchaseHistory extends StatelessWidget {
                 children: [
                   2.height,
                   Padding(
-                    padding:  EdgeInsets.symmetric(horizontal: 5.w),
+                    padding: EdgeInsets.symmetric(horizontal: 5.w),
                     child: Row(
                       children: [
                         CustomButton(
@@ -69,10 +70,12 @@ class PurchaseHistory extends StatelessWidget {
                           onPressed: () {
                             selectedButtonIndex.value = 1;
                           },
-
+                          textcolor: selectedButtonIndex.value == 1
+                              ? AppColors.white
+                              : AppColors.cBEBEBE,
                           backgroundColor: selectedButtonIndex.value == 1
                               ? AppColors.primary
-                              : Colors.transparent,
+                              : AppColors.white,
                           foregroundColor: selectedButtonIndex.value == 1
                               ? AppColors.white
                               : AppColors.grey,
@@ -89,32 +92,31 @@ class PurchaseHistory extends StatelessWidget {
                           onPressed: () {
                             selectedButtonIndex.value = 2;
                           },
-
+                          textcolor: selectedButtonIndex.value == 2
+                              ? AppColors.white
+                              : AppColors.cBEBEBE,
                           backgroundColor: selectedButtonIndex.value == 2
                               ? AppColors.primary
-                              : Colors.transparent,
+                              : AppColors.white,
                           foregroundColor: selectedButtonIndex.value == 2
                               ? AppColors.white
                               : AppColors.grey,
-
                         ),
-                        Spacer(flex: 2,),
-
+                        Spacer(
+                          flex: 2,
+                        ),
                       ],
                     ),
                   ),
                   1.height,
-
                 ],
               );
             }),
             0.5.height,
-            Obx(()=>
-            selectedButtonIndex.value==1?
-            PurchaseHistoryOrders():ReportHistory()
-            ),
+            Obx(() => selectedButtonIndex.value == 1
+                ? PurchaseHistoryOrders()
+                : ReportHistory()),
             // NoPurchaseBox(),
-
           ],
         ),
       ),

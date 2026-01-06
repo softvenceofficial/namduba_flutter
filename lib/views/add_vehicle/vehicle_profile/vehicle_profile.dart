@@ -201,7 +201,7 @@ class VehicleProfile extends StatelessWidget {
                       padding: EdgeInsets.symmetric(horizontal: 5.w),
                       child: Column(
                         children: [
-                          VehicleDetailComponent(),
+                          const VehicleDetailComponent(),
                           1.5.height,
                           VehicleShopForRideComponent(),
                         ],

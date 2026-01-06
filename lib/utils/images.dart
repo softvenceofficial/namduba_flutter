@@ -1,6 +1,8 @@
 class AppImages {
   static const String bagroundcircule = 'assets/images/baground_circule.png';
   static const String carImage = 'assets/images/car_image.png';
+  static const String toyota = 'assets/images/toyota.png';
+
   static const String trailerImage = 'assets/images/trailer_image.png';
   static const String bikeImage = 'assets/images/bike_image.png';
   static const String toolsImage = 'assets/images/tools_image.png';
