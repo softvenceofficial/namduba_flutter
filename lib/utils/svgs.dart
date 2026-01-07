@@ -1,5 +1,8 @@
 class AppSvgs {
   static const String email = 'assets/svg/email.svg';
+  static const String reddot = 'assets/svg/red_dot.svg';
+  static const String addcircul = 'assets/svg/add_circul.svg';
+  static const String drivericon = 'assets/svg/driver_icon.svg';
   static const String phonetik = 'assets/svg/phone_tik.svg';
   static const String leftrightcircul = 'assets/svg/left_right_circul.svg';
   static const String arrowdown = 'assets/svg/arrow_down.svg';
