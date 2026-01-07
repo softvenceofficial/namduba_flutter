@@ -9,7 +9,7 @@ import 'package:nanduba/views/Wishlist/Wishlist.dart';
 import 'package:nanduba/views/contact_us/contact_us_screen.dart';
 import 'package:nanduba/views/create_request/payment_methods/choose_payment_methods.dart';
 import 'package:nanduba/views/new_profile_screen/account_settings_screen.dart';
-import 'package:nanduba/views/new_profile_screen/marketplace/insurance_type_screen.dart';
+import 'package:nanduba/views/new_profile_screen/marketplace/screen/insurance_type_screen.dart';
 import 'package:nanduba/views/new_profile_screen/widget/profile_item_widget.dart';
 import 'package:nanduba/views/new_profile_screen/your_garage/your_garage_scree.dart';
 import 'package:nanduba/widgets/core/my_text.dart';

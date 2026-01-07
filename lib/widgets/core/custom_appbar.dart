@@ -15,10 +15,13 @@ class CustomAppbar extends StatefulWidget {
   final bool showCart;
   final VoidCallback? onTogglePressed;
   final VoidCallback? onAddButtonTap;
-  final String? svgIconNextToTitle; // Icon at the end of appbar
-  final int? badgeNumber; // Optional badge for the icon
-  final Color? svgIconColor; // Optional color for the icon
-  final VoidCallback? onSvgIconTap; // NEW: callback for icon tap
+  final String? svgIconNextToTitle;
+  final int? badgeNumber;
+  final Color? svgIconColor;
+  final VoidCallback? onSvgIconTap;
+  final bool? isborder;
+  final bool centerTitle;
+  final bool? padding;
 
   const CustomAppbar({
     super.key,
@@ -34,7 +37,10 @@ class CustomAppbar extends StatefulWidget {
     this.svgIconNextToTitle,
     this.badgeNumber,
     this.svgIconColor,
-    this.onSvgIconTap, // only executes if provided
+    this.onSvgIconTap,
+    this.isborder = false,
+    this.centerTitle = false,
+    this.padding = true,
   });
 
   @override
@@ -93,10 +99,15 @@ class _CustomAppbarState extends State<CustomAppbar> {
                           hintText: AppText.search,
                         )
                       : Align(
-                          alignment: Alignment.centerLeft,
+                          alignment: widget.centerTitle
+                              ? Alignment.center
+                              : Alignment.centerLeft,
                           child: Text(
                             widget.title,
                             key: const ValueKey<int>(0),
+                            textAlign: widget.centerTitle
+                                ? TextAlign.center
+                                : TextAlign.left,
                             style: Textfontstyle.TextStyle18w700c212121poppins
                                 .copyWith(fontSize: 14.sp),
                           ),
@@ -167,15 +178,30 @@ class _CustomAppbarState extends State<CustomAppbar> {
                   child: Stack(
                     clipBehavior: Clip.none,
                     children: [
-                      SvgPicture.asset(
-                        widget.svgIconNextToTitle!,
-                        height: 3.h,
-                        color: widget.svgIconColor ?? AppColors.primary,
+                      Container(
+                        height: 5.h,
+                        width: 5.h,
+                        padding: (widget.padding ?? true)
+                            ? EdgeInsets.all(10)
+                            : null,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: (widget.isborder ?? false)
+                              ? Border.all(color: AppColors.cBEBEBE)
+                              : null,
+                        ),
+                        child: SvgPicture.asset(
+                          widget.svgIconNextToTitle!,
+                          height: 3.h,
+                          color: (widget.padding ?? true)
+                              ? widget.svgIconColor ?? AppColors.primary
+                              : null,
+                        ),
                       ),
                       if (widget.badgeNumber != null && widget.badgeNumber! > 0)
                         Positioned(
-                          right: -2.w,
-                          top: -2.w,
+                          right: 1.w,
+                          top: -.5.w,
                           child: Container(
                             padding: EdgeInsets.all(1.w),
                             decoration: const BoxDecoration(

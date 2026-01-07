@@ -1,16 +1,17 @@
 import 'package:nanduba/constants/textfontstyle.dart';
 import 'package:nanduba/export.dart';
-import 'package:nanduba/views/new_profile_screen/marketplace/select_currency_widget.dart';
+import 'package:nanduba/views/new_profile_screen/marketplace/screen/consignment_details_screen.dart';
+import 'package:nanduba/views/new_profile_screen/marketplace/screen/select_currency_widget.dart';
 
-class InsuranceTypeScreen extends StatefulWidget {
-  const InsuranceTypeScreen({super.key});
+class MarineTypeScreen extends StatefulWidget {
+  const MarineTypeScreen({super.key});
 
   @override
-  State<InsuranceTypeScreen> createState() => _InsuranceTypeScreenState();
+  State<MarineTypeScreen> createState() => _MarineTypeScreenState();
 }
 
-class _InsuranceTypeScreenState extends State<InsuranceTypeScreen> {
-  int _selectedIndex = 0;
+class _MarineTypeScreenState extends State<MarineTypeScreen> {
+  int _selectedIndex = -1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,11 +22,17 @@ class _InsuranceTypeScreenState extends State<InsuranceTypeScreen> {
             vertical: 4,
           ),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const CustomAppbar(title: "Insuranse type"),
+              const CustomAppbar(
+                centerTitle: true,
+                isborder: true,
+                title: "Marine type",
+                svgIconNextToTitle: AppSvgs.searchIcon,
+              ),
               2.height,
               Text(
-                "Please choose the type of insurance you need",
+                "What do you want to insure?",
                 style: Textfontstyle.TextStyle14w400midgreyinter.copyWith(
                   fontSize: 12.sp,
                   fontWeight: FontWeight.w400,
@@ -38,7 +45,7 @@ class _InsuranceTypeScreenState extends State<InsuranceTypeScreen> {
                     _selectedIndex = 0;
                   });
                   AppCustomNavigator.push(
-                      context, const SelectCurrencyWidget());
+                      context, const ConsignmentDetailsScreen());
                 },
                 child: CustomContainer(
                     isBorder: _selectedIndex == 0,
@@ -48,7 +55,7 @@ class _InsuranceTypeScreenState extends State<InsuranceTypeScreen> {
                     vpadding: 18,
                     child: Center(
                       child: Text(
-                        "Motor Insurance",
+                        "Goods/Consignment ",
                         style: Textfontstyle.TextStyle16w500c212121poppins
                             .copyWith(
                                 color: AppColors.textColor,
@@ -63,6 +70,8 @@ class _InsuranceTypeScreenState extends State<InsuranceTypeScreen> {
                   setState(() {
                     _selectedIndex = 1;
                   });
+                  AppCustomNavigator.push(
+                      context, const ConsignmentDetailsScreen());
                 },
                 child: CustomContainer(
                     isBorder: _selectedIndex == 1,
@@ -72,7 +81,7 @@ class _InsuranceTypeScreenState extends State<InsuranceTypeScreen> {
                     vpadding: 18,
                     child: Center(
                       child: Text(
-                        "Plant Insurance",
+                        "Vessel/Boat",
                         style: Textfontstyle.TextStyle16w500c212121poppins
                             .copyWith(
                                 color: AppColors.textColor,
@@ -87,6 +96,8 @@ class _InsuranceTypeScreenState extends State<InsuranceTypeScreen> {
                   setState(() {
                     _selectedIndex = 2;
                   });
+                  AppCustomNavigator.push(
+                      context, const ConsignmentDetailsScreen());
                 },
                 child: CustomContainer(
                     isBorder: _selectedIndex == 2,
@@ -96,7 +107,33 @@ class _InsuranceTypeScreenState extends State<InsuranceTypeScreen> {
                     vpadding: 18,
                     child: Center(
                       child: Text(
-                        "Marine Insurance",
+                        "Legal Liability ",
+                        style: Textfontstyle.TextStyle16w500c212121poppins
+                            .copyWith(
+                                color: AppColors.textColor,
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold),
+                      ),
+                    )),
+              ),
+              2.1.height,
+              InkWell(
+                onTap: () {
+                  setState(() {
+                    _selectedIndex = 3;
+                  });
+                  AppCustomNavigator.push(
+                      context, const ConsignmentDetailsScreen());
+                },
+                child: CustomContainer(
+                    isBorder: _selectedIndex == 3,
+                    height: 60,
+                    width: double.infinity,
+                    hpadding: 18,
+                    vpadding: 18,
+                    child: Center(
+                      child: Text(
+                        "Freight Income",
                         style: Textfontstyle.TextStyle16w500c212121poppins
                             .copyWith(
                                 color: AppColors.textColor,
