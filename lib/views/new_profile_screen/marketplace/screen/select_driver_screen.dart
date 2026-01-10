@@ -6,7 +6,7 @@ import 'package:nanduba/constants/textfontstyle.dart';
 import 'package:nanduba/export.dart';
 import 'package:nanduba/views/new_profile_screen/login_and_security/widget/update_button.dart';
 import 'package:nanduba/views/new_profile_screen/marketplace/screen/quriy_screen.dart';
- import 'package:nanduba/views/new_profile_screen/marketplace/widget/chack_box_widget.dart';
+import 'package:nanduba/views/new_profile_screen/marketplace/widget/chack_box_widget.dart';
 import 'package:nanduba/views/new_profile_screen/marketplace/widget/step_input_card.dart';
 
 class DriverSteps {

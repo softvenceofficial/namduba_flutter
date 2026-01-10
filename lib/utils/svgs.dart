@@ -6,6 +6,7 @@ class AppSvgs {
   static const String phonetik = 'assets/svg/phone_tik.svg';
   static const String leftrightcircul = 'assets/svg/left_right_circul.svg';
   static const String arrowdown = 'assets/svg/arrow_down.svg';
+  static const String arrowup = 'assets/svg/arrowup.svg';
   static const String tickcircle = 'assets/svg/tick_circle.svg';
   static const String closecircle = 'assets/svg/close_circle.svg';
   static const String passporticon = 'assets/svg/passport_icon.svg';

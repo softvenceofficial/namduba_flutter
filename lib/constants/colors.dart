@@ -65,6 +65,8 @@ class AppColors {
 
   static const Color red = Color(0xffFF0000);
 
+  static const Color c252628 = Color(0xff252628);
+
   static final kEnableBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(14.sp),
     borderSide: const BorderSide(
