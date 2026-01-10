@@ -1,5 +1,6 @@
 import 'package:nanduba/constants/textfontstyle.dart';
 import 'package:nanduba/export.dart';
+import 'package:nanduba/views/new_profile_screen/marketplace/screen/compare_estimate_screen.dart';
 import 'package:nanduba/views/new_profile_screen/marketplace/widget/vehicel_info_card.dart';
 
 class ReviewScreenmarkateplace extends StatefulWidget {
@@ -19,10 +20,9 @@ class _ReviewScreenmarkateplaceState extends State<ReviewScreenmarkateplace> {
           child: Column(
             children: [
               2.height,
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 18, vertical: 0),
-                child: const CustomAppbar(
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 18, vertical: 0),
+                child: CustomAppbar(
                   title: "Review",
                   svgIconNextToTitle: AppSvgs.addcircul,
                   padding: false,
@@ -250,7 +250,10 @@ class _ReviewScreenmarkateplaceState extends State<ReviewScreenmarkateplace> {
                     2.height,
                     CustomButton(
                       label: "Submit Request",
-                      onPressed: () {},
+                      onPressed: () {
+                        AppCustomNavigator.push(
+                            context, const CompareEstimatesScreen());
+                      },
                     )
                   ],
                 ),

@@ -132,7 +132,7 @@ class _ConsignmentDetailsScreenState extends State<ConsignmentDetailsScreen> {
                 ),
                 0.5.height,
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 18, vertical: 14),
+                  padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
                   height: 70,
                   width: double.infinity,
                   decoration: BoxDecoration(
