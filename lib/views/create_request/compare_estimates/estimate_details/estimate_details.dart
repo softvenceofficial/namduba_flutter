@@ -1,8 +1,6 @@
 import 'package:get/get.dart';
 import 'package:nanduba/export.dart';
 import 'package:nanduba/providers/estimate_provider.dart';
-import 'package:nanduba/views/order_detail/Order_detailed_screen.dart';
-import 'package:nanduba/views/add_vehicle/vehicle_profile/vehicle_profile.dart';
 import 'package:nanduba/views/create_request/compare_estimates/estimate_details/component/view_request_sheet.dart';
 import 'package:nanduba/views/create_request/compare_estimates/request_estimate_item_detail/estimate_item_details.dart';
 import 'package:nanduba/views/create_request/payment_methods/choose_payment_methods.dart';
@@ -11,7 +9,6 @@ import 'package:nanduba/views/shop/seller_shop_info.dart';
 import 'package:nanduba/widgets/core/my_text.dart';
 
 import '../../../../controllers/vehicle_profile_controller.dart';
-import '../../../../providers/view_request_provider.dart';
 import 'component/estimate_details_pop_up.dart';
 
 class EstimateDetails extends StatelessWidget {
@@ -274,9 +271,10 @@ class EstimateDetails extends StatelessWidget {
                                                                         'service'],
                                                               ));
                                                         },
-                                                        child: Text("Details",
-                                                            style: Theme.of(
-                                                                    context)
+                                                        child: Text(
+                                                            "View Details",
+                                                            style: Theme
+                                                                    .of(context)
                                                                 .textTheme
                                                                 .bodyLarge!
                                                                 .copyWith(
@@ -414,7 +412,7 @@ class EstimateDetails extends StatelessWidget {
                                                   fontSize: 12.sp,
                                                 ),
                                           ),
-                                          Spacer(),
+                                          const Spacer(),
                                           // Text("\$${provider.total}",style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                                           //   color: AppColors.primary,
                                           //   fontSize: 12.sp,
@@ -423,7 +421,7 @@ class EstimateDetails extends StatelessWidget {
                                           MyText(
                                             text: "\$${provider.total}.00",
                                             color: AppColors.primary,
-                                            fontSize: 14.sp,
+                                            fontSize: 12.sp,
                                             fontWeight: FontWeight.w700,
                                           ),
                                         ],
