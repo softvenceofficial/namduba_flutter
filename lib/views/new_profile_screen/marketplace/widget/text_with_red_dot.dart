@@ -11,13 +11,20 @@ class textwithreddot extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         SvgPicture.asset(AppSvgs.reddot),
         2.width,
-        Text(
-          text,
-          style: Textfontstyle.TextStyle12w500c212121poppins.copyWith(
-              color: AppColors.c252628, fontSize: 12.sp),
+        Expanded(
+          child: Text(
+            text,
+            style: Textfontstyle.TextStyle12w500c212121poppins.copyWith(
+              color: AppColors.c252628,
+              fontSize: 10.sp,
+            ),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
         ),
       ],
     );
