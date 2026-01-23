@@ -1,26 +1,22 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:flutter/cupertino.dart';
 import 'package:nanduba/constants/textfontstyle.dart';
-
 import 'package:nanduba/export.dart';
-import 'package:nanduba/views/Profile/User_profile/user_profile.dart';
 import 'package:nanduba/views/home/widgets/profile_bottom_sheet.dart';
 
 class TopBar extends StatefulWidget {
   final String city;
   VoidCallback onTap;
+
   TopBar({
     super.key,
     required this.city,
     required this.onTap,
   });
+
   @override
   State<TopBar> createState() => _TopBarState();
 }
 
 class _TopBarState extends State<TopBar> {
-  String? img;
-  String name = 'Jhon';
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -54,22 +50,7 @@ class _TopBarState extends State<TopBar> {
             ),
           ),
         ),
-        // GestureDetector(
-        //   onTap: () {
-        //     AppCustomNavigator.push(context, NotificationScreen());
-        //   },
-        //   child: Badge(
-        //     position: BadgePosition.topEnd(top: 0.h, end: 0.h),
-        //     showBadge: true,
-        //     badgeStyle: const BadgeStyle(
-        //         borderSide: BorderSide(color: AppColors.white)),
-        //     child: SvgPicture.asset(
-        //       AppSvgs.notificationIcon,
-        //       height: 2.4.h,
-        //     ),
-        //   ),
-        // ),
-        2.width,
+        // Profile Section (Avatar)
         Row(
           children: [
             GestureDetector(
@@ -99,7 +80,6 @@ class _TopBarState extends State<TopBar> {
                 ],
               ),
             ),
-            2.width,
             GestureDetector(
               onTap: () {
                 showModalBottomSheet(
@@ -111,53 +91,21 @@ class _TopBarState extends State<TopBar> {
                         height: 350, child: ProfileBottomSheet());
                   },
                 );
-                // AppCustomNavigator.push(context, const UserProfile());
               },
-              child: CircleAvatar(
-                radius: 3.h,
-                backgroundColor: AppColors.lightSkyBlue,
-                child: Text(
-                      name[0],
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineSmall
-                          ?.copyWith(color: AppColors.skyBlue),
-                    ) ??
-                    Image(image: AssetImage(img!)),
+              child: Container(
+                width: 25.w,
+                height: 25.w,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    image: AssetImage(AppImages.profileimage),
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
             ),
           ],
-        )
-
-        // Row(
-        //   children: [
-        //     GestureDetector(
-        //         onTap: () {},
-        //         child: SvgPicture.asset(
-        //           AppSvgs.notificationIcon,
-        //           height: 24,
-        //           width: 30,
-        //         )),
-        //     2.width,
-        //     GestureDetector(
-        //       onTap: () {
-        //         AppCustomNavigator.push(context, const UserProfile());
-        //       },
-        //       child: CircleAvatar(
-        //         radius: 3.h,
-        //         backgroundColor: AppColors.lightSkyBlue,
-        //         child: Text(
-        //               name[0],
-        //               style: Theme.of(context)
-        //                   .textTheme
-        //                   .headlineSmall
-        //                   ?.copyWith(color: AppColors.skyBlue),
-        //             ) ??
-        //             Image(image: AssetImage(img!)),
-        //       ),
-        //     ),
-        //   ],
-        // ),
+        ),
       ],
     );
   }

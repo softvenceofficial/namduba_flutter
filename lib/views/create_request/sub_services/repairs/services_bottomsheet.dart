@@ -329,6 +329,7 @@ class _ServicesBottomSheetState extends State<ServicesBottomSheet> {
                                 // 4.width,
                                 Expanded(
                                   child: CustomButton(
+                                    textcolor: AppColors.red,
                                     backgroundColor: AppColors.transparent,
                                     foregroundColor: AppColors.primary,
                                     label: choosedItems.isNotEmpty

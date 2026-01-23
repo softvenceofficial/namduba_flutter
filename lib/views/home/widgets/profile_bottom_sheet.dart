@@ -1,9 +1,7 @@
 import 'package:nanduba/constants/textfontstyle.dart';
 import 'package:nanduba/export.dart';
-import 'package:nanduba/views/Profile/Profile.dart';
-import 'package:nanduba/views/Profile/User_profile/profile_screen_new/Profile_screen.dart';
-import 'package:nanduba/views/Profile/User_profile/user_profile.dart';
-import 'package:nanduba/views/home/switch_account_screen.dart';
+ import 'package:nanduba/views/Profile/User_profile/profile_screen_new/Profile_screen.dart';
+ import 'package:nanduba/views/home/switch_account_screen.dart';
 
 class ProfileBottomSheet extends StatefulWidget {
   const ProfileBottomSheet({super.key});

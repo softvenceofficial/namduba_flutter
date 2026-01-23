@@ -16,6 +16,7 @@ class RequestScreen extends StatefulWidget {
 class _RequestScreenState extends State<RequestScreen> {
   bool showExpantion = false;
   bool showExpantion2 = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,71 +31,93 @@ class _RequestScreenState extends State<RequestScreen> {
                 isborder: true,
               ),
               2.height,
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                decoration: BoxDecoration(
+
+              /// First Request Container
+              InkWell(
+                onTap: () {
+                  AppCustomNavigator.push(context, CompareEstimates());
+                },
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                  decoration: BoxDecoration(
                     color: AppColors.primary.withAlpha(20),
                     borderRadius:
-                        BorderRadius.vertical(top: Radius.circular(20))),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Compliance",
-                          style: Textfontstyle.TextStyle14w400c212121poppins
-                              .copyWith(
-                                  fontSize: 12.sp,
-                                  color: AppColors.textColor,
-                                  fontWeight: FontWeight.w800),
-                        ),
-                        Row(
-                          children: [
-                            IconButton(
-                                onPressed: () {},
-                                icon: Icon(
-                                  Icons.expand_less,
-                                  color: AppColors.primary,
-                                )),
-                            SvgPicture.asset(
-                              AppSvgs.more_vert,
-                              color: AppColors.primary,
-                            )
-                          ],
-                        )
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          "Requested on March 11, 2024",
-                          style: Textfontstyle.TextStyle12w500c212121poppins
-                              .copyWith(
-                                  color: AppColors.midGrey, fontSize: 10.sp),
-                        ),
-                        Spacer(),
-                        InkWell(
-                          onTap: () {
-                            setState(() {
-                              showExpantion = !showExpantion;
-                            });
-                          },
-                          child: SvgPicture.asset(
-                            showExpantion ? AppSvgs.arrowdown : AppSvgs.arrowup,
-                            color: AppColors.primary,
+                        BorderRadius.vertical(top: Radius.circular(20)),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Compliance",
+                            style: Textfontstyle.TextStyle14w400c212121poppins
+                                .copyWith(
+                              fontSize: 12.sp,
+                              color: AppColors.textColor,
+                              fontWeight: FontWeight.w800,
+                            ),
                           ),
-                        )
-                      ],
-                    ),
-                    Text(
-                      "Geting Estimates",
-                      style:
-                          Textfontstyle.TextStyle12w500c212121poppins.copyWith(
-                              color: AppColors.primary, fontSize: 12.sp),
-                    )
-                  ],
+                          Row(
+                            children: [
+                              IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    showExpantion = !showExpantion;
+                                  });
+                                },
+                                icon: Icon(
+                                  showExpantion
+                                      ? Icons.expand_less
+                                      : Icons.expand_more,
+                                  color: AppColors.primary,
+                                ),
+                              ),
+                              SvgPicture.asset(
+                                AppSvgs.more_vert,
+                                color: AppColors.primary,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            "Requested on March 11, 2024",
+                            style: Textfontstyle.TextStyle12w500c212121poppins
+                                .copyWith(
+                              color: AppColors.midGrey,
+                              fontSize: 10.sp,
+                            ),
+                          ),
+                          Spacer(),
+                          InkWell(
+                            onTap: () {
+                              setState(() {
+                                showExpantion = !showExpantion;
+                              });
+                            },
+                            child: SvgPicture.asset(
+                              showExpantion
+                                  ? AppSvgs.arrowdown
+                                  : AppSvgs.arrowup,
+                              color: AppColors.primary,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Text(
+                        "Getting Estimates",
+                        style: Textfontstyle.TextStyle12w500c212121poppins
+                            .copyWith(
+                          color: AppColors.primary,
+                          fontSize: 12.sp,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               RequestExpandableContainer(
@@ -114,7 +137,10 @@ class _RequestScreenState extends State<RequestScreen> {
                   textwithreddot(text: "Change of Ownership (3)"),
                 ],
               ),
+
               2.height,
+
+              /// Second Request Container
               InkWell(
                 onTap: () {
                   AppCustomNavigator.push(context, CompareEstimates());
@@ -122,9 +148,10 @@ class _RequestScreenState extends State<RequestScreen> {
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                   decoration: BoxDecoration(
-                      color: AppColors.primary.withAlpha(20),
-                      borderRadius:
-                          BorderRadius.vertical(top: Radius.circular(20))),
+                    color: AppColors.primary.withAlpha(20),
+                    borderRadius:
+                        BorderRadius.vertical(top: Radius.circular(20)),
+                  ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -135,24 +162,32 @@ class _RequestScreenState extends State<RequestScreen> {
                             "Compliance",
                             style: Textfontstyle.TextStyle14w400c212121poppins
                                 .copyWith(
-                                    fontSize: 12.sp,
-                                    color: AppColors.textColor,
-                                    fontWeight: FontWeight.w800),
+                              fontSize: 12.sp,
+                              color: AppColors.textColor,
+                              fontWeight: FontWeight.w800,
+                            ),
                           ),
                           Row(
                             children: [
                               IconButton(
-                                  onPressed: () {},
-                                  icon: Icon(
-                                    Icons.expand_less,
-                                    color: AppColors.primary,
-                                  )),
+                                onPressed: () {
+                                  setState(() {
+                                    showExpantion2 = !showExpantion2;
+                                  });
+                                },
+                                icon: Icon(
+                                  showExpantion2
+                                      ? Icons.expand_less
+                                      : Icons.expand_more,
+                                  color: AppColors.primary,
+                                ),
+                              ),
                               SvgPicture.asset(
                                 AppSvgs.more_vert,
                                 color: AppColors.primary,
-                              )
+                              ),
                             ],
-                          )
+                          ),
                         ],
                       ),
                       Row(
@@ -161,7 +196,9 @@ class _RequestScreenState extends State<RequestScreen> {
                             "Requested on March 11, 2024",
                             style: Textfontstyle.TextStyle12w500c212121poppins
                                 .copyWith(
-                                    color: AppColors.midGrey, fontSize: 10.sp),
+                              color: AppColors.midGrey,
+                              fontSize: 10.sp,
+                            ),
                           ),
                           Spacer(),
                           InkWell(
@@ -176,7 +213,7 @@ class _RequestScreenState extends State<RequestScreen> {
                                   : AppSvgs.arrowup,
                               color: AppColors.primary,
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ],
@@ -200,6 +237,7 @@ class _RequestScreenState extends State<RequestScreen> {
                   textwithreddot(text: "Change of Ownership (3)"),
                 ],
               ),
+
               2.height,
             ],
           ),

@@ -6,7 +6,7 @@ import 'package:nanduba/utils/svgs.dart';
 
 class CustomTextField extends StatelessWidget {
   final String? name;
-  final String hintText;
+  final String? hintText;
   final String? titleText;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
@@ -39,7 +39,7 @@ class CustomTextField extends StatelessWidget {
   const CustomTextField({
     super.key,
     this.name,
-    required this.hintText,
+    this.hintText,
     this.onEditComplete,
     this.prefixIcon,
     this.suffixIcon,

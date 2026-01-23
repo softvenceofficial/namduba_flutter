@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:nanduba/constants/textfontstyle.dart';
 import 'package:nanduba/export.dart';
 import 'package:nanduba/views/new_profile_screen/your_garage/add_a_vehicle_screen.dart';
@@ -11,6 +10,9 @@ class AddVehicleScreen extends StatefulWidget {
 }
 
 class _AddVehicleScreenState extends State<AddVehicleScreen> {
+  // Track the selected item
+  String? selectedItem;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -65,77 +67,36 @@ class _AddVehicleScreenState extends State<AddVehicleScreen> {
               ),
               3.2.height,
 
+              // First Row (Car or Truck & Motorbike)
               Row(
                 children: [
                   Expanded(
-                    child: InkWell(
+                    child: SelectableVehicleItem(
+                      image: AppImages.carImage,
+                      label: "Car or Truck",
+                      isSelected: selectedItem == "Car or Truck",
                       onTap: () {
+                        setState(() {
+                          selectedItem = "Car or Truck";
+                        });
                         AppCustomNavigator.push(
                             context, const AddAVehicleScreen());
                       },
-                      child: Container(
-                        height: 141,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(13),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              AppImages.carImage,
-                              height: 23,
-                              width: 60,
-                            ),
-                            1.height,
-                            Text(
-                              "Car or Truck",
-                              style: Textfontstyle.TextStyle16w500c212121poppins
-                                  .copyWith(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w900,
-                                      color: AppColors.c5D5D5D),
-                            ),
-                          ],
-                        ),
-                      ),
                     ),
                   ),
                   5.width, // space between squares
                   Expanded(
-                    child: InkWell(
+                    child: SelectableVehicleItem(
+                      image: AppImages.bikeImage,
+                      label: "Motorbike",
+                      isSelected: selectedItem == "Motorbike",
                       onTap: () {
+                        setState(() {
+                          selectedItem = "Motorbike";
+                        });
                         AppCustomNavigator.push(
                             context, const AddAVehicleScreen());
                       },
-                      child: Container(
-                        height: 141,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(13),
-                          border:
-                              Border.all(color: AppColors.cBEBEBE, width: 1.5),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              AppImages.bikeImage,
-                              height: 33,
-                              width: 80,
-                            ),
-                            1.height,
-                            Text(
-                              "Motorbike",
-                              style: Textfontstyle.TextStyle16w500c212121poppins
-                                  .copyWith(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w900,
-                                      color: AppColors.c5D5D5D),
-                            ),
-                          ],
-                        ),
-                      ),
                     ),
                   ),
                 ],
@@ -147,76 +108,32 @@ class _AddVehicleScreenState extends State<AddVehicleScreen> {
               Row(
                 children: [
                   Expanded(
-                    child: InkWell(
+                    child: SelectableVehicleItem(
+                      image: AppImages.trailerImage,
+                      label: "Trailer",
+                      isSelected: selectedItem == "Trailer",
                       onTap: () {
+                        setState(() {
+                          selectedItem = "Trailer";
+                        });
                         AppCustomNavigator.push(
                             context, const AddAVehicleScreen());
                       },
-                      child: Container(
-                        height: 141,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(13),
-                          border:
-                              Border.all(color: AppColors.cBEBEBE, width: 1.5),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              AppImages.trailerImage,
-                              height: 40,
-                              width: 90,
-                            ),
-                            1.height,
-                            Text(
-                              "Trailer",
-                              style: Textfontstyle.TextStyle16w500c212121poppins
-                                  .copyWith(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w900,
-                                      color: AppColors.c5D5D5D),
-                            ),
-                          ],
-                        ),
-                      ),
                     ),
                   ),
                   5.width,
                   Expanded(
-                    child: InkWell(
+                    child: SelectableVehicleItem(
+                      image: AppImages.toolsImage,
+                      label: "Plant or \nMachinery",
+                      isSelected: selectedItem == "Plant or \nMachinery",
                       onTap: () {
+                        setState(() {
+                          selectedItem = "Plant or \nMachinery";
+                        });
                         AppCustomNavigator.push(
                             context, const AddAVehicleScreen());
                       },
-                      child: Container(
-                        height: 141,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(13),
-                          border:
-                              Border.all(color: AppColors.cBEBEBE, width: 1.5),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              AppImages.toolsImage,
-                              height: 33,
-                              width: 90,
-                            ),
-                            1.height,
-                            Text(
-                              "Plant or \nMachinery",
-                              style: Textfontstyle.TextStyle16w500c212121poppins
-                                  .copyWith(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w900,
-                                      color: AppColors.c5D5D5D),
-                            ),
-                          ],
-                        ),
-                      ),
                     ),
                   ),
                 ],
@@ -225,6 +142,59 @@ class _AddVehicleScreenState extends State<AddVehicleScreen> {
           ),
         ),
       ],
+    );
+  }
+}
+
+class SelectableVehicleItem extends StatelessWidget {
+  final String image;
+  final String label;
+  final bool isSelected;
+  final VoidCallback onTap;
+
+  const SelectableVehicleItem({
+    super.key,
+    required this.image,
+    required this.label,
+    required this.isSelected,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        height: 141,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(13),
+          border: Border.all(
+            color: isSelected ? AppColors.cBEBEBE : AppColors.cBEBEBE,
+            width: 1.5,
+          ),
+          color: isSelected ? AppColors.transparent : AppColors.white,
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              image,
+              height: 33,
+              width: 80,
+            ),
+            1.height,
+            Text(
+              label,
+              style: Textfontstyle.TextStyle16w500c212121poppins.copyWith(
+                fontSize: 14,
+                fontWeight: FontWeight.w900,
+                color: AppColors.c5D5D5D,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

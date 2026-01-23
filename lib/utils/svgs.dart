@@ -194,4 +194,9 @@ class AppSvgs {
   static const String carInsuranseIcon = 'assets/svg/car_insurance.svg';
   static const String windshild = 'assets/svg/windshild.svg';
   static const String thairdparty = 'assets/svg/thaird_party.svg';
+  static const String image1 = 'assets/svg/image_1.svg';
+  static const String image2 = 'assets/svg/image_2.svg';
+  static const String image3 = 'assets/svg/image_3.svg';
+  static const String carvin = 'assets/svg/car_vin.svg';
+  static const String minivan = 'assets/svg/group.svg';
 }

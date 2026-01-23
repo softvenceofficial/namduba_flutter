@@ -93,4 +93,9 @@ class AppImages {
   static const String odometers = 'assets/images/odometer.png';
   static const String tyre1 = 'assets/images/tyre1.png';
   static const String platform = 'assets/images/platform.png';
+  static const String profileimage = 'assets/images/profile_image.png';
+  static const String image1 = 'assets/images/image_1.png';
+  static const String image2 = 'assets/images/image_2.png';
+  static const String image3 = 'assets/images/image_3.png';
+  static const String carvin = 'assets/images/car_vin.png';
 }

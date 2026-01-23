@@ -2,22 +2,31 @@
 
 import 'package:get/get.dart';
 import 'package:nanduba/controllers/vehicle_profile_controller.dart';
-import 'package:nanduba/views/add_vehicle/vehicle_info/component/specs/get_my_specs_sheet.dart';
 import 'package:nanduba/views/add_vehicle/vehicle_info/component/name_your_vehicle_sheet.dart';
 import 'package:nanduba/views/add_vehicle/vehicle_info/component/odometer_reading_sheet.dart';
 import 'package:nanduba/views/add_vehicle/vehicle_info/component/vehicle_info_component.dart';
-import 'package:nanduba/views/add_vehicle/vehicle_info/component/specs/vehicle_info_specs_component.dart';
+import 'package:nanduba/views/add_vehicle/vehicle_info/widget/compliance_chack_widget.dart';
+import 'package:nanduba/views/add_vehicle/vehicle_info/widget/compliance_popup.dart';
 import 'package:nanduba/views/add_vehicle/vehicle_info/widget/detail_info_row_widget.dart';
+import 'package:nanduba/views/add_vehicle/vehicle_profile/widget/get_your_corolla_details.dart';
 
 import '../../../export.dart';
 import '../../../widgets/core/my_text.dart';
 import 'package:pin_code_fields/pin_code_fields.dart' as pininput;
 import 'package:pin_code_fields/pin_code_fields.dart';
 
-class VehicleInfoDetails extends StatelessWidget {
+class VehicleInfoDetails extends StatefulWidget {
+  @override
+  State<VehicleInfoDetails> createState() => _VehicleInfoDetailsState();
+}
+
+class _VehicleInfoDetailsState extends State<VehicleInfoDetails> {
+  bool isVisible = true;
   // const VehicleInfoDetails({super.key});
   final VehicleProfileController controller = Get.find();
+
   final TextEditingController odometer = TextEditingController(text: '000000');
+
   RxString carNickname = "Eleanor's Car".obs;
 
   @override
@@ -82,7 +91,29 @@ class VehicleInfoDetails extends StatelessWidget {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    1.height,
+                    Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: VehicleDetailsPopup(
+                        ontap: () {
+                          showModalBottomSheet(
+                            context: context,
+                            builder: (context) {
+                              return const CompliancePopup();
+                            },
+                          );
+                        },
+                        message:
+                            "Get the most out of roadsmart by adding your vehicle ref no or vin",
+                        vehicleName: 'Corolla',
+                        isVisible: isVisible,
+                        onClose: () {
+                          setState(() {
+                            isVisible = false;
+                          });
+                        },
+                      ),
+                    ),
+
                     CustomContainer(
                         hpadding: 4.w,
                         hMargin: 4.w,
@@ -413,7 +444,7 @@ class VehicleInfoDetails extends StatelessWidget {
                             ),
                           ],
                         )),
-                    2.height,
+
                     // Obx(
                     //   () => controller.showSpecsDetails.value == false
                     //       ?
@@ -423,6 +454,7 @@ class VehicleInfoDetails extends StatelessWidget {
                     //       // if  data in specs
                     //       SpecsDataContainer(),
                     // ),
+                    ComplianceChackWidget(),
                     2.height,
                     VehicleInfoComponent(),
                     2.height,

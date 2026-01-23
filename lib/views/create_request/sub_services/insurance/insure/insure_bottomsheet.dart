@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 import 'package:nanduba/export.dart';
 import 'package:nanduba/views/add_vehicle/vehicle_profile/component/upload_image_container.dart';
-import 'package:nanduba/views/create_request/view_requests/view_requests.dart';
 
 import '../../../review_request/review_request.dart';
 
@@ -465,6 +464,7 @@ class _BuyInsuranceBottomSheet extends State<BuyInsuranceBottomSheet> {
                             label: "+ Add Vehicle",
                             backgroundColor: AppColors.transparent,
                             foregroundColor: AppColors.primary,
+                            textcolor: AppColors.red,
                             onPressed: () async {
                               await _addVehicleBottomSheet(context)
                                   .whenComplete(() {

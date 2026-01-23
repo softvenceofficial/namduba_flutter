@@ -50,7 +50,7 @@ class ReportHistory extends StatelessWidget {
       
                         ],
                       ),
-                    Spacer(),
+                    const Spacer(),
                     SvgPicture.asset(AppSvgs.arrowCircleRight)
       
                   ],

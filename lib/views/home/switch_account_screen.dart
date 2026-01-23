@@ -1,7 +1,6 @@
 import 'package:nanduba/constants/textfontstyle.dart';
 import 'package:nanduba/export.dart';
-import 'package:nanduba/views/Profile/User_profile/user_profile.dart';
-import 'package:nanduba/views/auth/create_an_account/create_an_account.dart';
+ import 'package:nanduba/views/auth/create_an_account/create_an_account.dart';
 
 class SwitchAccountScreen extends StatefulWidget {
   const SwitchAccountScreen({super.key});

@@ -1,11 +1,8 @@
 import 'package:get/get.dart';
 import 'package:nanduba/export.dart';
-import 'package:nanduba/views/Profile/Profile.dart';
-import 'package:nanduba/views/Profile/User_profile/user_profile.dart';
-import 'package:nanduba/views/add_vehicle/enter_regNo/add_vehicle.dart';
 import 'package:nanduba/views/home/search_location.dart';
 import 'package:nanduba/views/shop/car_part_details.dart';
-import 'package:nanduba/views/shop/checkout.dart';
+
 import 'package:nanduba/views/shop/shop_details.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -81,7 +78,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((callback) {
       showDialog(
@@ -127,7 +123,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: SafeArea(
           child: SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 2.h),
+              padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 0.h),
               child: Column(
                 children: [
                   TopBar(
@@ -135,8 +131,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     onTap: () {
                       Get.to(() => const SearchLocation());
                     },
-                  ),
-                  2.height,
+                  ), 
+
                   CustomTextField(
                     name: 'search',
                     enableBorder: AppColors.kEnableBorderGrey,
@@ -411,8 +407,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: index == 0
                               ? CustomServiceContainer(
                                   serviceType: AppText.changeOfOwnership,
-                                  assetPath: AppSvgs.roadCompliance,
-                                  isSvg: true,
+                                  assetPath: AppImages.image1,
+                                  isSvg: false,
                                   onTap: () {
                                     AppCustomNavigator.push(
                                         context,
@@ -428,8 +424,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ? CustomServiceContainer(
                                       serviceType:
                                           AppText.comprehensiveInsurance,
-                                      assetPath: AppSvgs.insurance,
-                                      isSvg: true,
+                                      assetPath: AppImages.image2,
+                                      isSvg: false,
                                       onTap: () {
                                         AppCustomNavigator.push(
                                             context,
@@ -443,8 +439,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                     )
                                   : CustomServiceContainer(
                                       serviceType: AppText.general,
-                                      assetPath: AppSvgs.repair,
-                                      isSvg: true,
+                                      assetPath: AppImages.image3,
+                                      isSvg: false,
                                       onTap: () {
                                         AppCustomNavigator.push(
                                             context,
