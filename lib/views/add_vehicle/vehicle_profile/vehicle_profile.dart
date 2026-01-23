@@ -10,6 +10,8 @@ import 'package:nanduba/widgets/core/my_text.dart';
 class VehicleProfile extends StatelessWidget {
   final VehicleProfileController controller = Get.find();
 
+    VehicleProfile({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -213,7 +215,7 @@ class VehicleProfile extends StatelessWidget {
                         ? VehicleProfilePopUpMenu(
                             listingIndex: controller.listingIndex.value,
                           )
-                        : SizedBox.shrink(),
+                        : const SizedBox.shrink(),
                   ),
                 ],
               )),

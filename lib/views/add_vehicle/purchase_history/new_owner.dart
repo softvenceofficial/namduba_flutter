@@ -36,7 +36,8 @@ class _NewOwnerState extends State<NewOwner> {
             3.height,
             Align(
               alignment: Alignment.centerLeft,
-              child: MyText(text: 'Email',
+              child: MyText(
+                text: 'Email',
                 color: AppColors.grey,
                 fontWeight: FontWeight.w400,
                 fontSize: 10.sp,
@@ -48,33 +49,37 @@ class _NewOwnerState extends State<NewOwner> {
               name: "Email",
               hintText: "inongesn@gmail.com",
               hintStyle: GoogleFonts.poppins(
-                textStyle: TextStyle(
-                  fontSize: 10.sp,
-                  fontWeight: FontWeight.w400,
-                  color: AppColors.textColor,
-                )
-              ),
+                  textStyle: TextStyle(
+                fontSize: 10.sp,
+                fontWeight: FontWeight.w400,
+                color: AppColors.textColor,
+              )),
               style: GoogleFonts.poppins(
                   textStyle: TextStyle(
-                    fontSize: 10.sp,
-                    fontWeight: FontWeight.w400,
-                    color: AppColors.textColor,
-                  )
-              ),
+                fontSize: 10.sp,
+                fontWeight: FontWeight.w400,
+                color: AppColors.textColor,
+              )),
               keyboardType: TextInputType.emailAddress,
-              prefixIcon: SvgPicture.asset(AppSvgs.emailIcon, fit: BoxFit.scaleDown,),
+              prefixIcon: SvgPicture.asset(
+                AppSvgs.emailIcon,
+                fit: BoxFit.scaleDown,
+              ),
             ),
             Spacer(),
-            CustomButton(label: "Next", onPressed: (){
-              Get.to(ConfirmVehicleTransfer());
-            }),
+            CustomButton(
+                label: "Next",
+                onPressed: () {
+                  Get.to(ConfirmVehicleTransfer());
+                }),
             2.height,
             CustomButton(
               label: "Cancel",
-              onPressed: (){
+              onPressed: () {
                 Get.back();
               },
               borderColor: AppColors.primary,
+              textcolor: AppColors.red,
               foregroundColor: AppColors.primary,
               backgroundColor: Colors.white,
             ),

@@ -406,36 +406,33 @@ class _SigninSignupScreenState extends State<SigninSignupScreen> {
                 children: [
                   /// Close Button
                   Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 4, vertical: 6),
+                    width: 48,
                     height: 48,
-                    width: 43,
-                    decoration: const BoxDecoration(
-                      color: AppColors.white,
-                    ),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.12),
-                            blurRadius: 4,
-                          ),
-                        ],
-                        color: Colors.white,
-                        shape: BoxShape.circle,
-                      ),
-                      child: IconButton(
-                        onPressed: () {
-                          AppCustomNavigator.replace(
-                            context,
-                            const BottomNavbar(),
-                          );
-                        },
-                        icon: Icon(
-                          Icons.close,
-                          color: AppColors.black,
-                          size: 14.sp,
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.12),
+                          blurRadius: 4,
                         ),
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.12),
+                          blurRadius: 4,
+                        ),
+                      ],
+                      color: Colors.white,
+                      shape: BoxShape.circle,
+                    ),
+                    child: IconButton(
+                      onPressed: () {
+                        AppCustomNavigator.replace(
+                          context,
+                          const BottomNavbar(),
+                        );
+                      },
+                      icon: Icon(
+                        Icons.close,
+                        color: AppColors.black,
+                        size: 16.sp,
                       ),
                     ),
                   ),

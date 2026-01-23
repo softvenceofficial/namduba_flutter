@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:nanduba/constants/textfontstyle.dart';
 import 'package:nanduba/export.dart';
 import 'package:nanduba/views/Profile/User_profile/profile_screen_new/widget/about_feedback_widget.dart';
@@ -55,7 +54,7 @@ class _AddAVehicleScreenState extends State<AddAVehicleScreen> {
               AboutFeedbackTabBar(
                 aboutText: "Reg Number  ",
                 feedbackText: "VIN Number",
-                separatorWidth: 10.w,
+                separatorWidth: 8.w,
                 onTabChanged: (index) {
                   setState(() {
                     selectedTab = index;
@@ -71,7 +70,7 @@ class _AddAVehicleScreenState extends State<AddAVehicleScreen> {
                         children: [
                           CustomTextField(
                             prefixIcon: Padding(
-                              padding: const EdgeInsets.all(16.0),
+                              padding: const EdgeInsets.all(15.0),
                               child: SvgPicture.asset(AppSvgs.passporticon),
                             ),
                             suffixIcon: Padding(
@@ -89,7 +88,7 @@ class _AddAVehicleScreenState extends State<AddAVehicleScreen> {
                         children: [
                           CustomTextField(
                             prefixIcon: Padding(
-                              padding: const EdgeInsets.all(16.0),
+                              padding: const EdgeInsets.all(15.0),
                               child: SvgPicture.asset(AppSvgs.passporticon),
                             ),
                             suffixIcon: Padding(

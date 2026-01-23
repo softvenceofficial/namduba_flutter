@@ -24,7 +24,7 @@ class SwitchAccountItemWidget extends StatelessWidget {
       child: CustomContainer(
         borderRadius: 20,
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(12.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -56,7 +56,7 @@ class SwitchAccountItemWidget extends StatelessWidget {
                             .copyWith(
                                 fontWeight: FontWeight.w600, fontSize: 12.sp),
                       ),
-                      if (showProgress) ...[ 
+                      if (showProgress) ...[
                         8.width,
                         Image.asset(
                           AppImages.Red_dot,

@@ -2,22 +2,26 @@ import 'package:get/get.dart';
 import 'package:nanduba/constants/textfontstyle.dart';
 import 'package:nanduba/controllers/vehicle_profile_controller.dart';
 import 'package:nanduba/views/add_vehicle/purchase_history/purchase_history.dart';
-import 'package:nanduba/views/add_vehicle/purchase_history/transfer_vehicle.dart';
-import 'package:nanduba/views/add_vehicle/vehicle_info/component/certificate/certificate_detail_sheet.dart';
-import 'package:nanduba/views/add_vehicle/vehicle_info/component/certificate/insurance_details_sheet.dart';
 import 'package:nanduba/views/add_vehicle/vehicle_info/vehicle_info.dart';
+import 'package:nanduba/views/add_vehicle/vehicle_info/widget/compliance_popup.dart';
 import 'package:nanduba/views/add_vehicle/vehicle_profile/component/upload_image_container.dart';
+import 'package:nanduba/views/add_vehicle/vehicle_profile/widget/get_your_corolla_details.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 import '../../../../export.dart';
 import '../../../../widgets/core/my_text.dart';
 import '../widget/vehicle_brief_detail_container.dart';
-import '../widget/vehicle_info_container.dart';
 import 'filter_text_field.dart';
 
-class VehicleDetailComponent extends StatelessWidget {
+class VehicleDetailComponent extends StatefulWidget {
   const VehicleDetailComponent({super.key});
 
+  @override
+  State<VehicleDetailComponent> createState() => _VehicleDetailComponentState();
+}
+
+class _VehicleDetailComponentState extends State<VehicleDetailComponent> {
+  bool isVisible = true;
   @override
   Widget build(BuildContext context) {
     return GetBuilder<VehicleProfileController>(builder: (controller) {
@@ -98,7 +102,7 @@ class VehicleDetailComponent extends StatelessWidget {
                     color: AppColors.textColor5,
                   ),
                   1.height,
-                  Divider(
+                  const Divider(
                     color: AppColors.secondaryborder2,
                   ),
                   1.height,
@@ -108,7 +112,7 @@ class VehicleDetailComponent extends StatelessWidget {
                         children: [
                           SvgPicture.asset(AppSvgs.id),
                           1.width,
-                          MyText(
+                          const MyText(
                             text: "Vehicle License Plate:",
                             fontSize: 12,
                             fontWeight: FontWeight.w500,
@@ -117,7 +121,7 @@ class VehicleDetailComponent extends StatelessWidget {
                         ],
                       ),
                       Spacer(),
-                      MyText(
+                      const MyText(
                         text: "ALZ6443ZM",
                         fontSize: 12,
                         fontWeight: FontWeight.w500,
@@ -218,6 +222,26 @@ class VehicleDetailComponent extends StatelessWidget {
                   ),
                 ],
               )),
+          2.height,
+          VehicleDetailsPopup(
+            ontap: () {
+              showModalBottomSheet(
+                context: context,
+                builder: (context) {
+                  return const CompliancePopup();
+                },
+              );
+            },
+            message:
+                "Get the most out of roadsmart by adding your vehicle ref no or vin",
+            vehicleName: 'Corolla',
+            isVisible: isVisible,
+            onClose: () {
+              setState(() {
+                isVisible = false;
+              });
+            },
+          ),
           // 2.height,
           // SingleChildScrollView(
           //   clipBehavior: Clip.none,
@@ -299,14 +323,14 @@ class VehicleDetailComponent extends StatelessWidget {
               onTap: () {
                 AppCustomNavigator.push(context, VehicleInfoDetails());
               },
-              child: VehicleBriefDetailContainer(
+              child: const VehicleBriefDetailContainer(
                   title: "Vehicle Info",
                   disc: "Details spece, features & documents")),
           GestureDetector(
             onTap: () {
               AppCustomNavigator.push(context, PurchaseHistory());
             },
-            child: VehicleBriefDetailContainer(
+            child: const VehicleBriefDetailContainer(
                 title: "Purchases & Activity",
                 disc: "Orders you have made for this vehicle"),
           ),

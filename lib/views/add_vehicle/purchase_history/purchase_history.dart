@@ -87,7 +87,7 @@ class PurchaseHistory extends StatelessWidget {
                           hPadding: 0,
                           vPadding: 0,
                           borderColor: AppColors.transparent,
-                          label: "Reports",
+                          label: "Jobs",
                           labelFontSize: 10.sp,
                           onPressed: () {
                             selectedButtonIndex.value = 2;

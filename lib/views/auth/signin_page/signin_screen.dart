@@ -27,9 +27,10 @@ class _SigninScreenState extends State<SigninScreen> {
                     const CustomAppbar(
                       title: AppText.login,
                     ),
+                    4.height,
                     RichText(
                       text: TextSpan(
-                        text: AppText.road,
+                        text: "Welcome",
                         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                               fontSize: 16.sp,
                               color: AppColors.black,
