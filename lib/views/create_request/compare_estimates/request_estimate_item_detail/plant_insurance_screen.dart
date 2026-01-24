@@ -7,11 +7,8 @@ import 'package:nanduba/views/create_request/compare_estimates/request_estimate_
 import 'package:nanduba/views/create_request/compare_estimates/request_estimate_item_detail/component/widget/quick_select_widget.dart';
 
 class PlantInsuranceScreen extends StatefulWidget {
-  final String estimateDetail;
-
   const PlantInsuranceScreen({
     super.key,
-    required this.estimateDetail,
   });
 
   @override
@@ -577,7 +574,7 @@ class _PlantInsuranceScreenState extends State<PlantInsuranceScreen> {
                       ),
                       2.height,
                       CoverageCard(
-                        icon: AppSvgs.carInsuranseIcon,
+                        icon: AppSvgs.thairdparty,
                         title: "Third Party Liability",
                         warning:
                             "Covers for legal liability arising from use or operation of the plant for",
@@ -604,7 +601,7 @@ class _PlantInsuranceScreenState extends State<PlantInsuranceScreen> {
                       ),
                       2.height,
                       CoverageCard(
-                        icon: AppSvgs.windshild,
+                        icon: AppSvgs.thairdparty,
                         title: "Windscreen cover",
                         optional:
                             "You need to add comprehensive coverage to include this on your policy.",
@@ -650,6 +647,13 @@ class _PlantInsuranceScreenState extends State<PlantInsuranceScreen> {
                       3.9.height,
                       CustomButton(
                         label: "Save",
+                        onPressed: () {},
+                      ),
+                      1.height,
+                      CustomButton(
+                        backgroundColor: AppColors.white,
+                        textcolor: AppColors.primary,
+                        label: "Remove Service",
                         onPressed: () {},
                       )
                     ],

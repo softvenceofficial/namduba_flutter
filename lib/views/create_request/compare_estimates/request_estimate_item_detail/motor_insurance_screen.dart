@@ -654,6 +654,13 @@ class _EstimateServiceItemDetailsState
                       CustomButton(
                         label: "Save",
                         onPressed: () {},
+                      ),
+                      1.height,
+                      CustomButton(
+                        backgroundColor: AppColors.white,
+                        textcolor: AppColors.primary,
+                        label: "Remove Service",
+                        onPressed: () {},
                       )
                     ],
                   ),

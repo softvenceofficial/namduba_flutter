@@ -5,6 +5,10 @@ import 'package:nanduba/constants/textfontstyle.dart';
 import 'package:nanduba/export.dart';
 import 'package:nanduba/providers/estimate_provider.dart';
 import 'package:nanduba/views/create_request/compare_estimates/estimate_details/component/view_request_sheet.dart';
+import 'package:nanduba/views/create_request/compare_estimates/request_estimate_item_detail/marin_insuranse_screen.dart';
+import 'package:nanduba/views/create_request/compare_estimates/request_estimate_item_detail/motor_insurance_screen.dart';
+import 'package:nanduba/views/create_request/compare_estimates/request_estimate_item_detail/plant_insurance_screen.dart';
+import 'package:nanduba/views/create_request/compare_estimates/request_estimate_item_detail/road_tax_screen.dart';
 import 'package:nanduba/views/create_request/payment_methods/choose_payment_methods.dart';
 import 'package:nanduba/views/inbox/chat_screen/chat_screen.dart';
 import 'package:nanduba/widgets/core/my_text.dart';
@@ -21,7 +25,7 @@ class EstimateDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold( 
+    return Scaffold(
       body: GestureDetector(
         onTap: () {
           controller.isOpen.value = false;
@@ -148,202 +152,307 @@ class EstimateDetails extends StatelessWidget {
                                 ),
                                 child: Column(
                                   children: [
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Row(
-                                          children: [
-                                            ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(8),
-                                              child: Image.asset(
-                                                AppImages.owner,
-                                                height: 54,
-                                                width: 54,
-                                                fit: BoxFit.cover,
+                                    GestureDetector(
+                                      behavior: HitTestBehavior.translucent,
+                                      onTap: () {
+                                        AppCustomNavigator.push(
+                                            context,
+                                            EstimateServiceItemDetails(
+                                              estimateDetail: '',
+                                            ));
+                                      },
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(8),
+                                                child: Image.asset(
+                                                  AppImages.owner,
+                                                  height: 54,
+                                                  width: 54,
+                                                  fit: BoxFit.cover,
+                                                ),
                                               ),
-                                            ),
-                                            3.width,
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  'John Doe',
-                                                  style: Textfontstyle
-                                                          .TextStyle14w400c212121poppins
-                                                      .copyWith(
-                                                    color: AppColors.black,
-                                                    fontSize: 8.sp,
-                                                    fontWeight: FontWeight.bold,
+                                              3.width,
+                                              Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    'Motor Insurance ',
+                                                    style: Textfontstyle
+                                                            .TextStyle14w400c212121poppins
+                                                        .copyWith(
+                                                      color: AppColors.black,
+                                                      fontSize: 8.sp,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
                                                   ),
-                                                ),
-                                                Text(
-                                                  'Seller',
-                                                  style: Textfontstyle
-                                                          .TextStyle14w400c212121poppins
-                                                      .copyWith(
-                                                    color: AppColors.arrowGrey,
-                                                    fontSize: 8.sp,
+                                                  Text(
+                                                    '2 vehicles covered',
+                                                    style: Textfontstyle
+                                                            .TextStyle14w400c212121poppins
+                                                        .copyWith(
+                                                      color:
+                                                          AppColors.arrowGrey,
+                                                      fontSize: 8.sp,
+                                                    ),
                                                   ),
+                                                ],
+                                              )
+                                            ],
+                                          ),
+                                          Row(
+                                            children: [
+                                              Text(
+                                                '\$800',
+                                                style: Textfontstyle
+                                                        .TextStyle14w400c212121poppins
+                                                    .copyWith(
+                                                  color: AppColors.black,
+                                                  fontSize: 8.sp,
+                                                  fontWeight: FontWeight.bold,
                                                 ),
-                                              ],
-                                            )
-                                          ],
-                                        ),
-                                        Row(
-                                          children: [
-                                            Text(
-                                              '\$800',
-                                              style: Textfontstyle
-                                                      .TextStyle14w400c212121poppins
-                                                  .copyWith(
+                                              ),
+                                              Icon(
+                                                Icons.arrow_forward_ios,
                                                 color: AppColors.black,
-                                                fontSize: 8.sp,
-                                                fontWeight: FontWeight.bold,
+                                                size: 10.sp,
                                               ),
-                                            ),
-                                            Icon(
-                                              Icons.arrow_forward_ios,
-                                              color: AppColors.black,
-                                              size: 10.sp,
-                                            ),
-                                          ],
-                                        ),
-                                      ],
+                                            ],
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                     Divider(),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Row(
-                                          children: [
-                                            ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(8),
-                                              child: Image.asset(
-                                                AppImages.owner,
-                                                height: 54,
-                                                width: 54,
-                                                fit: BoxFit.cover,
+                                    GestureDetector(
+                                      behavior: HitTestBehavior.translucent,
+                                      onTap: () {
+                                        AppCustomNavigator.push(
+                                            context, PlantInsuranceScreen());
+                                      },
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(8),
+                                                child: Image.asset(
+                                                  AppImages.owner,
+                                                  height: 54,
+                                                  width: 54,
+                                                  fit: BoxFit.cover,
+                                                ),
                                               ),
-                                            ),
-                                            3.width,
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  'John Doe',
-                                                  style: Textfontstyle
-                                                          .TextStyle14w400c212121poppins
-                                                      .copyWith(
-                                                    color: AppColors.black,
-                                                    fontSize: 8.sp,
-                                                    fontWeight: FontWeight.bold,
+                                              3.width,
+                                              Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    'Plant Insurance ',
+                                                    style: Textfontstyle
+                                                            .TextStyle14w400c212121poppins
+                                                        .copyWith(
+                                                      color: AppColors.black,
+                                                      fontSize: 8.sp,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
                                                   ),
-                                                ),
-                                                Text(
-                                                  'Seller',
-                                                  style: Textfontstyle
-                                                          .TextStyle14w400c212121poppins
-                                                      .copyWith(
-                                                    color: AppColors.arrowGrey,
-                                                    fontSize: 8.sp,
+                                                  Text(
+                                                    '3 vehicles covered',
+                                                    style: Textfontstyle
+                                                            .TextStyle14w400c212121poppins
+                                                        .copyWith(
+                                                      color:
+                                                          AppColors.arrowGrey,
+                                                      fontSize: 8.sp,
+                                                    ),
                                                   ),
+                                                ],
+                                              )
+                                            ],
+                                          ),
+                                          Row(
+                                            children: [
+                                              Text(
+                                                '\$800',
+                                                style: Textfontstyle
+                                                        .TextStyle14w400c212121poppins
+                                                    .copyWith(
+                                                  color: AppColors.black,
+                                                  fontSize: 8.sp,
+                                                  fontWeight: FontWeight.bold,
                                                 ),
-                                              ],
-                                            )
-                                          ],
-                                        ),
-                                        Row(
-                                          children: [
-                                            Text(
-                                              '\$800',
-                                              style: Textfontstyle
-                                                      .TextStyle14w400c212121poppins
-                                                  .copyWith(
+                                              ),
+                                              Icon(
+                                                Icons.arrow_forward_ios,
                                                 color: AppColors.black,
-                                                fontSize: 8.sp,
-                                                fontWeight: FontWeight.bold,
+                                                size: 10.sp,
                                               ),
-                                            ),
-                                            Icon(
-                                              Icons.arrow_forward_ios,
-                                              color: AppColors.black,
-                                              size: 10.sp,
-                                            ),
-                                          ],
-                                        ),
-                                      ],
+                                            ],
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                     Divider(),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Row(
-                                          children: [
-                                            ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(8),
-                                              child: Image.asset(
-                                                AppImages.owner,
-                                                height: 54,
-                                                width: 54,
-                                                fit: BoxFit.cover,
+                                    GestureDetector(
+                                      behavior: HitTestBehavior.translucent,
+                                      onTap: () {
+                                        AppCustomNavigator.push(
+                                            context, MarinInsuranseScreen());
+                                      },
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(8),
+                                                child: Image.asset(
+                                                  AppImages.owner,
+                                                  height: 54,
+                                                  width: 54,
+                                                  fit: BoxFit.cover,
+                                                ),
                                               ),
-                                            ),
-                                            3.width,
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  'John Doe',
-                                                  style: Textfontstyle
-                                                          .TextStyle14w400c212121poppins
-                                                      .copyWith(
-                                                    color: AppColors.black,
-                                                    fontSize: 8.sp,
-                                                    fontWeight: FontWeight.bold,
+                                              3.width,
+                                              Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    'Marine Insurance ',
+                                                    style: Textfontstyle
+                                                            .TextStyle14w400c212121poppins
+                                                        .copyWith(
+                                                      color: AppColors.black,
+                                                      fontSize: 8.sp,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
                                                   ),
-                                                ),
-                                                Text(
-                                                  'Seller',
-                                                  style: Textfontstyle
-                                                          .TextStyle14w400c212121poppins
-                                                      .copyWith(
-                                                    color: AppColors.arrowGrey,
-                                                    fontSize: 8.sp,
+                                                  Text(
+                                                    '1 consignment ',
+                                                    style: Textfontstyle
+                                                            .TextStyle14w400c212121poppins
+                                                        .copyWith(
+                                                      color:
+                                                          AppColors.arrowGrey,
+                                                      fontSize: 8.sp,
+                                                    ),
                                                   ),
+                                                ],
+                                              )
+                                            ],
+                                          ),
+                                          Row(
+                                            children: [
+                                              Text(
+                                                '\$800',
+                                                style: Textfontstyle
+                                                        .TextStyle14w400c212121poppins
+                                                    .copyWith(
+                                                  color: AppColors.black,
+                                                  fontSize: 8.sp,
+                                                  fontWeight: FontWeight.bold,
                                                 ),
-                                              ],
-                                            )
-                                          ],
-                                        ),
-                                        Row(
-                                          children: [
-                                            Text(
-                                              '\$800',
-                                              style: Textfontstyle
-                                                      .TextStyle14w400c212121poppins
-                                                  .copyWith(
+                                              ),
+                                              Icon(
+                                                Icons.arrow_forward_ios,
                                                 color: AppColors.black,
-                                                fontSize: 8.sp,
-                                                fontWeight: FontWeight.bold,
+                                                size: 10.sp,
                                               ),
-                                            ),
-                                            Icon(
-                                              Icons.arrow_forward_ios,
-                                              color: AppColors.black,
-                                              size: 10.sp,
-                                            ),
-                                          ],
-                                        ),
-                                      ],
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Divider(),
+                                    GestureDetector(
+                                      behavior: HitTestBehavior.translucent,
+                                      onTap: () {
+                                        AppCustomNavigator.push(
+                                            context, RoadTaxScreen());
+                                      },
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(8),
+                                                child: Image.asset(
+                                                  AppImages.owner,
+                                                  height: 54,
+                                                  width: 54,
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
+                                              3.width,
+                                              Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    'Road Tax',
+                                                    style: Textfontstyle
+                                                            .TextStyle14w400c212121poppins
+                                                        .copyWith(
+                                                      color: AppColors.black,
+                                                      fontSize: 8.sp,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
+                                                  ),
+                                                  Text(
+                                                    '3 vehicles  ',
+                                                    style: Textfontstyle
+                                                            .TextStyle14w400c212121poppins
+                                                        .copyWith(
+                                                      color:
+                                                          AppColors.arrowGrey,
+                                                      fontSize: 8.sp,
+                                                    ),
+                                                  ),
+                                                ],
+                                              )
+                                            ],
+                                          ),
+                                          Row(
+                                            children: [
+                                              Text(
+                                                '\$800',
+                                                style: Textfontstyle
+                                                        .TextStyle14w400c212121poppins
+                                                    .copyWith(
+                                                  color: AppColors.black,
+                                                  fontSize: 8.sp,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                              Icon(
+                                                Icons.arrow_forward_ios,
+                                                color: AppColors.black,
+                                                size: 10.sp,
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ],
                                 ),
