@@ -82,7 +82,7 @@ class MyApp extends StatelessWidget {
                 scaffoldBackgroundColor: AppColors.white,
                 useMaterial3: true,
               ),
-              home: const JobDetailsWidget(),
+              home: const SplashScreen(),
             );
           },
         ),

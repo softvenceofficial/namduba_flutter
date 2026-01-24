@@ -1,8 +1,7 @@
-import 'package:flutter/material.dart';
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_local_variable
+
 import 'package:get/get.dart';
 import 'package:nanduba/export.dart';
-
-import '../../../constants/colors.dart';
 import '../../../controllers/inspection_report_controller.dart';
 import '../../../widgets/core/my_text.dart';
 

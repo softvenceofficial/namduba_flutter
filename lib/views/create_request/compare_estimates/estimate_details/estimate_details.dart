@@ -1,13 +1,13 @@
+// ignore_for_file: must_be_immutable, use_key_in_widget_constructors, prefer_const_constructors
+
 import 'package:get/get.dart';
+import 'package:nanduba/constants/textfontstyle.dart';
 import 'package:nanduba/export.dart';
 import 'package:nanduba/providers/estimate_provider.dart';
 import 'package:nanduba/views/create_request/compare_estimates/estimate_details/component/view_request_sheet.dart';
-import 'package:nanduba/views/create_request/compare_estimates/request_estimate_item_detail/estimate_item_details.dart';
 import 'package:nanduba/views/create_request/payment_methods/choose_payment_methods.dart';
 import 'package:nanduba/views/inbox/chat_screen/chat_screen.dart';
-import 'package:nanduba/views/shop/seller_shop_info.dart';
 import 'package:nanduba/widgets/core/my_text.dart';
-
 import '../../../../controllers/vehicle_profile_controller.dart';
 import 'component/estimate_details_pop_up.dart';
 
@@ -26,23 +26,29 @@ class EstimateDetails extends StatelessWidget {
         child: SafeArea(
           child: Column(
             children: [
-              2.height,
               Padding(
                 padding: EdgeInsets.symmetric(
                   horizontal: 4.w,
                 ),
-                child: CustomAppbar(
-                  title: "Estimates Details",
-                  isPop: true,
-                  isSearch: false,
-                  isRequestAdd: false,
-                  toggleIcon: AppImages.toggle,
-                  // Replace with your toggle image path
-                  onTogglePressed: () {
-                    controller.showPopUp();
-                  },
-                ),
+                child: CustomAppbar(title: 'Estimates Details', isPop: true),
               ),
+              // 2.height,
+              // Padding(
+              //   padding: EdgeInsets.symmetric(
+              //     horizontal: 4.w,
+              //   ),
+              //   child: CustomAppbar(
+              //     title: "Estimates Details",
+              //     isPop: true,
+              //     isSearch: false,
+              //     isRequestAdd: false,
+              //     toggleIcon: AppImages.toggle,
+              //     // Replace with your toggle image path
+              //     onTogglePressed: () {
+              //       controller.showPopUp();
+              //     },
+              //   ),
+              // ),
               1.height,
               Expanded(
                 child: Stack(
@@ -50,287 +56,296 @@ class EstimateDetails extends StatelessWidget {
                     SingleChildScrollView(
                       child: Column(
                         children: [
-                          GestureDetector(
-                            onTap: () {
-                              Get.to(SellerShopInfo());
-                            },
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 20.0,
+                              vertical: 5.0,
+                            ),
                             child: CustomContainer(
-                              borderRadius: 5.w,
-                              vMargin: 1.h,
-                              hMargin: 5.w,
-                              hpadding: 3.w,
-                              vpadding: 1.5.h,
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    height: 10.h,
-                                    width: 21.w,
-                                    clipBehavior: Clip.hardEdge,
-                                    alignment: Alignment.center,
-                                    decoration: BoxDecoration(
-                                        color: AppColors.midLightGrey,
-                                        borderRadius:
-                                            BorderRadius.circular(16)),
-                                    child: Image.asset(
-                                      AppImages.bmw,
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ),
-                                  2.width,
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      // SizedBox(
-                                      //   width: 50.w,
-                                      //   child: Text("Toyato Zambia LTD",
-                                      //       style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                                      //           color: AppColors.textColor,
-                                      //           fontSize: 12.sp,
-                                      //           fontWeight: FontWeight.w600,height: 1)),
-                                      // ),
-                                      SizedBox(
-                                        width: 60.w, // Or any specific width
-                                        child: Row(
-                                          children: [
-                                            Expanded(
-                                              child: MyText(
-                                                text: "Toyota Zambia LTD",
-                                                color: AppColors.textColor,
-                                                fontSize: 16,
-                                                maxLines: 1,
-                                                fontWeight: FontWeight.w600,
-                                              ),
-                                            ),
-                                            Obx(() => Container(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.w),
-                                                  decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.sp),
-                                                    color: (isAccepted.value &&
-                                                            !isRejected.value)
-                                                        ? AppColors.yellow
-                                                        : (!isAccepted.value &&
-                                                                isRejected
-                                                                    .value)
-                                                            ? AppColors.red
-                                                            : AppColors.green,
-                                                  ),
-                                                  child: Text(
-                                                    (isAccepted.value &&
-                                                            !isRejected.value)
-                                                        ? 'Accepted'
-                                                        : (!isAccepted.value &&
-                                                                isRejected
-                                                                    .value)
-                                                            ? 'Rejected'
-                                                            : 'Open',
-                                                  ),
-                                                )),
-                                          ],
+                              child: Padding(
+                                padding: const EdgeInsets.all(15.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Image.asset(
+                                          AppImages.carImage,
+                                          height: 24,
+                                          width: 24,
                                         ),
+                                        1.width,
+                                        Text(
+                                          'Multive Insurance',
+                                          style: Textfontstyle
+                                                  .TextStyle14w400c212121poppins
+                                              .copyWith(
+                                            color: AppColors.black,
+                                            fontSize: 10.sp,
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                    Text(
+                                      '4.5 Insurer',
+                                      style: Textfontstyle
+                                              .TextStyle14w400c212121poppins
+                                          .copyWith(
+                                        color: AppColors.black,
+                                        fontSize: 6.sp,
                                       ),
-
-                                      0.8.height,
-                                      // Text("February 13, 2024 at 5:36 pm",style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                                      //     color: AppColors.midDarkGrey,
-                                      //     fontWeight: FontWeight.w500,
-                                      //     fontSize: 11.sp
-                                      //
-                                      // )),
-                                      MyText(
-                                        text: "February 13, 2024 at 5:36 pm",
-                                        color: AppColors.grey,
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w500,
+                                    ),
+                                    Divider(
+                                      color: AppColors.border,
+                                    ),
+                                    Text(
+                                      'Total',
+                                      style: Textfontstyle
+                                              .TextStyle14w400c212121poppins
+                                          .copyWith(
+                                        color: AppColors.black,
+                                        fontSize: 6.sp,
                                       ),
-                                      0.8.height,
-
-                                      GestureDetector(
-                                        onTap: () async {
-                                          await _showModalBottomSheet(context);
-                                        },
-                                        child: Text("View Request",
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyLarge!
-                                                .copyWith(
-                                                    color: AppColors.primary,
-                                                    fontSize: 10.sp,
-                                                    fontWeight: FontWeight.w600,
-                                                    decoration: TextDecoration
-                                                        .underline,
-                                                    decorationColor:
-                                                        AppColors.primary)),
+                                    ),
+                                    Text(
+                                      'ZMW 18,000',
+                                      style: Textfontstyle
+                                              .TextStyle14w400c212121poppins
+                                          .copyWith(
+                                        color: AppColors.black,
+                                        fontSize: 10.sp,
+                                        fontWeight: FontWeight.bold,
                                       ),
-                                    ],
-                                  ),
-                                ],
+                                    ),
+                                    Text(
+                                      'February 20, 2024 at 5:35 pm',
+                                      style: Textfontstyle
+                                              .TextStyle14w400c212121poppins
+                                          .copyWith(
+                                        color: AppColors.black,
+                                        fontSize: 6.sp,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
                           0.2.height,
-                          Consumer<EstimateProvider>(
-                            builder: (context, provider, child) {
-                              return CustomContainer(
-                                borderRadius: 5.w,
-                                vMargin: 1.h,
-                                hMargin: 5.w,
-                                hpadding: 2.w,
-                                vpadding: 0.4.h,
-                                child: ListView.builder(
-                                    shrinkWrap: true,
-                                    itemCount: provider.services.length,
-                                    physics: NeverScrollableScrollPhysics(),
-                                    padding: EdgeInsets.zero,
-                                    itemBuilder: (context, index) {
-                                      final service = provider.services[index];
-                                      return Column(
-                                        children: [
-                                          1.height,
-                                          Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Container(
-                                                height: 7.h,
-                                                width: 15.w,
-                                                // height: 54,
-                                                // width: 54,
-                                                clipBehavior: Clip.hardEdge,
-                                                decoration: BoxDecoration(
-                                                    color:
-                                                        AppColors.midLightGrey,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            12)),
-                                                child: Image.asset(
-                                                  AppImages.owner,
-                                                  fit: BoxFit.fill,
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 20.0,
+                              vertical: 5.0,
+                            ),
+                            child: CustomContainer(
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 20.0,
+                                  vertical: 15.0,
+                                ),
+                                child: Column(
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(8),
+                                              child: Image.asset(
+                                                AppImages.owner,
+                                                height: 54,
+                                                width: 54,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                            3.width,
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  'John Doe',
+                                                  style: Textfontstyle
+                                                          .TextStyle14w400c212121poppins
+                                                      .copyWith(
+                                                    color: AppColors.black,
+                                                    fontSize: 8.sp,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
                                                 ),
-                                              ),
-                                              3.width,
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  0.2.height,
-                                                  SizedBox(
-                                                    width: 68.w,
-                                                    child: Text(
-                                                        service['service'],
-                                                        style: Theme.of(context)
-                                                            .textTheme
-                                                            .bodyLarge!
-                                                            .copyWith(
-                                                                color: AppColors
-                                                                    .textColor,
-                                                                fontSize: 14,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                                height: 1)),
+                                                Text(
+                                                  'Seller',
+                                                  style: Textfontstyle
+                                                          .TextStyle14w400c212121poppins
+                                                      .copyWith(
+                                                    color: AppColors.arrowGrey,
+                                                    fontSize: 8.sp,
                                                   ),
-                                                  1.height,
-                                                  Text("Qty: 2",
-                                                      style: Theme.of(context)
-                                                          .textTheme
-                                                          .bodyMedium!
-                                                          .copyWith(
-                                                              color: AppColors
-                                                                  .textColor2,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                              fontSize: 10.sp)),
-                                                  0.5.height,
-                                                  Text("\$${service['price']}",
-                                                      style: Theme.of(context)
-                                                          .textTheme
-                                                          .bodyLarge!
-                                                          .copyWith(
-                                                              color: AppColors
-                                                                  .primary,
-                                                              fontSize: 12.sp,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w800)),
-                                                  0.3.height,
-                                                  Row(
-                                                    children: [
-                                                      GestureDetector(
-                                                        onTap: () {
-                                                          AppCustomNavigator.push(
-                                                              context,
-                                                              EstimateServiceItemDetails(
-                                                                estimateDetail:
-                                                                    service[
-                                                                        'service'],
-                                                              ));
-                                                        },
-                                                        child: Text(
-                                                            "View Details",
-                                                            style: Theme
-                                                                    .of(context)
-                                                                .textTheme
-                                                                .bodyLarge!
-                                                                .copyWith(
-                                                                    color: AppColors
-                                                                        .primary,
-                                                                    fontSize:
-                                                                        10.sp,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                    decoration:
-                                                                        TextDecoration
-                                                                            .underline,
-                                                                    decorationColor:
-                                                                        AppColors
-                                                                            .primary)),
-                                                      ),
-                                                      4.width,
-                                                      GestureDetector(
-                                                        onTap: () {
-                                                          provider
-                                                              .removeService(
-                                                                  service);
-                                                        },
-                                                        child: Text("Remove",
-                                                            style: Theme.of(
-                                                                    context)
-                                                                .textTheme
-                                                                .bodyLarge!
-                                                                .copyWith(
-                                                                    color: AppColors
-                                                                        .primary,
-                                                                    fontSize:
-                                                                        10.sp,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                    decoration:
-                                                                        TextDecoration
-                                                                            .underline,
-                                                                    decorationColor:
-                                                                        AppColors
-                                                                            .primary)),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ],
+                                                ),
+                                              ],
+                                            )
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            Text(
+                                              '\$800',
+                                              style: Textfontstyle
+                                                      .TextStyle14w400c212121poppins
+                                                  .copyWith(
+                                                color: AppColors.black,
+                                                fontSize: 8.sp,
+                                                fontWeight: FontWeight.bold,
                                               ),
-                                            ],
-                                          ),
-                                          1.5.height,
-                                        ],
-                                      );
-                                    }),
-                              );
-                            },
+                                            ),
+                                            Icon(
+                                              Icons.arrow_forward_ios,
+                                              color: AppColors.black,
+                                              size: 10.sp,
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    Divider(),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(8),
+                                              child: Image.asset(
+                                                AppImages.owner,
+                                                height: 54,
+                                                width: 54,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                            3.width,
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  'John Doe',
+                                                  style: Textfontstyle
+                                                          .TextStyle14w400c212121poppins
+                                                      .copyWith(
+                                                    color: AppColors.black,
+                                                    fontSize: 8.sp,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                ),
+                                                Text(
+                                                  'Seller',
+                                                  style: Textfontstyle
+                                                          .TextStyle14w400c212121poppins
+                                                      .copyWith(
+                                                    color: AppColors.arrowGrey,
+                                                    fontSize: 8.sp,
+                                                  ),
+                                                ),
+                                              ],
+                                            )
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            Text(
+                                              '\$800',
+                                              style: Textfontstyle
+                                                      .TextStyle14w400c212121poppins
+                                                  .copyWith(
+                                                color: AppColors.black,
+                                                fontSize: 8.sp,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                            Icon(
+                                              Icons.arrow_forward_ios,
+                                              color: AppColors.black,
+                                              size: 10.sp,
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    Divider(),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(8),
+                                              child: Image.asset(
+                                                AppImages.owner,
+                                                height: 54,
+                                                width: 54,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                            3.width,
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  'John Doe',
+                                                  style: Textfontstyle
+                                                          .TextStyle14w400c212121poppins
+                                                      .copyWith(
+                                                    color: AppColors.black,
+                                                    fontSize: 8.sp,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                ),
+                                                Text(
+                                                  'Seller',
+                                                  style: Textfontstyle
+                                                          .TextStyle14w400c212121poppins
+                                                      .copyWith(
+                                                    color: AppColors.arrowGrey,
+                                                    fontSize: 8.sp,
+                                                  ),
+                                                ),
+                                              ],
+                                            )
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            Text(
+                                              '\$800',
+                                              style: Textfontstyle
+                                                      .TextStyle14w400c212121poppins
+                                                  .copyWith(
+                                                color: AppColors.black,
+                                                fontSize: 8.sp,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                            Icon(
+                                              Icons.arrow_forward_ios,
+                                              color: AppColors.black,
+                                              size: 10.sp,
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
                           ),
                           Consumer<EstimateProvider>(
                             builder: (context, provider, child) {
