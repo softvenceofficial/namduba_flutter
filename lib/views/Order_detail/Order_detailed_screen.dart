@@ -3128,11 +3128,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:nanduba/controllers/order_detail_controller.dart';
 import 'package:nanduba/export.dart';
 import 'package:nanduba/views/Profile/Chose_payment/Chose_payment.dart';
+import 'package:nanduba/views/create_request/compare_estimates/request_estimate_item_detail/motor_insurance_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../../providers/estimate_provider.dart';
-import '../create_request/compare_estimates/request_estimate_item_detail/estimate_item_details.dart';
-import 'DetailCustomContainer.dart';
+ import 'DetailCustomContainer.dart';
 import 'component/order_pop_up_menu.dart';
 
 class OrderDetailedScreen extends StatefulWidget {

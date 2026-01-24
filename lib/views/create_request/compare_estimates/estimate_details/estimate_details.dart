@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:nanduba/export.dart';
 import 'package:nanduba/providers/estimate_provider.dart';
 import 'package:nanduba/views/create_request/compare_estimates/estimate_details/component/view_request_sheet.dart';
-import 'package:nanduba/views/create_request/compare_estimates/request_estimate_item_detail/estimate_item_details.dart';
+import 'package:nanduba/views/create_request/compare_estimates/request_estimate_item_detail/motor_insurance_screen.dart';
 import 'package:nanduba/views/create_request/payment_methods/choose_payment_methods.dart';
 import 'package:nanduba/views/inbox/chat_screen/chat_screen.dart';
 import 'package:nanduba/views/shop/seller_shop_info.dart';
@@ -11,14 +11,17 @@ import 'package:nanduba/widgets/core/my_text.dart';
 import '../../../../controllers/vehicle_profile_controller.dart';
 import 'component/estimate_details_pop_up.dart';
 
+// ignore: must_be_immutable
 class EstimateDetails extends StatelessWidget {
   final VehicleProfileController controller = Get.find();
   RxBool isAccepted = false.obs;
   RxBool isRejected = false.obs;
 
+  EstimateDetails({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold( 
       body: GestureDetector(
         onTap: () {
           controller.isOpen.value = false;
@@ -52,7 +55,7 @@ class EstimateDetails extends StatelessWidget {
                         children: [
                           GestureDetector(
                             onTap: () {
-                              Get.to(SellerShopInfo());
+                              Get.to(const SellerShopInfo());
                             },
                             child: CustomContainer(
                               borderRadius: 5.w,
@@ -94,7 +97,7 @@ class EstimateDetails extends StatelessWidget {
                                         width: 60.w, // Or any specific width
                                         child: Row(
                                           children: [
-                                            Expanded(
+                                              const Expanded(
                                               child: MyText(
                                                 text: "Toyota Zambia LTD",
                                                 color: AppColors.textColor,
@@ -141,7 +144,7 @@ class EstimateDetails extends StatelessWidget {
                                       //     fontSize: 11.sp
                                       //
                                       // )),
-                                      MyText(
+                                      const MyText(
                                         text: "February 13, 2024 at 5:36 pm",
                                         color: AppColors.grey,
                                         fontSize: 12,
@@ -184,7 +187,7 @@ class EstimateDetails extends StatelessWidget {
                                 child: ListView.builder(
                                     shrinkWrap: true,
                                     itemCount: provider.services.length,
-                                    physics: NeverScrollableScrollPhysics(),
+                                    physics: const NeverScrollableScrollPhysics(),
                                     padding: EdgeInsets.zero,
                                     itemBuilder: (context, index) {
                                       final service = provider.services[index];
@@ -352,7 +355,7 @@ class EstimateDetails extends StatelessWidget {
                                             fontWeight: FontWeight.w500,
                                             fontSize: 12.sp,
                                           ),
-                                          Spacer(),
+                                          const Spacer(),
                                           Text(
                                             "\$${provider.total}.00",
                                             style: Theme.of(context)
@@ -366,7 +369,7 @@ class EstimateDetails extends StatelessWidget {
                                           ),
                                         ],
                                       ),
-                                      Divider(
+                                      const Divider(
                                         color: AppColors.border,
                                       ),
                                       Row(
@@ -382,7 +385,7 @@ class EstimateDetails extends StatelessWidget {
                                                   fontSize: 12.sp,
                                                 ),
                                           ),
-                                          Spacer(),
+                                          const Spacer(),
                                           Text(
                                             "\$0.00",
                                             style: Theme.of(context)
@@ -396,7 +399,7 @@ class EstimateDetails extends StatelessWidget {
                                           ),
                                         ],
                                       ),
-                                      Divider(
+                                      const Divider(
                                         color: AppColors.border,
                                       ),
                                       Row(
@@ -426,7 +429,7 @@ class EstimateDetails extends StatelessWidget {
                                           ),
                                         ],
                                       ),
-                                      Divider(
+                                      const Divider(
                                         color: AppColors.border,
                                       ),
                                       Text(
@@ -494,7 +497,7 @@ class EstimateDetails extends StatelessWidget {
                                 isAccepted.value = false;
                               },
                             )
-                          : SizedBox.shrink(),
+                          : const SizedBox.shrink(),
                     ),
                   ],
                 ),
@@ -535,7 +538,7 @@ class EstimateDetails extends StatelessWidget {
                         onTap: () {},
                         fontWeight: FontWeight.w600,
                       ),
-                      Spacer(),
+                      const Spacer(),
                       GestureDetector(
                         onTap: () {
                           Navigator.pop(context);
@@ -549,7 +552,7 @@ class EstimateDetails extends StatelessWidget {
                     ],
                   ),
                   6.height,
-                  ViewRequestSheetDetail()
+                  const ViewRequestSheetDetail()
                 ],
               ),
             );

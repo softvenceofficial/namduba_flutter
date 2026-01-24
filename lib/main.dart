@@ -11,7 +11,6 @@ import 'package:nanduba/export.dart';
 import 'package:nanduba/providers/chat_provider.dart';
 import 'package:nanduba/providers/estimate_provider.dart';
 import 'package:nanduba/providers/view_request_provider.dart';
-import 'package:nanduba/views/add_vehicle/purchase_history/component/job_details_widget.dart';
 import 'controllers/seller_shop_info_controller.dart';
 
 void main() {
@@ -82,7 +81,7 @@ class MyApp extends StatelessWidget {
                 scaffoldBackgroundColor: AppColors.white,
                 useMaterial3: true,
               ),
-              home: const JobDetailsWidget(),
+              home: const SplashScreen(),
             );
           },
         ),
