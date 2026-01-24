@@ -59,6 +59,7 @@ dependencies:
   pin_code_fields:
   multi_dropdown: ^3.0.1
   percent_indicator: ^4.2.5
+  time_picker_spinner_pop_up: ^3.0.0
 
 
 

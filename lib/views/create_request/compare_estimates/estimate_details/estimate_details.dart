@@ -11,14 +11,17 @@ import 'package:nanduba/widgets/core/my_text.dart';
 import '../../../../controllers/vehicle_profile_controller.dart';
 import 'component/estimate_details_pop_up.dart';
 
+// ignore: must_be_immutable
 class EstimateDetails extends StatelessWidget {
   final VehicleProfileController controller = Get.find();
   RxBool isAccepted = false.obs;
   RxBool isRejected = false.obs;
 
+  EstimateDetails({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold( 
       body: GestureDetector(
         onTap: () {
           controller.isOpen.value = false;
@@ -367,7 +370,7 @@ class EstimateDetails extends StatelessWidget {
                                             fontWeight: FontWeight.w500,
                                             fontSize: 12.sp,
                                           ),
-                                          Spacer(),
+                                          const Spacer(),
                                           Text(
                                             "\$${provider.total}.00",
                                             style: Theme.of(context)
@@ -381,7 +384,7 @@ class EstimateDetails extends StatelessWidget {
                                           ),
                                         ],
                                       ),
-                                      Divider(
+                                      const Divider(
                                         color: AppColors.border,
                                       ),
                                       Row(
@@ -397,7 +400,7 @@ class EstimateDetails extends StatelessWidget {
                                                   fontSize: 12.sp,
                                                 ),
                                           ),
-                                          Spacer(),
+                                          const Spacer(),
                                           Text(
                                             "\$0.00",
                                             style: Theme.of(context)
@@ -411,7 +414,7 @@ class EstimateDetails extends StatelessWidget {
                                           ),
                                         ],
                                       ),
-                                      Divider(
+                                      const Divider(
                                         color: AppColors.border,
                                       ),
                                       Row(
@@ -441,7 +444,7 @@ class EstimateDetails extends StatelessWidget {
                                           ),
                                         ],
                                       ),
-                                      Divider(
+                                      const Divider(
                                         color: AppColors.border,
                                       ),
                                       Text(
@@ -509,7 +512,7 @@ class EstimateDetails extends StatelessWidget {
                                 isAccepted.value = false;
                               },
                             )
-                          : SizedBox.shrink(),
+                          : const SizedBox.shrink(),
                     ),
                   ],
                 ),
@@ -550,7 +553,7 @@ class EstimateDetails extends StatelessWidget {
                         onTap: () {},
                         fontWeight: FontWeight.w600,
                       ),
-                      Spacer(),
+                      const Spacer(),
                       GestureDetector(
                         onTap: () {
                           Navigator.pop(context);
@@ -564,7 +567,7 @@ class EstimateDetails extends StatelessWidget {
                     ],
                   ),
                   6.height,
-                  ViewRequestSheetDetail()
+                  const ViewRequestSheetDetail()
                 ],
               ),
             );
