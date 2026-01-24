@@ -1,9 +1,8 @@
-import 'package:flutter/material.dart';
+// ignore_for_file: prefer_const_constructors
+
 import 'package:get/get.dart';
 import 'package:nanduba/export.dart';
-
 import '../../../widgets/core/my_text.dart';
-import 'new_owner.dart';
 
 class ConfirmVehicleTransfer extends StatefulWidget {
   const ConfirmVehicleTransfer({super.key});
