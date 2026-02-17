@@ -14,7 +14,7 @@ class _SigninScreenState extends State<SigninScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: true, // fixed to prevent keyboard overlap
+      resizeToAvoidBottomInset: true, 
       body: Stack(
         children: [
           SafeArea(
