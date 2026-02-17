@@ -11,6 +11,7 @@ import 'package:nanduba/export.dart';
 import 'package:nanduba/providers/chat_provider.dart';
 import 'package:nanduba/providers/estimate_provider.dart';
 import 'package:nanduba/providers/view_request_provider.dart';
+import 'package:nanduba/views/auth/signin_signup/with_out_signin.dart';
 import 'controllers/seller_shop_info_controller.dart';
 
 void main() {
@@ -81,7 +82,7 @@ class MyApp extends StatelessWidget {
                 scaffoldBackgroundColor: AppColors.white,
                 useMaterial3: true,
               ),
-              home: const SplashScreen(),
+              home: const WithOutSignin(),
             );
           },
         ),
