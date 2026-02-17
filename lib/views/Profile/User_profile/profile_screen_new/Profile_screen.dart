@@ -1,8 +1,11 @@
+import 'package:get/get.dart';
 import 'package:nanduba/constants/textfontstyle.dart';
 import 'package:nanduba/export.dart';
 import 'package:nanduba/views/Profile/User_profile/profile_screen_new/widget/about_feedback_widget.dart';
 import 'package:nanduba/views/Profile/User_profile/profile_screen_new/widget/about_section_widget.dart';
 import 'package:nanduba/views/Profile/User_profile/profile_screen_new/widget/feedback_section_widget.dart';
+import 'package:nanduba/views/new_profile_screen/edit_mine_screen.dart';
+import 'package:nanduba/views/new_profile_screen/edit_profile_screen.dart';
 
 class ProfileScreenNew extends StatefulWidget {
   const ProfileScreenNew({super.key});
@@ -119,6 +122,14 @@ class _ProfileScreenState extends State<ProfileScreenNew> {
             ],
           ),
         ),
+      ),
+      bottomNavigationBar: Padding(
+        padding: EdgeInsets.all(24),
+        child: CustomButton(
+            label: 'Edit Profile',
+            onPressed: () {
+              Get.to(() => const EditMineScreen());
+            }),
       ),
     );
   }

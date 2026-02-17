@@ -31,6 +31,7 @@ class AppText {
   static const String uploadidwarning =
       'We’ll use this to verify your identity and won’t share it with others';
   static const String personalinfo = 'Personal Information ';
+  static const String editlinfo = 'Edit Profile';
   static const String accountsetting = 'Account Settings';
 
   static const String about = 'About';
