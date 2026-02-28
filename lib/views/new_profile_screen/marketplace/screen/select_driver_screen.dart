@@ -1,7 +1,3 @@
-import 'dart:math';
-
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nanduba/constants/textfontstyle.dart';
 import 'package:nanduba/export.dart';
 import 'package:nanduba/views/new_profile_screen/login_and_security/widget/update_button.dart';
@@ -31,40 +27,40 @@ class SelectDriverScreen extends StatefulWidget {
 class _SelectDriverScreenState extends State<SelectDriverScreen> {
   final List<DriverSteps> steps = [
     DriverSteps(
-      title: "Enter the driver's full name",
+      title: "What’s their legal name",
       subtitle: "Full Name",
       hint: "Driver Name",
     ),
     DriverSteps(
-      title: "Enter the driver's license number",
-      subtitle: "License No",
+      title: "What’s the status of Alic’s license",
+      subtitle: "Status",
       hint: "License Number",
     ),
     DriverSteps(
-      title: "Select the driver's date of birth",
-      subtitle: "Date of Birth",
-      hint: "DD/MM/YYYY",
+      title: "How long have they been licensed?",
+      subtitle: "Choose period",
+      hint: "Enter date",
     ),
     DriverSteps(
-      title: "Enter the driver's contact number",
-      subtitle: "Contact",
-      hint: "Phone Number",
-    ),
-    DriverSteps(
-      title: "Enter the driver's address",
-      subtitle: "Address",
-      hint: "Residential Address",
+      title: "What is their license number?",
+      subtitle: "License Number ",
+      hint: "Enter license number",
     ),
     DriverSteps(
       title: "How are they listed on their license?",
       subtitle: "gender",
-      hint: "Select gender ",
+      hint: "Select gender",
     ),
     DriverSteps(
       title: "How is Alice’s related to you?",
       subtitle: "Relationship",
-      hint: "Select",
+      hint: "Select ",
     ),
+    // DriverSteps(
+    //   title: "How is Alice’s related to you?",
+    //   subtitle: "Relationship",
+    //   hint: "Select",
+    // ),
   ];
 
   int currentStep = 0;
@@ -346,7 +342,7 @@ class _SelectDriverScreenState extends State<SelectDriverScreen> {
                                 child: CustomTextField(
                                   titleText: "First Name",
                                   hintText: "First Name",
-                                  borderRadius: 8,
+                                  borderRadius: 16,
                                 ),
                               ),
                               8.width,
@@ -354,7 +350,7 @@ class _SelectDriverScreenState extends State<SelectDriverScreen> {
                                 child: CustomTextField(
                                   titleText: "Last Name",
                                   hintText: "Last Name",
-                                  borderRadius: 8,
+                                  borderRadius: 16,
                                 ),
                               ),
                             ],

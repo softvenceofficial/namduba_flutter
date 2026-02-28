@@ -1,8 +1,6 @@
 import 'package:nanduba/constants/textfontstyle.dart';
 import 'package:nanduba/export.dart';
 import 'package:nanduba/views/new_profile_screen/marketplace/screen/consignment_details_screen.dart';
-import 'package:nanduba/views/new_profile_screen/marketplace/screen/select_currency_widget.dart';
-
 class MarineTypeScreen extends StatefulWidget {
   const MarineTypeScreen({super.key});
 
