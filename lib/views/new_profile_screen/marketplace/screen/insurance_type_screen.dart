@@ -2,7 +2,7 @@ import 'package:nanduba/constants/textfontstyle.dart';
 import 'package:nanduba/export.dart';
 import 'package:nanduba/views/new_profile_screen/marketplace/screen/marine_type_screen.dart';
 import 'package:nanduba/views/new_profile_screen/marketplace/screen/select_currency_widget.dart';
- 
+
 class InsuranceTypeScreen extends StatefulWidget {
   const InsuranceTypeScreen({super.key});
 

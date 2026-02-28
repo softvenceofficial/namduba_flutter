@@ -4,7 +4,7 @@ import 'package:nanduba/constants/textfontstyle.dart';
 import 'package:nanduba/export.dart';
 import 'package:nanduba/views/new_profile_screen/login_and_security/widget/update_button.dart';
 import 'package:nanduba/views/new_profile_screen/marketplace/screen/select_driver_screen.dart';
- import 'package:nanduba/views/new_profile_screen/marketplace/widget/chack_box_widget.dart';
+import 'package:nanduba/views/new_profile_screen/marketplace/widget/chack_box_widget.dart';
 import 'package:nanduba/views/new_profile_screen/marketplace/widget/step_input_card.dart';
 
 class CarStep {
@@ -70,8 +70,8 @@ class _SelectVehicleScreenState extends State<SelectVehicleScreen> {
 
   // Initial list of vehicles
   List<Map<String, String>> vehicles = [
-    {"name": "ZMW", "plate": "ALJ1679ZM", "image": AppImages.toyota},
-    {"name": "ZMW", "plate": "ALJ1679ZM", "image": AppImages.toyota},
+    {"name": "BMW X3 ", "plate": "ALJ1679ZM", "image": AppImages.toyota},
+    {"name": "TOYOTA HILUX", "plate": "ALJ1679ZM", "image": AppImages.toyota},
   ];
 
   // Controllers for popup text fields
@@ -106,7 +106,7 @@ class _SelectVehicleScreenState extends State<SelectVehicleScreen> {
                 ),
                 2.height,
                 Text(
-                  "Please choose the type of insurance you need",
+                  "Which vehicles do you want to include?",
                   style: Textfontstyle.TextStyle14w400midgreyinter.copyWith(
                     fontSize: 12.sp,
                     fontWeight: FontWeight.w400,
