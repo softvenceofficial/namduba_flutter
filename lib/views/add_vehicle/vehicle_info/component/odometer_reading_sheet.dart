@@ -1,8 +1,7 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:get/get.dart';
-import 'package:nanduba/views/add_vehicle/vehicle_info/widget/vehicle_type_choice_container.dart';
 import 'package:nanduba/widgets/core/my_text.dart';
-import 'package:pin_code_fields/pin_code_fields.dart'as pininput;
-import 'package:pin_code_fields/pin_code_fields.dart';
 
 import '../../../../export.dart';
 
@@ -15,10 +14,40 @@ class OdometerReadingSheet extends StatefulWidget {
 }
 
 class _OdometerReadingSheetState extends State<OdometerReadingSheet> {
-  final TextEditingController meter = TextEditingController();
+  late final TextEditingController meter;
+
+  @override
+  void initState() {
+    super.initState();
+    meter = TextEditingController(text: widget.odoController.text);
+  }
+
+  @override
+  void dispose() {
+    meter.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
+    final defaultPinTheme = PinTheme(
+      width: 42,
+      height: 42,
+      textStyle: const TextStyle(fontSize: 16, color: Colors.black),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(11),
+        border: Border.all(color: AppColors.border),
+        boxShadow: const [
+          BoxShadow(
+            offset: Offset(0, 1),
+            color: Colors.black26,
+            blurRadius: 10,
+          ),
+        ],
+      ),
+    );
+
     return Padding(
       padding: EdgeInsets.fromLTRB(4.w, 2.h, 4.w, 2.h),
       child: Wrap(
@@ -26,7 +55,12 @@ class _OdometerReadingSheetState extends State<OdometerReadingSheet> {
           2.height,
           Row(
             children: [
-              MyText(text: "Odometer reading adjustment",fontSize: 14.sp,fontWeight: FontWeight.w600,color: AppColors.textColor,),
+              MyText(
+                text: "Odometer reading adjustment",
+                fontSize: 14.sp,
+                fontWeight: FontWeight.w600,
+                color: AppColors.textColor,
+              ),
               Spacer(),
               GestureDetector(
                 onTap: () {
@@ -38,11 +72,10 @@ class _OdometerReadingSheetState extends State<OdometerReadingSheet> {
                   height: 2.5.h,
                 ),
               ),
-
             ],
           ),
           1.height,
-          Divider(color: AppColors.border,),
+          const Divider(color: AppColors.border),
           4.height,
           Padding(
             padding: EdgeInsets.only(
@@ -50,52 +83,36 @@ class _OdometerReadingSheetState extends State<OdometerReadingSheet> {
             child: Column(
               children: [
                 SizedBox(
-                    height: 183,
-                    width: 232,
-                    child: Image.asset(AppImages.odometers)),
+                  height: 183,
+                  width: 232,
+                  child: Image.asset(AppImages.odometers),
+                ),
                 2.height,
                 Padding(
-                  padding:  EdgeInsets.symmetric(horizontal: 5.w),
-                  child: pininput.PinCodeTextField(
+                  padding: EdgeInsets.symmetric(horizontal: 5.w),
+                  child: Pinput(
+                    length: 6,
                     controller: meter,
-                                appContext: context,
-                                length: 6,
-                                onChanged: (value) {},
-                                pinTheme: pininput.PinTheme(
-                  shape: PinCodeFieldShape.box,
-                  borderRadius: BorderRadius.circular(11),
-                  fieldHeight: 42,
-                  fieldWidth: 42,
-                  activeFillColor: Colors.white,
-                  inactiveFillColor: Colors.white,
-                  selectedFillColor: Colors.white,
-                  activeColor: AppColors.primary,
-                  inactiveColor: AppColors.border,
-                  selectedColor: AppColors.border,
-                                ),
-                                keyboardType: TextInputType.number,
-                                boxShadows: [
-                  BoxShadow(
-                    offset: Offset(0, 1),
-                    color: Colors.black26,
-                    blurRadius: 10,
-                  )
-                                ],
-                                onCompleted: (value) {
-                  print("Completed: $value");
-                                },
-                              ),
+                    defaultPinTheme: defaultPinTheme,
+                    focusedPinTheme: defaultPinTheme.copyWith(
+                      decoration: defaultPinTheme.decoration!.copyWith(
+                        border: Border.all(color: AppColors.primary),
+                      ),
+                    ),
+                    submittedPinTheme: defaultPinTheme,
+                    keyboardType: TextInputType.number,
+                    onCompleted: (value) {
+                      debugPrint("Completed: $value");
+                    },
+                  ),
                 ),
-
                 2.height,
                 CustomButton(
                   label: "Save",
                   onPressed: () {
-                      widget.odoController.text=meter.text;
-                      setState(() {
-
-                      });
-                      Get.back();
+                    widget.odoController.text = meter.text;
+                    setState(() {});
+                    Get.back();
                   },
                 ),
               ],
