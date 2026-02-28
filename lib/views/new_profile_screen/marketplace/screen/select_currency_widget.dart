@@ -1,7 +1,7 @@
 import 'package:nanduba/constants/textfontstyle.dart';
 import 'package:nanduba/export.dart';
 import 'package:nanduba/views/new_profile_screen/marketplace/screen/select_vehicle_screen.dart';
- 
+
 class SelectCurrencyWidget extends StatefulWidget {
   const SelectCurrencyWidget({super.key});
 
@@ -31,7 +31,7 @@ class _SelectCurrencyWidgetState extends State<SelectCurrencyWidget> {
               ),
               2.height,
               Text(
-                "Please choose the type of insurance you need",
+                "Please choose your policy currency ",
                 style: Textfontstyle.TextStyle14w400midgreyinter.copyWith(
                   fontSize: 12.sp,
                   fontWeight: FontWeight.w400,

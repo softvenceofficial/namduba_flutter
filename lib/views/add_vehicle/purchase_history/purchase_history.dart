@@ -7,6 +7,8 @@ import 'package:nanduba/widgets/core/my_text.dart';
 class PurchaseHistory extends StatelessWidget {
   RxInt selectedButtonIndex = 1.obs;
 
+  PurchaseHistory({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

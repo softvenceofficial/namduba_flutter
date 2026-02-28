@@ -32,11 +32,11 @@ class _QuriyScreenState extends State<QuriyScreen> {
         option2: "Bussness use",
         title: "Vehicle 1 of 3",
         qurry: "Specify the use for the BMW ALX1823ZM",
-        name: "BMW"),
+        name: ""),
     Qustions(
         option1: "No",
         option2: "Yes",
-        name: "Joe Smith",
+        name: "",
         title: "Driver 1 of 2",
         qurry: "Has Joe Smith been convicted before?")
   ];

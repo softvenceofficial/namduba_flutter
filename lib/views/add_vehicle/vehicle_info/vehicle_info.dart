@@ -12,25 +12,55 @@ import 'package:nanduba/views/add_vehicle/vehicle_profile/widget/get_your_coroll
 
 import '../../../export.dart';
 import '../../../widgets/core/my_text.dart';
-import 'package:pin_code_fields/pin_code_fields.dart' as pininput;
-import 'package:pin_code_fields/pin_code_fields.dart';
 
 class VehicleInfoDetails extends StatefulWidget {
+  const VehicleInfoDetails({super.key});
+
   @override
   State<VehicleInfoDetails> createState() => _VehicleInfoDetailsState();
 }
 
 class _VehicleInfoDetailsState extends State<VehicleInfoDetails> {
   bool isVisible = true;
-  // const VehicleInfoDetails({super.key});
   final VehicleProfileController controller = Get.find();
 
-  final TextEditingController odometer = TextEditingController(text: '000000');
+  // Use TextEditingController with pinput
+  final TextEditingController odometer = TextEditingController();
 
   RxString carNickname = "Eleanor's Car".obs;
+  @override
+  void initState() {
+    super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      odometer.text = '000000';
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    final defaultPinTheme = PinTheme(
+      width: 25,
+      height: 31,
+      textStyle: GoogleFonts.poppins(
+        fontSize: 10.sp,
+        color: AppColors.grey,
+        fontWeight: FontWeight.w400,
+      ),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: AppColors.border),
+        boxShadow: const [
+          BoxShadow(
+            offset: Offset(0, 1),
+            color: Colors.black26,
+            blurRadius: 10,
+          ),
+        ],
+      ),
+    );
+
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -39,53 +69,36 @@ class _VehicleInfoDetailsState extends State<VehicleInfoDetails> {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 1.h),
               child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).pop();
-                      },
-                      child: Container(
-                        height: 5.5.h,
-                        width: 5.5.h,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: AppColors.lightGrey),
-                            shape: BoxShape.circle),
-                        child: const Center(
-                          child: Icon(Icons.arrow_back_ios_new_rounded),
-                        ),
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Container(
+                      height: 5.5.h,
+                      width: 5.5.h,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: AppColors.lightGrey),
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Center(
+                        child: Icon(Icons.arrow_back_ios_new_rounded),
                       ),
                     ),
-                    3.width,
-                    Expanded(
-                      child: MyText(
-                        text: "Vehicle Info",
-                        fontSize: 13.sp,
-                        fontWeight: FontWeight.w700,
-                        color: AppColors.textColor5,
-                      ),
+                  ),
+                  3.width,
+                  Expanded(
+                    child: MyText(
+                      text: "Vehicle Info",
+                      fontSize: 13.sp,
+                      fontWeight: FontWeight.w700,
+                      color: AppColors.textColor5,
                     ),
-                    // MyText(
-                    //   text: "Vehicle Active",
-                    //   fontWeight: FontWeight.w400,
-                    //   fontSize: 10.sp,
-                    //   color: AppColors.grey,
-                    // ),
-                    // 1.width,
-                    // Obx(() {
-                    //   return Transform.scale(
-                    //     scale: 0.9,
-                    //     child: Switch(
-                    //       value: controller.vehicleActive.value,
-                    //       onChanged: (val) {
-                    //         controller.vehicleActive.value = val;
-                    //       },
-                    //       activeTrackColor: AppColors.primary,
-                    //     ),
-                    //   );
-                    // })
-                  ]),
+                  ),
+                ],
+              ),
             ),
             Expanded(
               child: SingleChildScrollView(
@@ -114,346 +127,238 @@ class _VehicleInfoDetailsState extends State<VehicleInfoDetails> {
                       ),
                     ),
 
+                    // Vehicle Name Section
                     CustomContainer(
-                        hpadding: 4.w,
-                        hMargin: 4.w,
-                        vpadding: 1.5.h,
-                        child: Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                MyText(
-                                  text: "Vehicle name",
-                                  fontSize: 14.sp,
-                                  color: AppColors.textColor5,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                                GestureDetector(
-                                  onTap: () async {
-                                    await showModalBottomSheet(
-                                        backgroundColor: AppColors.white,
-                                        context: context,
-                                        useSafeArea: true,
-                                        isScrollControlled: true,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.vertical(
-                                              top: Radius.circular(20.sp)),
-                                        ),
-                                        builder: (BuildContext context) {
-                                          return NameYourVehicleSheet(
-                                            carNickname: carNickname,
-                                          );
-                                        });
-                                  },
-                                  child: Container(
-                                    height: 5.h,
-                                    width: 10.5.w,
-                                    alignment: Alignment.center,
-                                    decoration: BoxDecoration(
-                                        color: AppColors.secondary,
-                                        borderRadius:
-                                            BorderRadius.circular(10)),
-                                    child: SvgPicture.asset(AppSvgs.edit),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            0.8.height,
-                            Divider(),
-                            0.8.height,
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.check_circle,
-                                  color: AppColors.greenicon,
-                                ),
-                                3.5.width,
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Obx(() {
-                                        return MyText(
-                                          text: carNickname.value,
-                                          fontSize: 12.sp,
-                                          fontWeight: FontWeight.w500,
-                                          color: AppColors.textColor,
-                                        );
-                                      }),
-                                      2.width,
-                                      MyText(
-                                        text: "Status : Active",
-                                        fontSize: 8.sp,
-                                        fontWeight: FontWeight.w400,
-                                        color: AppColors.textColor5,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            )
-
-                            // Row(
-                            //   children: [
-                            //     Icon(
-                            //       Icons.check_circle,
-                            //       color: AppColors.greenicon,
-                            //     ),
-                            //     3.5.width,
-                            //     Expanded(
-                            //       child: Row(
-                            //         children: [
-                            //           Column(
-                            //             crossAxisAlignment:
-                            //                 CrossAxisAlignment.start,
-                            //             children: [
-                            //               Obx(() {
-                            //                 return MyText(
-                            //                   text: carNickname.value,
-                            //                   fontSize: 12.sp,
-                            //                   fontWeight: FontWeight.w500,
-                            //                   color: AppColors.textColor,
-                            //                 );
-                            //               }),
-                            //               // 0.5.height,
-                            //               // MyText(
-                            //               //   text: "Plate: ALZ6443ZM",
-                            //               //   fontSize: 10.sp,
-                            //               //   fontWeight: FontWeight.w500,
-                            //               //   color: AppColors.grey,
-                            //               // )
-                            //             ],
-                            //           ),
-                            //           // Spacer(),
-                            //           // SvgPicture.asset(AppSvgs.arrowCircleRight)
-                            //         ],
-                            //       ),
-                            //     ),
-                            //   ],
-                            // ),
-                          ],
-                        )),
-                    2.height,
-                    CustomContainer(
-                        hpadding: 4.w,
-                        hMargin: 4.w,
-                        vpadding: 1.5.h,
-                        child: Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                MyText(
-                                  text: "Odometer",
-                                  fontSize: 14.sp,
-                                  color: AppColors.textColor5,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                                GestureDetector(
-                                  onTap: () async {
-                                    await showModalBottomSheet(
-                                        backgroundColor: AppColors.white,
-                                        context: context,
-                                        useSafeArea: true,
-                                        isScrollControlled: true,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.vertical(
-                                              top: Radius.circular(20.sp)),
-                                        ),
-                                        builder: (BuildContext context) {
-                                          return OdometerReadingSheet(
-                                            odoController: odometer,
-                                          );
-                                        });
-                                  },
-                                  child: Container(
-                                    height: 5.h,
-                                    width: 10.5.w,
-                                    alignment: Alignment.center,
-                                    decoration: BoxDecoration(
-                                        color: AppColors.secondary,
-                                        borderRadius:
-                                            BorderRadius.circular(10)),
-                                    child: SvgPicture.asset(AppSvgs.edit),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            0.8.height,
-                            Divider(),
-                            0.8.height,
-                            // Row(
-                            //   children: List.generate(
-                            //       6,
-                            //       (index) => Container(
-                            //           padding: EdgeInsets.symmetric(
-                            //               horizontal: 11, vertical: 6),
-                            //           margin: EdgeInsets.only(right: 6),
-                            //           decoration: BoxDecoration(
-                            //               border: Border.all(
-                            //                   color: AppColors.border),
-                            //               borderRadius:
-                            //                   BorderRadius.circular(8)),
-                            //           child: MyText(
-                            //             text: "0",
-                            //             fontSize: 10.sp,
-                            //             color: AppColors.grey,
-                            //             fontWeight: FontWeight.w400,
-                            //           ))),
-                            // ),
-                            pininput.PinCodeTextField(
-                              controller: odometer,
-                              readOnly: true,
-                              appContext: context,
-                              length: 6,
-                              onChanged: (value) {},
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              textStyle: GoogleFonts.poppins(
-                                  fontSize: 10.sp,
-                                  color: AppColors.grey,
-                                  fontWeight: FontWeight.w400),
-                              pinTheme: pininput.PinTheme(
-                                fieldOuterPadding:
-                                    const EdgeInsets.only(right: 4),
-                                shape: PinCodeFieldShape.box,
-
-                                borderRadius: BorderRadius.circular(8),
-                                fieldHeight: 31,
-                                fieldWidth: 25,
-
-                                //
-                                //
-                                activeFillColor: Colors.white,
-                                inactiveFillColor: Colors.white,
-                                selectedFillColor: Colors.white,
-                                activeColor: odometer.text == '000000'
-                                    ? AppColors.border
-                                    : AppColors.primary,
-                                inactiveColor: AppColors.border,
-                                selectedColor: AppColors.border,
-                                borderWidth: 1,
-                                activeBorderWidth: 1,
-                                inactiveBorderWidth: 1,
+                      hpadding: 4.w,
+                      hMargin: 4.w,
+                      vpadding: 1.5.h,
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              MyText(
+                                text: "Vehicle name",
+                                fontSize: 14.sp,
+                                color: AppColors.textColor5,
+                                fontWeight: FontWeight.w600,
                               ),
-                              keyboardType: TextInputType.number,
-                              boxShadows: const [
-                                BoxShadow(
-                                  offset: Offset(0, 1),
-                                  color: Colors.black26,
-                                  blurRadius: 10,
-                                )
-                              ],
-                              onCompleted: (value) {
-                                print("Completed: $value");
-                              },
-                            ),
-                          ],
-                        )),
-                    1.5.height,
-                    CustomContainer(
-                        hpadding: 4.w,
-                        hMargin: 4.w,
-                        vpadding: 1.5.h,
-                        child: Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                MyText(
-                                  text: "Details",
-                                  fontSize: 14.sp,
-                                  color: AppColors.textColor5,
-                                  fontWeight: FontWeight.w600,
+                              GestureDetector(
+                                onTap: () async {
+                                  await showModalBottomSheet(
+                                    backgroundColor: AppColors.white,
+                                    context: context,
+                                    useSafeArea: true,
+                                    isScrollControlled: true,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.vertical(
+                                          top: Radius.circular(20.sp)),
+                                    ),
+                                    builder: (BuildContext context) {
+                                      return NameYourVehicleSheet(
+                                        carNickname: carNickname,
+                                      );
+                                    },
+                                  );
+                                },
+                                child: Container(
+                                  height: 5.h,
+                                  width: 10.5.w,
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                    color: AppColors.secondary,
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: SvgPicture.asset(AppSvgs.edit),
                                 ),
-                                // Container(
-                                //   height: 5.h,
-                                //   width: 10.5.w,
-                                //   alignment: Alignment.center,
-                                //   decoration: BoxDecoration(
-                                //       color: AppColors.secondary,
-                                //       borderRadius: BorderRadius.circular(10)),
-                                //   child: SvgPicture.asset(AppSvgs.edit),
-                                // ),
-                              ],
-                            ),
-                            0.8.height,
-                            Divider(),
-                            0.8.height,
-                            DetailInfoRow(
-                                title: "Plate",
-                                info: "ABP1356ZM",
-                                errorText: "Add Type"),
-                            DetailInfoRow(
-                                title: "VIN",
-                                info: "1HGB H41JX MN10 91867",
-                                errorText: ""),
-                            DetailInfoRow(
-                                title: "Year",
-                                info: "2023",
-                                errorText: "Add Year"),
-                            DetailInfoRow(
-                                title: "Make",
-                                info: "Toyota",
-                                errorText: "Add Make"),
-                            DetailInfoRow(
-                                title: "Model",
-                                info: "Corolla",
-                                errorText: "Add Model"),
-                            DetailInfoRow(
-                                title: "Variant",
-                                info: "Petrol sedan",
-                                errorText: "Add Trim"),
-                            DetailInfoRow(
-                              title: "Type",
-                              info: "1.5 4WD",
-                              errorText: "Add Engine",
-                              width: 60.w,
-                            ),
-                            DetailInfoRow(
-                              title: "Chassis ",
-                              info: "AWD--E116",
-                              errorText: "Add Engine",
-                              width: 60.w,
-                            ),
-                            DetailInfoRow(
-                              title: "Engine No",
-                              info: "1,497CC 76kw 103hp 1NZ-FE",
-                              errorText: "Add",
-                              // onTap: () async {
-                              //   await showModalBottomSheet(
-                              //       backgroundColor: AppColors.white,
-                              //       context: context,
-                              //       useSafeArea: true,
-                              //       isScrollControlled: true,
-                              //       shape: RoundedRectangleBorder(
-                              //         borderRadius: BorderRadius.vertical(
-                              //             top: Radius.circular(20.sp)),
-                              //       ),
-                              //       builder: (BuildContext context) {
-                              //         return GetMySpecsSheet();
-                              //       });
-                              // },
-                            ),
-                            DetailInfoRow(
-                              title: "Colour ",
-                              info: "Colour",
-                              errorText: "Add Engine",
-                              width: 60.w,
-                            ),
-                          ],
-                        )),
+                              ),
+                            ],
+                          ),
+                          0.8.height,
+                          Divider(),
+                          0.8.height,
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.check_circle,
+                                color: AppColors.greenicon,
+                              ),
+                              3.5.width,
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Obx(() {
+                                      return MyText(
+                                        text: carNickname.value,
+                                        fontSize: 12.sp,
+                                        fontWeight: FontWeight.w500,
+                                        color: AppColors.textColor,
+                                      );
+                                    }),
+                                    2.width,
+                                    MyText(
+                                      text: "Status : Active",
+                                      fontSize: 8.sp,
+                                      fontWeight: FontWeight.w400,
+                                      color: AppColors.textColor5,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
 
-                    // Obx(
-                    //   () => controller.showSpecsDetails.value == false
-                    //       ?
-                    //       // if not data in specs
-                    //       VehicleInfoSpecsComponent()
-                    //       :
-                    //       // if  data in specs
-                    //       SpecsDataContainer(),
-                    // ),
+                    2.height,
+
+                    // Odometer Section
+                    CustomContainer(
+                      hpadding: 4.w,
+                      hMargin: 4.w,
+                      vpadding: 1.5.h,
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              MyText(
+                                text: "Odometer",
+                                fontSize: 14.sp,
+                                color: AppColors.textColor5,
+                                fontWeight: FontWeight.w600,
+                              ),
+                              GestureDetector(
+                                onTap: () async {
+                                  await showModalBottomSheet(
+                                    backgroundColor: AppColors.white,
+                                    context: context,
+                                    useSafeArea: true,
+                                    isScrollControlled: true,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.vertical(
+                                          top: Radius.circular(20.sp)),
+                                    ),
+                                    builder: (BuildContext context) {
+                                      return OdometerReadingSheet(
+                                        odoController: odometer,
+                                      );
+                                    },
+                                  );
+                                },
+                                child: Container(
+                                  height: 5.h,
+                                  width: 10.5.w,
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                    color: AppColors.secondary,
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: SvgPicture.asset(AppSvgs.edit),
+                                ),
+                              ),
+                            ],
+                          ),
+                          0.8.height,
+                          Divider(),
+                          0.8.height,
+
+                          // Pinput Odometer Display
+                          Pinput(
+                            length: 6,
+                            controller: odometer,
+                            // readOnly: true,
+                            defaultPinTheme: defaultPinTheme,
+                            focusedPinTheme: defaultPinTheme.copyWith(
+                              decoration: defaultPinTheme.decoration!.copyWith(
+                                border: Border.all(color: AppColors.primary),
+                              ),
+                            ),
+                            submittedPinTheme: defaultPinTheme,
+                            onCompleted: (value) {
+                              debugPrint("Completed: $value");
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    1.5.height,
+
+                    // Vehicle Details Section
+                    CustomContainer(
+                      hpadding: 4.w,
+                      hMargin: 4.w,
+                      vpadding: 1.5.h,
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              MyText(
+                                text: "Details",
+                                fontSize: 14.sp,
+                                color: AppColors.textColor5,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ],
+                          ),
+                          0.8.height,
+                          Divider(),
+                          0.8.height,
+                          DetailInfoRow(
+                              title: "Plate",
+                              info: "ABP1356ZM",
+                              errorText: "Add Type"),
+                          DetailInfoRow(
+                              title: "VIN",
+                              info: "1HGB H41JX MN10 91867",
+                              errorText: ""),
+                          DetailInfoRow(
+                              title: "Year",
+                              info: "2023",
+                              errorText: "Add Year"),
+                          DetailInfoRow(
+                              title: "Make",
+                              info: "Toyota",
+                              errorText: "Add Make"),
+                          DetailInfoRow(
+                              title: "Model",
+                              info: "Corolla",
+                              errorText: "Add Model"),
+                          DetailInfoRow(
+                              title: "Variant",
+                              info: "Petrol sedan",
+                              errorText: "Add Trim"),
+                          DetailInfoRow(
+                            title: "Type",
+                            info: "1.5 4WD",
+                            errorText: "Add Engine",
+                            width: 60.w,
+                          ),
+                          DetailInfoRow(
+                            title: "Chassis ",
+                            info: "AWD--E116",
+                            errorText: "Add Engine",
+                            width: 60.w,
+                          ),
+                          DetailInfoRow(
+                            title: "Engine No",
+                            info: "1,497CC 76kw 103hp 1NZ-FE",
+                            errorText: "Add",
+                          ),
+                          DetailInfoRow(
+                            title: "Colour ",
+                            info: "Colour",
+                            errorText: "Add Engine",
+                            width: 60.w,
+                          ),
+                        ],
+                      ),
+                    ),
+
                     ComplianceChackWidget(),
                     2.height,
                     VehicleInfoComponent(),
